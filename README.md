@@ -49,8 +49,7 @@ Yes, you can. The functionaility is the same, the only "advantage" is not having
 
 ## NO REUPLOADS
 
-Please, if you want to share AA AIO TWEAKER, DO NOT reupload the APK elsewhere. Just redirect the users to the download page. Any unauthorized re-upload of the APK, in any way, will result in a DMCA takedown request. 
-
+Please, if you want to share AA AIO TWEAKER, do not reupload the APK elsewhere. Just redirect the users to this download page. 
 ## NEW
 
 AA AIO TWEAKER is open to translations! [Join translations on Crowdin](https://crwd.in/aa-aio-tweaker)

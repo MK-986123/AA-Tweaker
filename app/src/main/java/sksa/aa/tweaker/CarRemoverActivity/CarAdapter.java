@@ -3,7 +3,6 @@ package sksa.aa.tweaker.CarRemoverActivity;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,11 +44,7 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.SampleViewHolder
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mCarInfo.get(i).getIsChecked()) {
-                    mCarInfo.get(i).setChecked(false);
-                } else {
-                    mCarInfo.get(i).setChecked(true);
-                }
+                mCarInfo.get(i).setChecked(!mCarInfo.get(i).getIsChecked());
             }
         });
 

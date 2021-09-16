@@ -107,29 +107,6 @@
 
 
         <Button
-            android:id="@+id/assistshort"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            style="@style/ButtonStyle"
-           android:focusable="true"
-            android:text="@string/enable_assistant_shortcuts"
-            app:layout_constraintEnd_toEndOf="@id/patchapps"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/taplimit" />
-
-        <ImageView
-            android:id="@+id/shortcutstatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_check_circle_24"
-            android:layout_marginEnd="3dp"
-            app:layout_constraintStart_toEndOf="@id/assistshort"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/assistshort"
-            app:layout_constraintBottom_toBottomOf="@id/assistshort" />
-
-        <Button
             android:id="@+id/startup"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -140,7 +117,7 @@
             android:text="@string/navigation_at_start"
             app:layout_constraintEnd_toEndOf="@id/patchapps"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/assistshort" />
+            app:layout_constraintTop_toBottomOf="@id/taplimit" />
 
         <ImageView
             android:id="@+id/navstatus"
@@ -250,29 +227,6 @@
             app:layout_constraintTop_toTopOf="@id/battery_warning_button"
             app:layout_constraintBottom_toBottomOf="@id/battery_warning_button"/>
 
-        <Button
-            android:id="@+id/custom_wallpapers_button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            style="@style/ButtonStyle"
-            android:focusable="true"
-
-            android:text="@string/custom_wallpapers"
-            app:layout_constraintEnd_toEndOf="@id/patchapps"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/battery_warning_button" />
-
-        <ImageView
-            android:id="@+id/custom_wallpapers_status"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:src="@drawable/ic_baseline_check_circle_24"
-            android:layout_marginEnd="3dp"
-            app:layout_constraintStart_toEndOf="@id/custom_wallpapers_button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/custom_wallpapers_button"
-            app:layout_constraintBottom_toBottomOf="@id/custom_wallpapers_button"/>
 
         <Button
             android:id="@+id/assistanim"
@@ -283,7 +237,7 @@
             style="@style/ButtonStyle"
             android:text="@string/enable_assistant_animation_in_navbar"
             app:layout_constraintEnd_toStartOf="@id/assistanimstatus"
-            app:layout_constraintTop_toBottomOf="@id/custom_wallpapers_button"
+            app:layout_constraintTop_toBottomOf="@id/battery_warning_status"
             app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
@@ -501,31 +455,6 @@
             app:layout_constraintBottom_toBottomOf="@id/bluetooth_disable_button" />
 
         <Button
-            android:id="@+id/dark_mode_tweak_button"
-            android:paddingTop="9dp"
-            android:layout_width="0dp"
-            style="@style/ButtonStyle"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:focusable="true"
-            android:drawableEnd="@drawable/ic_beta_logo"
-            android:drawablePadding="9dp"
-            android:text="@string/dark_mode_tweak"
-            app:layout_constraintEnd_toStartOf="@id/assistanimstatus"
-            app:layout_constraintTop_toBottomOf="@id/bluetooth_disable_button"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <ImageView
-            android:id="@+id/dark_mode_status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_check_circle_24"
-            android:layout_marginEnd="3dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/dark_mode_tweak_button"
-            app:layout_constraintBottom_toBottomOf="@id/dark_mode_tweak_button" />
-
-        <Button
             android:id="@+id/telemetry_disable_tweak"
             android:paddingTop="9dp"
             android:layout_width="0dp"
@@ -537,7 +466,7 @@
             android:drawablePadding="9dp"
             android:text="@string/telemetry_string"
             app:layout_constraintEnd_toStartOf="@id/assistanimstatus"
-            app:layout_constraintTop_toBottomOf="@id/dark_mode_tweak_button"
+            app:layout_constraintTop_toBottomOf="@id/bluetooth_disable_button"
             app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
@@ -619,51 +548,7 @@
                     android:gravity="center" />
 
 
-        <Button
-            android:id="@+id/messaging_app_unlock_button"
-            android:paddingTop="9dp"
-            android:layout_width="0dp"
-            style="@style/ButtonStyle"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:focusable="true"
-            android:drawablePadding="9dp"
-            app:layout_constraintEnd_toStartOf="@id/assistanimstatus"
-            app:layout_constraintTop_toBottomOf="@id/calendar_days_seekbar"
-            app:layout_constraintStart_toStartOf="parent" />
 
-        <ImageView
-            android:id="@+id/messaging_tweak_status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_check_circle_24"
-            android:layout_marginEnd="3dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/messaging_app_unlock_button"
-            app:layout_constraintBottom_toBottomOf="@id/messaging_app_unlock_button" />
-
-                <Button
-                    android:id="@+id/media_tabs_tweak"
-                    android:paddingTop="9dp"
-                    android:layout_width="0dp"
-                    style="@style/ButtonStyle"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:drawablePadding="9dp"
-                    app:layout_constraintEnd_toStartOf="@id/assistanimstatus"
-                    app:layout_constraintTop_toBottomOf="@id/messaging_app_unlock_button"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-                <ImageView
-                    android:id="@+id/media_tabs_status"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_check_circle_24"
-                    android:layout_marginEnd="3dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/media_tabs_tweak"
-                    app:layout_constraintBottom_toBottomOf="@id/media_tabs_tweak" />
 
                 <Button
                     android:id="@+id/tweak_bitrate_wifi"
@@ -675,7 +560,7 @@
                     android:focusable="true"
                     android:drawablePadding="9dp"
                     app:layout_constraintEnd_toStartOf="@id/revert_bitrate_wifi"
-                    app:layout_constraintTop_toBottomOf="@id/media_tabs_tweak"
+                    app:layout_constraintTop_toBottomOf="@id/calendar_days_currently_set"
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <ImageView
@@ -852,6 +737,32 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/dark_mode_toggle_tweak"
                     app:layout_constraintBottom_toBottomOf="@id/dark_mode_toggle_tweak" />
+
+                <Button
+                    android:id="@+id/userseat_tweak_button"
+                    android:paddingTop="9dp"
+                    android:layout_width="0dp"
+                    style="@style/ButtonStyle"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:drawablePadding="9dp"
+                    app:layout_constraintEnd_toStartOf="@id/assistanimstatus"
+                    app:layout_constraintTop_toBottomOf="@id/dark_mode_toggle_tweak"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+
+
+
+                <ImageView
+                    android:id="@+id/userseat_tweak_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_check_circle_24"
+                    android:layout_marginEnd="3dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/userseat_tweak_button"
+                    app:layout_constraintBottom_toBottomOf="@id/userseat_tweak_button" />
 
                 <Button
                     android:id="@+id/car_remover"

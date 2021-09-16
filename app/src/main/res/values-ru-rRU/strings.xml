@@ -7,7 +7,7 @@
     <string name="select_apps">Приложения</string>
     <string name="enable_assistant_shortcuts">Ярлыки Ассистента</string>
     <string name="patch_custom_apps">приложения</string>
-    <string name="disable_speed_limitations">лимит касаний</string>
+    <string name="disable_speed_limitations">ограничения касания</string>
     <string name="unlimited_scrolling_when_driving">ограничение скорости</string>
     <string name="enable_assistant_animation_in_navbar">Анимацию ассистента в панели навигации</string>
     <string name="splash">Это приложение может изменить настройки Android Auto и обойти некоторые функции безопасности, которые Google реализовал в Android Auto.\n
@@ -56,7 +56,7 @@
     <string name="tutorial_battery_saver_warning">Эта настройка убирает всплывающие предупреждения при включенном режиме энергосбережения</string>
     <string name="disable_tweak_string">Отключить\u0020</string>
     <string name="enable_tweak_string">Включить\u0020</string>
-    <string name="re_enable_tweak_string">Деактивировать\u0020</string>
+    <string name="re_enable_tweak_string">Вернуть\u0020</string>
     <string name="copy_log">Копировать лог</string>
     <string name="about">О приложении</string>
     <string name="revert_everything">Сброс настроек</string>
@@ -85,7 +85,7 @@
     <string name="reboot_prompt">Перезагрузить телефон сейчас?</string>
     <string name="rebooting_action">Перезагрузка…</string>
     <string name="negative_button">отмена</string>
-    <string name="added_app_action">Добавлено: </string>
+    <string name="added_app_action">"Добавлено: "</string>
     <string name="removed_app_action">Удалено\u0020</string>
     <string name="root_access_warning">Рут доступ запрещен. Пожалуйста, разрешите рут-доступ.</string>
     <string name="revert_everything_dialog">Вы хотите отменить все действия? Пожалуйста, перезапустите после этого приложение вручную </string>
@@ -98,11 +98,7 @@
     <string name="not_enabled_warning">Android Auto не включен</string>
     <string name="not_installed_warning">Android Auto не установлен</string>
     <string name="currently_set">"Сейчас установлено: "</string>
-    <string name="tutorial_messages_tweak">"Активация этой функции приведет к тому, что иконки некоторых мессенджеров появятся в меню Android Auto на ГУ.  Приходящие сообщения  будут по-прежнему видны в центре уведомлений. "</string>
-    <string name="messages_tweak_string">мессенджеры</string>
     <string name="no_accounts_warning">AA AIO TWEAKER не смог найти ни одной учетной записи в базе данных Google Play Services. Это может быть вызвано несколькими различными причинами, такими как:\n • Устройство не подключено к Интернету\n • Первый запуск телефона\n • Поврежденная база данных служб Google Play\n • Удаление учетной записи Google с телефона\n • Очищенные данные служб Google Play\n\n В этом сценарии AA AIO TWEAKER  работать должным образом НЕ будет. Если вы недавно удалили учетную запись Google или очистили данные служб Google Play, пожалуйста, подключите телефон к Интернету и позвольте ему полностью создать базу данных служб Google Play. Это может занять несколько часов, а в некоторых случаях и дней.\n\n Если вы столкнулись с проблемой, отличной от  вышеперечисленных, пожалуйста, создайте вопрос на GitHub.</string>
-    <string name="media_tabs_string">дополнительную вкладку для медиа приложений</string>
-    <string name="tutorial_media_tabs">"Эта настройка приведёт к включению нового пользовательского интерфейса для медиа плееров. Не все приложения поддерживают этот пользовательский интерфейс. Требуется Android Auto 5.8 или новее. "</string>
     <string name="tweak_loading">Применение твика...</string>
     <string name="loading">Загружается, пожалуйста, подождите...</string>
     <string name="tutorial_bitrate">Этот параметр увеличит или уменьшит битрейт видео в соответствии с установкой коэффициента (до 2.0x). Увеличение битрейта (более 1. x) будет означать, что большее количество данных будет транслироваться на ГУ и качество видео может быть улучшено в плане визуального просмотра, однако это может вызвать нестабильность. Уменьшение битрейта (менее 1. x) будет сжимать поток передаваемой информации на ГУ и качество будет хуже, но это позволит получить  более надежное и быстрое соединение.</string>
@@ -127,4 +123,8 @@
     <string name="remove_paired_car">Удалить подключенный автомобиль</string>
     <string name="choose_cars">Выбрать автомобиль(и)</string>
     <string name="tutorial_carremover">Знаете ли вы, что можно удалить только все подключенные автомобили из Android Auto, а удалить только один из них невозможно? Эта опция поможет вам удалить один автомобиль из Android Auto,  а не все сразу.</string>
+    <string name="custom_startup_option">Пользовательские параметры загрузки</string>
+    <string name="tutorial_custom_startup_option">Эта настройка активирует новую опцию в настройках Android Auto, которая позволит пользователю установить, что открывать при запуске Android Auto. Вы можете открыть последнее навигационное приложение, последнее музыкальное приложение или просто лаунчер. Требуется Android Auto 6.8 или выше.</string>
+    <string name="custom_hotseat_option">Пользовательские параметры загрузки</string>
+    <string name="tutorial_hotseat_option">Эта настройка активирует новую опцию в настройках Android Auto , которая позволит пользователю выбрать расположение дополнительного экрана слева или справа. Таким образом Android Auto может адаптировать свой пользовательский интерфейс для автомобилей с правым рулём. Требуется Android Auto 6.9 или выше.</string>
 </resources>

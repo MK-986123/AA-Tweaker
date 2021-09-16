@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="main_string">Benvenuto in AA AIO Tweaker\n
-Questa app ti permetterà di applicare alcuni tweaks su Android Auto\n
-Basta selezionare quale tweak vuoi applicare :)\n
-Se non sei sicuro di ciò che un tweak fa, premi a lungo su di esso e un tutorial verrà visualizzato.</string>
-    <string name="select_apps">Seleziona app</string>
+    <string name="main_string">Welcome in AA AIO Tweaker\n
+This app will let you apply some tweaks to Android Auto\n
+Simply select what tweak you want to apply :)\n
+If you are unsure of what a tweak does, long press on it and a tutorial will show up.</string>
+    <string name="select_apps">App selezionate</string>
     <string name="enable_assistant_shortcuts">Scorciatoie dell\'assistente</string>
     <string name="patch_custom_apps">app personalizzate</string>
     <string name="disable_speed_limitations">limite tocchi</string>
@@ -84,7 +84,7 @@ ATTENZIONE: Questo tweak non è stato testato estensivamente e potenzialmente pu
     <string name="reboot_prompt">Riavviare il telefono ora?</string>
     <string name="rebooting_action">Riavvio in corso…</string>
     <string name="negative_button">annulla</string>
-    <string name="added_app_action">Aggiunta: </string>
+    <string name="added_app_action">"Aggiunta: "</string>
     <string name="removed_app_action">Rimossa\u0020</string>
     <string name="root_access_warning">Accesso root negato. Consenti l\'accesso root.</string>
     <string name="revert_everything_dialog">Vuoi ripristinare tutto? Dovrai riavviare l\'app manualmente dopo aver fatto questa operazione.</string>
@@ -97,11 +97,7 @@ ATTENZIONE: Questo tweak non è stato testato estensivamente e potenzialmente pu
     <string name="not_enabled_warning">Android Auto non è abilitato</string>
     <string name="not_installed_warning">Android Auto non è installato</string>
     <string name="currently_set">"Attualmente impostato: "</string>
-    <string name="tutorial_messages_tweak">"Questa modifica farà apparire alcune applicazioni di messaggistica come un'icona su Android Auto. Una volta aperte, appariranno le notifiche di quell'app. Le notifiche dei messaggi ricevuti continueranno ad essere presenti anche nel centro delle notifiche."</string>
-    <string name="messages_tweak_string">App di messaggistica</string>
     <string name="no_accounts_warning">AA AIO TWEAKER non ha trovato nessun account nel database dei servizi Google. Questo può essere causato da vari fattori come:\n • Dispositivo principalmente non connesso ad internet\n • Nuova installazione del dispositivo\n • Database dei servizi Google corrotto\n • Rimozione degli account Google dal dispositivo\n • Rimozione dei dati dei Google Play Services\n\nIn questo scenario, AA AIO TWEAKER NON FUNZIONERÀ. Se hai recentemente rimosso un account Google o rimosso i dati dei Google Play Services, per favore mantieni il telefono connesso ad internet e lascialo ri-costruire il database dei servizi Google completamente. Questa operazione può durare diverse ore e in alcuni casi anche giorni.\n\nSe non sei in nessuna delle condizioni citate sopra, per favore apri un issue su GitHub.</string>
-    <string name="media_tabs_string">Vista a schede delle app multimediali</string>
-    <string name="tutorial_media_tabs">"Questo tweak forzerà l'attivazione di una nuova interfaccia utente per le applicazioni multimediali. Non tutte le app supportano questa interfaccia utente. Android Auto 5.8 o superiore è richiesto."</string>
     <string name="tweak_loading">Applico il tweak...</string>
     <string name="loading">Caricamento, attendere...</string>
     <string name="tutorial_bitrate">Questa modificherà aumenterà o diminuirà il bitrate video in base al moltiplicatore impostato (fino a 2.0x). Aumentando il bitrate (più di 1.0x) significherà che più dati saranno trasmessi in streaming verso l\'auto e la qualità dello streaming video potrebbe avere una migliore qualità visiva, tuttavia potrebbe causare instabilità. Diminuendo il bitrate (meno di 1.0) il flusso di dati verso l\'auto sarà ridotto e la qualità sarà minore, ma si tradurrà in un collegamento più affidabile e veloce.</string>
@@ -126,4 +122,8 @@ ATTENZIONE: Questo tweak non è stato testato estensivamente e potenzialmente pu
     <string name="remove_paired_car">Rimuovere un\'auto accoppiata</string>
     <string name="choose_cars">Scegliere auto</string>
     <string name="tutorial_carremover">Sapevi che su Android Auto non è possibile eliminare una singola auto accoppiata ma è solamente possibile eliminarle tutte in un colpo solo? Quest\'opzione ti verrà in aiuto nel caso si ha la necessità di rimuovere solo un\'auto. Basterà selezionarla ed eliminarla dal bottone dedicato.</string>
+    <string name="custom_startup_option">Avvio personalizzato</string>
+    <string name="tutorial_custom_startup_option">Questa modifica attiverà una nuova opzione all\'interno delle impostazioni di Android Auto, che permetterà all\'utente di impostare cosa aprire quando Android Auto viene avviato. È possibile scegliere di aprire l\'ultima app di navigazione, ultima app musicale o solo il launcher. È richiesto Android Auto 6.8 o superiore.</string>
+    <string name="custom_hotseat_option">Opzione posto guida</string>
+    <string name="tutorial_hotseat_option">Questa modifica attiverà una nuova opzione all\'interno delle impostazioni di Android Auto che permette all\'utente di decidere se la posizione di guida è a sinistra o a destra in modo che Android Auto possa adattare la sua interfaccia. È richiesto Android Auto 6.9 o superiore.</string>
 </resources>

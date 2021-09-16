@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="main_string">Witamy w AA AIO Tweaker\n
-        Ta aplikacja pozwoli Ci na włączenie kilku modyfikacji do Android Auto\n
-        Po prostu zaznacz modyfikację, którą chcesz zastosować :)\n
-        Jeśli nie jesteś pewien, jak działa dana modyfikacja, po prostu dotknij i przytrzymaj na niej, a pojawi się samouczek.\n</string>
+    <string name="main_string">Witaj w AA AIO Tweaker\n
+Ta aplikacja pozwoli Ci zastosować pewne ulepszenia do Android Auto\n
+Po prostu wybierz jaką opcję chcesz zastosować :)\n
+Jeśli nie jesteś pewien, co robi ta funkcja, przytrzymaj palec na niej długo i pojawi się samouczek.\n</string>
     <string name="select_apps">Wybierz aplikacje</string>
     <string name="enable_assistant_shortcuts">Skróty asystenta</string>
     <string name="patch_custom_apps">aplikacje niestandardowe</string>
     <string name="disable_speed_limitations">limit stuknięć</string>
     <string name="unlimited_scrolling_when_driving">ograniczenia prędkości</string>
-    <string name="enable_assistant_animation_in_navbar">Animaje asystenta na pasku nawigacyjnym</string>
+    <string name="enable_assistant_animation_in_navbar">Animacja asystenta na pasku nawigacyjnym</string>
     <string name="splash">Ta aplikacja może zmienić zachowanie Android Auto i ominąć niektóre zabezpieczenia, które Google zaimplementował w Android Auto.\n
 Używając tej aplikacji wyrażasz zgodę na to, że TY i TYLKO TY jesteś odpowiedzialny za jakiekolwiek możliwe konsekwencje, które mogą prowadzić do zmiany funkcji zabezpieczeń, takich, jak zranienie siebie i/lub innych, zniszczenie mienia, utrata życia.\n
 W żadnym wypadku autor tej aplikacji nie jest odpowiedzialny za jej użycie</string>
@@ -57,7 +57,7 @@ Wymagany jest Android Auto 5.8 lub nowszy.</string>
     <string name="disable_tweak_string">Wyłącz\u0020</string>
     <string name="enable_tweak_string">Włącz\u0020</string>
     <string name="re_enable_tweak_string">Włącz Ponownie\u0020</string>
-    <string name="copy_log">Kopiuj Log</string>
+    <string name="copy_log">Kopia dziennika</string>
     <string name="about">O AA AIO Tweaker</string>
     <string name="revert_everything">Przywróć wszystko</string>
     <string name="force_disable_tweak">Wymuś wyłączenie\u0020</string>
@@ -86,7 +86,7 @@ OSTRZEŻENIE: ta modyfikacja nie została dokładnie przetestowana i może poten
     <string name="reboot_prompt">Uruchomić telefon ponownie ?</string>
     <string name="rebooting_action">Restartowanie…</string>
     <string name="negative_button">Anuluj</string>
-    <string name="added_app_action">Dodano:</string>
+    <string name="added_app_action">"Dodano:"</string>
     <string name="removed_app_action">Usunięto\u0020</string>
     <string name="root_access_warning">Odmowa dostępu do roota. Zezwól na dostęp do roota.</string>
     <string name="revert_everything_dialog">Czy chcesz wszystko przywrócić? Po tej czynności proszę ręcznie zrestartować aplikację</string>
@@ -99,11 +99,7 @@ OSTRZEŻENIE: ta modyfikacja nie została dokładnie przetestowana i może poten
     <string name="not_enabled_warning">Android Auto nie jest włączony</string>
     <string name="not_installed_warning">Android Auto nie jest zainstalowany</string>
     <string name="currently_set">"Obecnie ustawiony: "</string>
-    <string name="tutorial_messages_tweak">"Ta modyfikacja sprawi, że niektóre aplikacje będą wyświetlane jako ikona w Android Auto. Po otwarciu, powiadomienia o tej aplikacji pojawią się. Powiadomienia będą nadal odebrane również w centrum powiadomień. "</string>
-    <string name="messages_tweak_string">aplikacje do przesyłania wiadomości</string>
     <string name="no_accounts_warning">AA AIO TWEAKER nie może znaleźć żadnego konta w bazie danych usług Google Play. Może to być spowodowane kilkoma różnymi przyczynami, takimi jak: \ n • Urządzenie, nie jest połączone z internetem \ n • Nowa instalacja telefonu \ n • Uszkodzona baza danych usług Google Play \ n • Usunięcie konta Google z telefon \ n • Wyczyszczone dane usług Google Play \ n \ nW tym przypadku AA AIO TWEAKER NIE DZIAŁA poprawnie. Jeśli niedawno usunąłeś konto Google lub wyczyściłeś zestaw danych usług Google Play, nie odłączaj telefonu od internetu i pozwól mu w pełni zbudować bazę danych usług Google Play. Może to zająć kilka godzin, w niektórych przypadkach także dni. \ N \ nJeśli spełniasz powyższe warunki a program nie działa, zgłoś to w serwisie GitHub. </string>
-    <string name="media_tabs_string">Widok zakładek aplikacji multimedialnych</string>
-    <string name="tutorial_media_tabs">"Ta funkcja wymusza włączenie nowego interfejsu użytkownika dla aplikacji multimedialnych. Nie każda aplikacja obsługuje ten interfejs użytkownika. Wymagany jest system Android Auto 5.8 lub nowszy"</string>
     <string name="tweak_loading">Stosowanie łatki ...</string>
     <string name="loading">Ładuję, proszę czekać.</string>
     <string name="tutorial_bitrate">Ta łatka zwiększy lub zmniejszy szybkość transmisji wideo zgodnie z ustawionym mnożnikiem (do 2,0x). Zwiększenie szybkości transmisji bitów (ponad 1,0x) oznacza, że ​​do samochodu zostanie przesłanych więcej danych, a jakość strumienia wideo może ulec poprawie w jakości wizualnej, jednak może to spowodować niestabilność. Zmniejszenie szybkości transmisji (poniżej 1,0x) spowoduje kompresję strumienia do samochodu i pogorszenie jakości, ale zapewni bardziej niezawodne i szybkie połączenie. </string>
@@ -128,4 +124,8 @@ OSTRZEŻENIE: ta modyfikacja nie została dokładnie przetestowana i może poten
     <string name="remove_paired_car">Usuń sparowany samochód</string>
     <string name="choose_cars">Wybierz samochód (y) </string>
     <string name="tutorial_carremover">Czy wiesz, że możesz usunąć wszystkie sparowane samochody z Android Auto na raz i nie musisz usunąć ich pojedynczo? Jeśli chcesz usunąć samochód z Android Auto, po prostu wybierz, który samochód (y) chcesz usunąć, a on / one zostaną usunięte. </string>
+    <string name="custom_startup_option">Wybór akcji po uruchomieniu Android Auto.</string>
+    <string name="tutorial_custom_startup_option">Ta poprawka aktywuje nową opcję w ustawieniach Android Auto, która pozwoli użytkownikowi ustawić, co ma otwierać po uruchomieniu Android Auto. Możesz wybrać, aby otworzyć najnowszą aplikację nawigacyjną, najnowszą aplikację muzyczną lub tylko program uruchamiający. Wymagany Android Auto 6.8 lub nowszy.</string>
+    <string name="custom_hotseat_option">Wybór pozycji kierowcy (lewo/prawo stronna)</string>
+    <string name="tutorial_hotseat_option">Ta poprawka aktywuje nową opcję w ustawieniach Android Auto, która pozwoli użytkownikowi zdecydować, czy pozycja kierowcy jest lewo stronna czy prawo stronna, aby Android Auto mógł dostosować interfejs użytkownika. Wymagany Android Auto 6.9 lub nowszy. </string>
 </resources>

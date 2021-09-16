@@ -49,7 +49,7 @@ Android Autoに任意のアプリを追加することはできませんが、An
 この機能の設定は、Android Autoのホーム画面で変更できるようになります。\n
 どうやら、現在のところ、Google マップしか対応していないようです。\n
 この機能は開発中のようで、意図した通りには動作しない可能性があるようです。\n
-Android Auto 5.8以上が必要です。</string>
+Android Auto 5.8以降が必要です。</string>
     <string name="battery_warning">バッテリーセーバーの警告</string>
     <string name="tutorial_battery_saver_warning">この調整は、バッテリーセーバーがオンのときにAndroid Autoのポップアップ警告を表示しないようにします。</string>
     <string name="disable_tweak_string">無効化:\u0020</string>
@@ -83,7 +83,7 @@ Android Auto 5.8以上が必要です。</string>
     <string name="reboot_prompt">端末を再起動しますか?</string>
     <string name="rebooting_action">再起動中…</string>
     <string name="negative_button">キャンセル</string>
-    <string name="added_app_action">追加済: </string>
+    <string name="added_app_action">"追加済: "</string>
     <string name="removed_app_action">削除済\u0020</string>
     <string name="root_access_warning">rootアクセスが拒否されました。rootアクセスを許可してください。</string>
     <string name="revert_everything_dialog">全て元に戻しますか? 後でアプリを再起動してください</string>
@@ -96,11 +96,7 @@ Android Auto 5.8以上が必要です。</string>
     <string name="not_enabled_warning">Android Autoは有効になっていません</string>
     <string name="not_installed_warning">Android Autoがインストールされていません</string>
     <string name="currently_set">"現在の設定: "</string>
-    <string name="tutorial_messages_tweak">"この調整は、一部のメッセージングアプリがAndroid Auto上でアイコンとして表示されるようにします。開くと、そのアプリの通知が表示されます。通知は通知センターでも受信できるようになります。 "</string>
-    <string name="messages_tweak_string">メッセージングアプリ</string>
     <string name="no_accounts_warning">AA AIO TWEAKERは、Google Play 開発者サービスのデータベースでアカウントが見つけられませまんでした。これは、次のようなことが原因である可能性があります:\n • インターネットにほとんど接続されていない端末\n • インストールしたばかりのスマホ\n • Google Play 開発者サービスのデータベースの破損\n • スマホからのGoogleアカウントの削除\n • Google Play 開発者サービスのデータの削除\n\nこれらの場合、AA AIO TWEAKERは正常に動作しません。最近、GoogleアカウントやGoogle Play 開発者サービスのデータを削除した場合は、スマホをインターネットに接続したままにして、Google Play 開発者サービスのデータベースを完全に構築させてください。これには数時間、場合によっては数日かかることもあります。\n\n上記の条件のいずれにも該当しない場合は、GitHubでissueを立ててください。</string>
-    <string name="media_tabs_string">メディアアプリのタブ表示</string>
-    <string name="tutorial_media_tabs">"この調整は、メディアプレーヤーアプリの新しいUIを強制的に有効にします。すべてのアプリがこのUIをサポートしているわけではありません。Android Auto 5.8以降が必要です。 "</string>
     <string name="tweak_loading">調整を適用中...</string>
     <string name="loading">ロード中、しばらくお待ちください...</string>
     <string name="tutorial_bitrate">この調整は、設定された乗数に応じてビデオのビットレートを増減させます。 (最大 2.0x) ビットレートを上げる (1.0x 以上) と、より多くのデータが車にストリーミングされ、映像品質が向上する可能性がありますが、不安定さの原因となる可能性があります。ビットレートを下げる (1.0x未満) と、車へのストリームデータが圧縮され、品質は低下しますが、より信頼性の高い高速な接続になります。</string>
@@ -124,5 +120,9 @@ Android Auto 5.8以上が必要です。</string>
     <string name="tutorial_darkmodeswitch">この調整により、Android Autoの一般的な設定 (車とスマホの両方) で専用のトグルがアクティブになり、Android Autoの昼/夜モードを制御できます。このオプションは、Android Autoを再起動する必要がなく、Googleが独立したダークモードを有効にした後の使用時に影響するため、デベロッパー向けの設定にある項目とは異なります。 Android Auto 6.3以降が必要です。</string>
     <string name="remove_paired_car">ペアリングされた車を削除</string>
     <string name="choose_cars">車を選択</string>
-    <string name="tutorial_carremover">ペアリングされた車はすべてAndroid Autoからしか削除できず、一度に1台だけ削除することはできないことをご存知ですか？このオプションは、Android Autoから車を削除したい場合に役立ちます。必要な車を選択するだけで、その車が削除されます。</string>
+    <string name="tutorial_carremover">ペアリングされた全ての車を一括でAndroid Autoから削除することしかできず、一度に1台だけ削除することはできないことをご存知ですか？このオプションは、車をAndroid Autoから削除したい場合に役立ちます。必要な車を選択するだけで、その車が削除されます。</string>
+    <string name="custom_startup_option">カスタム起動設定</string>
+    <string name="tutorial_custom_startup_option">この調整は、Android Autoの起動時に何を開くかをユーザーが設定できるようにする、Android Autoの設定内の新しい設定項目を有効にします。最新のナビゲーションアプリ、最新の音楽アプリ、またはランチャーを開くように選択できます。Android Auto 6.8以降が必要です。</string>
+    <string name="custom_hotseat_option">カスタム座席設定</string>
+    <string name="tutorial_hotseat_option">この調整は、Android AutoのUIを運転席の位置によって最適化するために、運転席が左右のどちらかにあるかを設定できる、Android Autoの設定内の新しい設定項目を有効にします。Android Auto 6.9以降が必要です。</string>
 </resources>

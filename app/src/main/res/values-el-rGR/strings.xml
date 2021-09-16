@@ -83,7 +83,7 @@ WARNING: This tweak has not been extensively tested and could potentially break 
     <string name="reboot_prompt">Reboot phone now?</string>
     <string name="rebooting_action">Rebooting…</string>
     <string name="negative_button">cancel</string>
-    <string name="added_app_action">Added: </string>
+    <string name="added_app_action">"Added: "</string>
     <string name="removed_app_action">Removed</string>
     <string name="root_access_warning">Root access denied. Please allow root access.</string>
     <string name="revert_everything_dialog">Do you want to revert everything? Please manually restart the app after doing so</string>
@@ -96,11 +96,7 @@ WARNING: This tweak has not been extensively tested and could potentially break 
     <string name="not_enabled_warning">Το Android Auto δεν είναι ενεργοποιημένο</string>
     <string name="not_installed_warning">Το Android Auto δεν είναι εγκατεστημένο</string>
     <string name="currently_set">"Τρέχων ορισμός: "</string>
-    <string name="tutorial_messages_tweak">"Αυτό το tweak θα κάνει μερικές εφαρμογές μηνυμάτων να εμφανίζονται ως εικονίδιο στο Android Auto. Μόλις ανοίξει, θα εμφανίζονται οι ειδοποιήσεις της εφαρμογής. Οι ειδοποιήσεις θα εξακολουθούν να λαμβάνονται και στο κέντρο ειδοποιήσεων. "</string>
-    <string name="messages_tweak_string">εφαρμογές μηνυμάτων</string>
     <string name="no_accounts_warning">Το AA AIO TWEAKER δεν μπόρεσε να βρει κανένα λογαριασμό στη βάση δεδομένων Google Play Services. Αυτό μπορεί να προκληθεί γι απολλούς λόγους, όπως:\n • Συσκευή που συνήθως δεν είναι συνδεδεμένη στο διαδίκτυο\n • Νέα εγκατάσταση τηλεφώνου\n • Κατεστραμμένη βάση δεδομένων Google Play Services\n • Αφαίρεση λογαριασμού(ών) Google από το τηλέφωνο\n • Καθαρισμένα δεδομένα των Υπηρεσιών Google\n\nΣε αυτό το σενάριο, το AA AIO TWEAKER θα ΑΠΟΤΥΧΕΙ να λειτουργήσει σωστά. Εάν αφαιρέσατε πρόσφατα έναν λογαριασμό Google ή εκκαθαρίσατε δεδομένα Google Play Services, κρατήστε το τηλέφωνο συνδεδεμένο στο διαδίκτυο και αφήστε το να δημιουργήσει πλήρως τη βάση δεδομένων Google Play Services. Αυτό μπορεί να διαρκέσει αρκετές ώρες, σε ορισμένες περιπτώσεις και ημέρες.\n\nΕάν δεν είστε σε μία από τις παραπάνω προϋποθέσεις, παρακαλώ ανοίξτε ένα θέμα στο GitHub.</string>
-    <string name="media_tabs_string">προβολή καρτελών εφαρμογών μέσων</string>
-    <string name="tutorial_media_tabs">"Αυτό το tweak θα ενεργοποιήσει ένα νέο UI για εφαρμογές αναπαραγωγής πολυμέσων. Δεν υποστηρίζουν όλες οι εφαρμογές αυτό το UI. Απαιτείται Android Auto 5.8 ή ανώτερο. "</string>
     <string name="tweak_loading">Εφαρμογή του tweak...</string>
     <string name="loading">Γίνεται φόρτωση, παρακαλώ περιμένετε...</string>
     <string name="tutorial_bitrate">This tweak will increase or decrease video bitrate according to the multiplier set (up to 2.0x). Increasing the bitrate (more than 1.0x) will mean that more datas will be streamed to the car and quality of video streaming could be improved in visual quality, however it might cause instability. Decreasing the bitrate (less than 1.0x) will compress the stream to the car and quality will be decreased, but it will result in a more reliable and fast connection.</string>
@@ -125,4 +121,8 @@ WARNING: This tweak has not been extensively tested and could potentially break 
     <string name="remove_paired_car">Remove a paired car</string>
     <string name="choose_cars">Choose car(s)</string>
     <string name="tutorial_carremover">Did you know that you can only remove all the paired cars from Android Auto and you cannot remove just one at a time? This option will rescue you if you want to delete a car from Android Auto, just select which car(s) you want and it/they will be removed.</string>
+    <string name="custom_startup_option">Custom boot option</string>
+    <string name="tutorial_custom_startup_option">This tweak will activate a new option inside Android Auto\'s settings that will let the user set what to open when Android Auto is started. You can choose to open latest navigation app, latest music app or just the launcher. Android Auto 6.8 or superior is required.</string>
+    <string name="custom_hotseat_option">Custom seating option</string>
+    <string name="tutorial_hotseat_option">This tweak will activate a new option inside Android Auto\'s settings that will let the user decide whether the driving position is left or right so that Android Auto can adapt its UI. Android Auto 6.9 or superior is required.</string>
 </resources>

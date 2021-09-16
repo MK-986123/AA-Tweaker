@@ -46,7 +46,7 @@ IT\'S NOT POSSIBLE TO SET A SPECIFIC APP TO START FIRST.</string>
     <string name="tutorial_patchapps">This tweak will enable third-party apps made specifically with Android Auto custom SDK to work on Android Auto.\n
 If you are familiar with AA Phenotype Patcher, this tweak is pretty much identical to it.\n
 It\'s not possible to add just any app to Android Auto, but it\'s possible to patch sideloaded apps MADE FOR ANDROID AUTO to work in cars.</string>
-    <string name="multi_display_string">Multi Display</string>
+    <string name="multi_display_string">Visualização múltipla</string>
     <string name="tutorial_multidisplay">This is an hidden feature inside Android Auto that will turn the second space in widescreen mode to a real second display that is completely taken by another activity. Google Maps will display a full map with navigation status, music and phones will take the full space.\n
         Additionally, this mode activates another feature that will turn the phone\'s screen in a second display for navigation in Android Auto.\n
         Settings for tweaking this feature will be available in Android Auto homescreen.\n
@@ -86,7 +86,7 @@ WARNING: This tweak has not been extensively tested and could potentially break 
     <string name="reboot_prompt">Reboot phone now?</string>
     <string name="rebooting_action">Rebooting…</string>
     <string name="negative_button">cancel</string>
-    <string name="added_app_action">Added: </string>
+    <string name="added_app_action">"Added: "</string>
     <string name="removed_app_action">Removed\u0020</string>
     <string name="root_access_warning">Root access denied. Please allow root access.</string>
     <string name="revert_everything_dialog">Do you want to revert everything? Please manually restart the app after doing so</string>
@@ -99,11 +99,7 @@ WARNING: This tweak has not been extensively tested and could potentially break 
     <string name="not_enabled_warning">Android Auto is not enabled</string>
     <string name="not_installed_warning">Android Auto is not installed</string>
     <string name="currently_set">"Currently set: "</string>
-    <string name="tutorial_messages_tweak">"This tweak will make some messaging apps appear as an icon on Android Auto. Once opened, the notifications of that app will appear. Notifications will still be received on notifications' center too. "</string>
-    <string name="messages_tweak_string">messaging apps</string>
     <string name="no_accounts_warning">AA AIO TWEAKER could not find any account in Google Play Services database. This can be caused by several different things such as:\n • Device that is mostly not connected to internet\n • Fresh install of the phone\n • Corrupted Google Play Services database\n • Removal of Google account(s) from the phone\n • Cleared datas of Google Play Services\n\nIn this scenario, AA AIO TWEAKER will FAIL to work properly. If you recently removed a Google account or cleared Google Play Services datas, please keep the phone connected to internet and let it build the Google Play Services database fully. This might take several hours, in some cases also days.\n\nIf you are not in one of the above conditions, please open a issue on GitHub.</string>
-    <string name="media_tabs_string">media apps tabbed view</string>
-    <string name="tutorial_media_tabs">"This tweak will force enable a new UI for media player applications. Not every app support this UI. Android Auto 5.8 or superior is required. "</string>
     <string name="tweak_loading">Applying the tweak...</string>
     <string name="loading">Loading, please wait...</string>
     <string name="tutorial_bitrate">This tweak will increase or decrease video bitrate according to the multiplier set (up to 2.0x). Increasing the bitrate (more than 1.0x) will mean that more datas will be streamed to the car and quality of video streaming could be improved in visual quality, however it might cause instability. Decreasing the bitrate (less than 1.0x) will compress the stream to the car and quality will be decreased, but it will result in a more reliable and fast connection.</string>
@@ -128,4 +124,8 @@ WARNING: This tweak has not been extensively tested and could potentially break 
     <string name="remove_paired_car">Remove a paired car</string>
     <string name="choose_cars">Choose car(s)</string>
     <string name="tutorial_carremover">Did you know that you can only remove all the paired cars from Android Auto and you cannot remove just one at a time? This option will rescue you if you want to delete a car from Android Auto, just select which car(s) you want and it/they will be removed.</string>
+    <string name="custom_startup_option">Custom boot option</string>
+    <string name="tutorial_custom_startup_option">This tweak will activate a new option inside Android Auto\'s settings that will let the user set what to open when Android Auto is started. You can choose to open latest navigation app, latest music app or just the launcher. Android Auto 6.8 or superior is required.</string>
+    <string name="custom_hotseat_option">Custom seating option</string>
+    <string name="tutorial_hotseat_option">This tweak will activate a new option inside Android Auto\'s settings that will let the user decide whether the driving position is left or right so that Android Auto can adapt its UI. Android Auto 6.9 or superior is required.</string>
 </resources>

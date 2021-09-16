@@ -69,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
 
     private static Context mContext;
     private ImageView noSpeedRestrictionsStatus;
-    private ImageView assistantShortcutsStatus;
     private ImageView taplimitstatus;
     private ImageView navstatus;
     private ImageView patchappstatus;
@@ -81,18 +80,15 @@ public class MainActivity extends AppCompatActivity {
     private ImageView mediaHunStatus;
     private ImageView calendarTweakStatus;
     private ImageView btstatus;
-    private ImageView messagesTweakStatus;
     private ImageView mdstatus;
     private ImageView batteryWarningStatus;
-    private ImageView activateWallpapersStatus;
-    private ImageView oldDarkModeStatus;
     private ImageView telemetryStatus;
-    private ImageView mediaTabsStatus;
     private ImageView forceNoWideScreenStatus;
     private ImageView usbBitrateStatus;
     private ImageView wifiBitrateStatus;
     private ImageView alphaJumpStatus;
     private ImageView darkModeSwitchStatus;
+    private ImageView userSeatTweakStatus;
     private TextView currentlySetHun;
     private TextView currentlySetMediaHun;
     private TextView currentlySetAgendaDays;
@@ -100,9 +96,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView currentlySetWiFiSeekbar;
     private Button rebootButton;
     private Button nospeed;
-    private Button assistshort;
     private Button taplimitat;
-    private Button startupnav;
+    private Button newStartupTweak;
     private Button patchapps;
     private Button assistanim;
     private Button batteryoutline;
@@ -113,22 +108,17 @@ public class MainActivity extends AppCompatActivity {
     private Button mediathrottlingbutton;
     private Button moreCalendarButton;
     private Button bluetoothoff;
-    private Button messagesButton;
     private Button mdbutton;
     private Button batteryWarning;
-    private Button activateWallpapersButton;
-    private Button oldDarkMode;
     private Button disableTelemetryButton;
-    private Button activateMediaTabs;
     private Button tweakUSBBitrateButton;
     private Button tweakWiFiBitrateButton;
     private Button alphaJumpTweakButton;
     private Button darkModeSwitchButton;
+    private Button userSeatTweakButton;
     private Button deleteCarMode;
     private boolean animationRun;
-
     private boolean multiAccountsMode, xpmode;
-
 
     ProgressDialog progress;
 
@@ -144,22 +134,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            multiAccountsMode = true;
-            xpmode = extras.getBoolean("xpmode");
-        } else {
-            multiAccountsMode = false;
-        }
+
+        multiAccountsMode = false;
+
+
+
 
         accountsPrefs =  getSharedPreferences("accountsList", 0);
 
         final String path = getApplicationInfo().dataDir;
         appDirectory = path;
         loadStatus(path);
-        String CountUsers = runSuWithCmd(
-                path + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " +
-                        "'SELECT COUNT(DISTINCT USER) FROM ApplicationTags WHERE user !=\"\";'").getInputStreamLog();
-        final int UserCount = Integer.parseInt(CountUsers);
+
 
 
         if (extras != null && extras.getString("NewVersionName") != null) {
@@ -188,6 +174,8 @@ public class MainActivity extends AppCompatActivity {
 
             builder2.show();
         }
+
+        final int UserCount = extras.getInt("users");
 
 
 
@@ -238,7 +226,6 @@ public class MainActivity extends AppCompatActivity {
         );
 
         rebootButton = findViewById(R.id.reboot_button);
-        final Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.reboot_button_anim);
 
 
         animationRun = false;
@@ -322,41 +309,14 @@ public class MainActivity extends AppCompatActivity {
                             changeStatus(noSpeedRestrictionsStatus, 0, true);
                             showRebootButton();
                         } else {
-                            patchforspeed(view, UserCount);
+                            patchforspeed(UserCount);
                         }
                     }
                 });
 
         setOnLongClickListener(nospeed, R.string.tutorial_nospeed, R.drawable.tutorial_nospeed);
 
-        assistshort = findViewById(R.id.assistshort);
-        assistantShortcutsStatus = findViewById(R.id.shortcutstatus);
-        if (load("assist_short")) {
-            assistshort.setText(getString(R.string.disable_tweak_string) + getString(R.string.enable_assistant_shortcuts));
-            changeStatus(assistantShortcutsStatus, 2, false);
-        } else {
-            assistshort.setText(getString(R.string.enable_tweak_string) + getString(R.string.enable_assistant_shortcuts));
-            changeStatus(assistantShortcutsStatus, 0, false);
 
-        }
-
-        setOnLongClickListener(assistshort, R.string.tutorial_shortcuts, R.drawable.tutorial_shortcuts_1, R.drawable.tutorial_shortcuts_2, R.drawable.tutorial_shortcuts_3);
-
-
-        assistshort.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        if (load("assist_short")) {
-                            revert("assist_short");
-                            assistshort.setText(getString(R.string.enable_tweak_string) + getString(R.string.enable_assistant_shortcuts));
-                            changeStatus(assistantShortcutsStatus, 0, true);
-                            showRebootButton();
-                        } else {
-                            patchforassistshort(view, UserCount);
-                        }
-                    }
-                });
 
         taplimitat = findViewById(R.id.taplimit);
         taplimitstatus = findViewById(R.id.sixtapstatus);
@@ -383,28 +343,27 @@ public class MainActivity extends AppCompatActivity {
                             changeStatus(taplimitstatus, 0, true);
                             showRebootButton();
                         } else {
-                            patchfortouchlimit(view, UserCount);
+                            patchfortouchlimit(UserCount);
                         }
                     }
                 });
 
-        startupnav = findViewById(R.id.startup);
+        newStartupTweak = findViewById(R.id.startup);
         navstatus = findViewById(R.id.navstatus);
-        if (load("aa_startup_policy")) {
-            startupnav.setText(getString(R.string.re_enable_tweak_string) + getString(R.string.navigation_at_start));
+        if (load("aa_new_startup")) {
+            newStartupTweak.setText(getString(R.string.disable_tweak_string) + getString(R.string.custom_startup_option));
             changeStatus(navstatus, 2, false);
         } else {
-            startupnav.setText(getString(R.string.disable_tweak_string) + getString(R.string.navigation_at_start));
+            newStartupTweak.setText(getString(R.string.enable_tweak_string) + getString(R.string.custom_startup_option));
             changeStatus(navstatus, 0, false);
         }
-        startupnav.setOnClickListener(
+        newStartupTweak.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if (load("aa_startup_policy")) {
-                            revert("aa_startup_policy");
-                            revert("aa_startup_policy_cleanup");
-                            startupnav.setText(getString(R.string.re_enable_tweak_string) + getString(R.string.navigation_at_start));
+                        if (load("aa_new_startup")) {
+                            revert("aa_new_startup");
+                            newStartupTweak.setText(getString(R.string.re_enable_tweak_string) + getString(R.string.custom_startup_option));
                             showRebootButton();
                         } else {
                             navpatch(view, UserCount);
@@ -412,7 +371,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-        setOnLongClickListener(startupnav, R.string.tutorial_startup);
+        setOnLongClickListener(newStartupTweak, R.string.tutorial_custom_startup_option);
 
         patchapps = findViewById(R.id.patchapps);
         patchappstatus = findViewById(R.id.patchedappstatus);
@@ -443,7 +402,7 @@ public class MainActivity extends AppCompatActivity {
                                 startActivity(intent);
                                 Toast.makeText(getApplicationContext(), getString(R.string.choose_apps_warning), Toast.LENGTH_LONG).show();
                             } else {
-                                patchforapps(view, UserCount);
+                                patchforapps(UserCount);
                             }
                         }
                     }
@@ -473,7 +432,7 @@ public class MainActivity extends AppCompatActivity {
                             changeStatus(assistanimstatus, 0, true);
                             showRebootButton();
                         } else {
-                            patchrailassistant(view, UserCount);
+                            patchrailassistant(UserCount);
                         }
                     }
                 });
@@ -885,32 +844,6 @@ public class MainActivity extends AppCompatActivity {
 
         setOnLongClickListener(bluetoothoff, R.string.tutorial_bluetooth);
 
-        messagesButton = findViewById(R.id.messaging_app_unlock_button);
-        messagesTweakStatus = findViewById(R.id.messaging_tweak_status);
-        if (load("aa_messaging_apps")) {
-            messagesButton.setText(getString(R.string.disable_tweak_string) + getString(R.string.messages_tweak_string));
-            changeStatus(messagesTweakStatus, 2, false);
-        } else {
-            messagesButton.setText(getString(R.string.enable_tweak_string) + getString(R.string.messages_tweak_string));
-            changeStatus(messagesTweakStatus, 0, false);
-        }
-
-        messagesButton.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        if (load("aa_messaging_apps")) {
-                            revert("aa_messaging_apps");
-                            messagesButton.setText(getString(R.string.enable_tweak_string) + getString(R.string.messages_tweak_string));
-                            changeStatus(messagesTweakStatus, 0, true);
-                            showRebootButton();
-                        } else {
-                            messagesTweak(view, UserCount);
-                        }
-                    }
-                });
-
-        setOnLongClickListener(messagesButton, R.string.tutorial_messages_tweak, R.drawable.tutorial_messaging_1, R.drawable.tutorial_messaging_2, R.drawable.tutorial_messaging_3);
 
         mdbutton = findViewById(R.id.multi_display_button);
         mdstatus = findViewById(R.id.multi_display_status);
@@ -932,7 +865,7 @@ public class MainActivity extends AppCompatActivity {
                             changeStatus(mdstatus, 0, true);
                             showRebootButton();
                         } else {
-                            multiDisplay(view, UserCount);
+                            multiDisplay(UserCount);
                         }
                     }
                 });
@@ -967,62 +900,6 @@ public class MainActivity extends AppCompatActivity {
         setOnLongClickListener(batteryWarning, R.string.tutorial_battery_saver_warning, R.drawable.tutorial_battery_saver);
 
 
-        activateWallpapersButton = findViewById(R.id.custom_wallpapers_button);
-        activateWallpapersStatus = findViewById(R.id.custom_wallpapers_status);
-        if (load("aa_wallpapers")) {
-            activateWallpapersButton.setText(getString(R.string.disable_tweak_string) + getString(R.string.custom_wallpapers));
-            changeStatus(activateWallpapersStatus, 2, false);
-        } else {
-            activateWallpapersButton.setText(getString(R.string.enable_tweak_string) + getString(R.string.custom_wallpapers));
-            changeStatus(activateWallpapersStatus, 0, false);
-        }
-
-        activateWallpapersButton.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        if (load("aa_wallpapers")) {
-                            revert("aa_wallpapers");
-                            activateWallpapersButton.setText(getString(R.string.enable_tweak_string) + getString(R.string.custom_wallpapers));
-                            changeStatus(activateWallpapersStatus, 0, true);
-                            showRebootButton();
-                        } else {
-                            activateWallpapers(view, UserCount);
-                        }
-                    }
-                });
-
-        setOnLongClickListener(activateWallpapersButton, R.string.tutorial_wallpapers, R.drawable.tutorial_wallpapers_3, R.drawable.tutorial_wallpapers_1, R.drawable.tutorial_wallpapers_2);
-
-        oldDarkMode = findViewById(R.id.dark_mode_tweak_button);
-        oldDarkModeStatus = findViewById(R.id.dark_mode_status);
-        if (load("aa_night_mode_revert")) {
-            oldDarkMode.setText(getString(R.string.re_enable_tweak_string) + getString(R.string.dark_mode_tweak));
-            changeStatus(oldDarkModeStatus, 2, false);
-        } else {
-            oldDarkMode.setText(getString(R.string.disable_tweak_string) + getString(R.string.dark_mode_tweak));
-            changeStatus(oldDarkModeStatus, 0, false);
-        }
-
-        oldDarkMode.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        if (load("aa_night_mode_revert")) {
-                            newDarkMode(view, UserCount);
-                            oldDarkMode.setText(getString(R.string.disable_tweak_string) + getString(R.string.dark_mode_tweak));
-                            changeStatus(oldDarkModeStatus, 0, true);
-                            showRebootButton();
-                        } else {
-                            oldDarkMode(view, UserCount);
-                        }
-                    }
-                });
-
-        setOnLongClickListener(oldDarkMode, R.string.tutorial_dark_mode);
-
-
-
         disableTelemetryButton = findViewById(R.id.telemetry_disable_tweak);
         telemetryStatus = findViewById(R.id.telemetry_disable_status);
         if (load("kill_telemetry")) {
@@ -1050,34 +927,6 @@ public class MainActivity extends AppCompatActivity {
                 });
 
         setOnLongClickListener(disableTelemetryButton, R.string.tutorial_telemetry);
-
-        activateMediaTabs = findViewById(R.id.media_tabs_tweak);
-        mediaTabsStatus = findViewById(R.id.media_tabs_status);
-        if (load("aa_media_tabs")) {
-            activateMediaTabs.setText(getString(R.string.disable_tweak_string) + getString(R.string.media_tabs_string));
-            changeStatus(mediaTabsStatus, 2, false);
-        } else {
-            activateMediaTabs.setText(getString(R.string.enable_tweak_string) + getString(R.string.media_tabs_string));
-            changeStatus(mediaTabsStatus, 0, false);
-        }
-
-        activateMediaTabs.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        if (load("aa_media_tabs")) {
-                            revert("aa_media_tabs");
-                            activateMediaTabs.setText(getString(R.string.enable_tweak_string) + getString(R.string.media_tabs_string));
-                            changeStatus(mediaTabsStatus, 0, true);
-                            showRebootButton();
-                        } else {
-                            patchMediaTabs(view, UserCount);
-
-                        }
-                    }
-                });
-
-        setOnLongClickListener(activateMediaTabs, R.string.tutorial_media_tabs, R.drawable.tutorial_tabs_media);
 
         tweakUSBBitrateButton = findViewById(R.id.tweak_bitrate_usb);
         final int[] usbBitrateValue = {0};
@@ -1339,6 +1188,35 @@ public class MainActivity extends AppCompatActivity {
 
         setOnLongClickListener(darkModeSwitchButton, R.string.tutorial_darkmodeswitch, R.drawable.tutorial_darkswitch1, R.drawable.tutorial_darkswitch2, R.drawable.tutorial_darkswitch3);
 
+        userSeatTweakButton = findViewById(R.id.userseat_tweak_button);
+        userSeatTweakStatus = findViewById(R.id.userseat_tweak_status);
+
+
+        if (load("aa_userseat_tweak")) {
+            userSeatTweakButton.setText(getString(R.string.disable_tweak_string) + getString(R.string.custom_hotseat_option));
+            changeStatus(userSeatTweakStatus, 2, false);
+        } else {
+            userSeatTweakButton.setText(getString(R.string.enable_tweak_string) + getString(R.string.custom_hotseat_option));
+            changeStatus(userSeatTweakStatus, 0, false);
+        }
+
+        userSeatTweakButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (load("aa_userseat_tweak")) {
+                            revert("aa_userseat_tweak");
+                            userSeatTweakButton.setText(getString(R.string.enable_tweak_string) + getString(R.string.custom_hotseat_option));
+                            changeStatus(userSeatTweakStatus, 0, true);
+                            showRebootButton();
+                        } else {
+                            userSeatTogglePatch(UserCount);
+                        }
+                    }
+                });
+
+        setOnLongClickListener(darkModeSwitchButton, R.string.tutorial_darkmodeswitch, R.drawable.tutorial_darkswitch1, R.drawable.tutorial_darkswitch2, R.drawable.tutorial_darkswitch3);
+
         deleteCarMode = findViewById(R.id.car_remover);
         deleteCarMode.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -1373,9 +1251,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void setOnLongClickListener(Button button, final int... p) {
+    private void setOnLongClickListener(final Button button, final int... p) {
         button.setOnLongClickListener(new View.OnLongClickListener() {
             public boolean onLongClick(View arg0) {
+
                 final Dialog dialog = new Dialog(MainActivity.this);
                 dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                 dialog.setCanceledOnTouchOutside(true);
@@ -1604,7 +1483,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public void patchforapps(final View view, int usercount) {
+    public void patchforapps(int usercount) {
         final TextView logs = findViewById(R.id.logs);
 
         logs.setHorizontallyScrolling(true);
@@ -1726,117 +1605,6 @@ appendText(logs, "\n\n--  Restoring ownership of the database   --");
                     notSuccessfulDialog.setArguments(bundle);
                     notSuccessfulDialog.show(getSupportFragmentManager(), "NotSuccessfulDialog");
                 }
-            }
-        }.start();
-    }
-
-    public void patchforassistshort(final View view, int usercount) {
-        final TextView logs = findViewById(R.id.logs);
-        logs.setHorizontallyScrolling(true);
-        logs.setMovementMethod(new ScrollingMovementMethod());
-
-        final ProgressDialog dialog = ProgressDialog.show(MainActivity.this, "",
-                getString(R.string.tweak_loading), true);
-
-        final StringBuilder finalCommand = new StringBuilder();
-
-        for (int i = 0; i <= (usercount - 1); i++) {
-            if (multiAccountsMode && !xpmode && !accountsPrefs.getBoolean(String.valueOf(i), false)) {
-                continue;
-            }
-            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType,  name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"LauncherShortcuts__enabled\", (SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
-            finalCommand.append(i);
-            finalCommand.append(",1) ,1,1);");
-            finalCommand.append(System.getProperty("line.separator"));
-            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType,  name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"LauncherShortcuts__assistant_shortcut_enabled\", (SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
-            finalCommand.append(i);
-            finalCommand.append(",1) ,1,1);");
-            finalCommand.append(System.getProperty("line.separator"));
-        }
-
-        new Thread() {
-            @Override
-            public void run() {
-                String path = getApplicationInfo().dataDir;
-                suitableMethodFound = true;
-                appendText(logs, "\n\n--  Force stopping Google Play Services   --");
-                appendText(logs, runSuWithCmd("am kill all com.google.android.gms").getStreamLogsWithLabels());
-                String currentOwner = runSuWithCmd("stat -c \"%U\" /data/data/com.google.android.gms/databases/phenotype.db").getInputStreamLog();
-                appendText(logs, "\n\n--  Gaining ownership of the database   --");
-                appendText(logs, runSuWithCmd("chown root /data/data/com.google.android.gms/databases/phenotype.db").getStreamLogsWithLabels());
-
-                String currentPolicy = runSuWithCmd("getenforce").getInputStreamLog();
-                appendText(logs, "\n\n--  Setting SELINUX to permessive   --");
-                appendText(logs, runSuWithCmd("setenforce 0").getStreamLogsWithLabels());
-
-
-                appendText(logs, "\n\n-- Run SQL Commands  --");
-
-                if (xpmode) {
-                    appendText(logs, "\n\n--  killing Google Play Services   --");
-                    appendText(logs, runSuWithCmd("pm disable com.google.android.gms").getStreamLogsWithLabels());
-                }
-
-
-                if (suitableMethodFound) {
-
-
-                    appendText(logs, "\n\n--  run SQL method   --");
-                    appendText(logs, runSuWithCmd(
-                            path + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " +
-                                    "'DROP TRIGGER IF EXISTS \"assist_short\";\n" +
-                                    finalCommand +
-                                    "'"
-                    ).getStreamLogsWithLabels());
-
-                    appendText(logs, runSuWithCmd(
-                            path + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " +
-                                    "'CREATE TRIGGER assist_short AFTER DELETE\n" +
-                                    "ON FlagOverrides\n" +
-                                    "BEGIN\n" +
-                                    finalCommand +
-                                    "END;'\n"
-                    ).getStreamLogsWithLabels());
-                    if (runSuWithCmd(path + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " + "'SELECT name FROM sqlite_master WHERE type=\"trigger\" AND name=\"assist_short\";'").getInputStreamLog().length() <= 4) {
-                        suitableMethodFound = false;
-                    } else {
-                        appendText(logs, "\n--  end SQL method   --");
-                        save(true, "assist_short");
-
-                        new Handler(Looper.getMainLooper()).post(new Runnable() {
-                            @Override
-                            public void run() {
-                                changeStatus(assistantShortcutsStatus, 1, true);
-                                showRebootButton();
-                                assistshort.setText(getString(R.string.disable_tweak_string) + getString(R.string.enable_assistant_shortcuts));
-                            }
-                        });
-                    }
-                }
-
-                if (xpmode) {
-                    appendText(logs, "\n\n--  restoring Google Play Services   --");
-                    appendText(logs, runSuWithCmd("pm enable com.google.android.gms").getStreamLogsWithLabels());
-                }
-
-appendText(logs, "\n\n--  Restoring ownership of the database   --");
-                appendText(logs, runSuWithCmd("chown " + currentOwner + " /data/data/com.google.android.gms/databases/phenotype.db").getStreamLogsWithLabels());
-
-                if (currentPolicy.toLowerCase().equals("permissive")) {
-                    appendText(logs, "\n\n--  Restoring SELINUX   --");
-                    appendText(logs, runSuWithCmd("setenforce 1").getStreamLogsWithLabels());
-                }
-
-                dialog.dismiss();
-                if (!suitableMethodFound) {
-                    final DialogFragment notSuccessfulDialog = new NotSuccessfulDialog();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("tweak", "assist_short");
-                    bundle.putString("log", logs.getText().toString());
-                    notSuccessfulDialog.setArguments(bundle);
-                    notSuccessfulDialog.show(getSupportFragmentManager(), "NotSuccessfulDialog");
-                }
-
             }
         }.start();
     }
@@ -2057,7 +1825,7 @@ appendText(logs, "\n\n--  Restoring ownership of the database   --");
         }.start();
     }
 
-    public void patchrailassistant(final View view, int usercount) {
+    public void patchrailassistant(int usercount) {
         final TextView logs = findViewById(R.id.logs);
         logs.setHorizontallyScrolling(true);
         logs.setMovementMethod(new ScrollingMovementMethod());
@@ -2148,7 +1916,7 @@ appendText(logs, "\n\n--  Restoring ownership of the database   --");
         }.start();
     }
 
-    public void patchforspeed(final View view, int usercount) {
+    public void patchforspeed(int usercount) {
         final TextView logs = findViewById(R.id.logs);
         logs.setHorizontallyScrolling(true);
         logs.setMovementMethod(new ScrollingMovementMethod());
@@ -2273,7 +2041,7 @@ appendText(logs, "\n\n--  Restoring ownership of the database   --");
         }.start();
     }
 
-    public void multiDisplay(final View view, int usercount) {
+    public void multiDisplay(int usercount) {
         final TextView logs = findViewById(R.id.logs);
         logs.setHorizontallyScrolling(true);
         logs.setMovementMethod(new ScrollingMovementMethod());
@@ -2320,6 +2088,10 @@ appendText(logs, "\n\n--  Restoring ownership of the database   --");
             finalCommand.append(",1) ,1,1);");
             finalCommand.append(System.getProperty("line.separator"));
             finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType, name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"MultiDisplay__cluster_launcher_enabled\",(SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
+            finalCommand.append(i);
+            finalCommand.append(",1) ,1,1);");
+            finalCommand.append(System.getProperty("line.separator"));
+            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType, name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"MultiDisplay__power_saving_configuration_enabled\",(SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
             finalCommand.append(i);
             finalCommand.append(",1) ,1,1);");
             finalCommand.append(System.getProperty("line.separator"));
@@ -2405,7 +2177,7 @@ appendText(logs, "\n\n--  Restoring ownership of the database   --");
         }.start();
     }
 
-    public void patchfortouchlimit(final View view, int usercount) {
+    public void patchfortouchlimit(int usercount) {
         final TextView logs = findViewById(R.id.logs);
         logs.setHorizontallyScrolling(true);
         logs.setMovementMethod(new ScrollingMovementMethod());
@@ -2551,13 +2323,9 @@ appendText(logs, "\n\n--  Restoring ownership of the database   --");
             if (multiAccountsMode && !xpmode && !accountsPrefs.getBoolean(String.valueOf(i), false)) {
                 continue;
             }
-            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType,  name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"SystemUI__startup_app_policy\", (SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
+            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType,  name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"SystemUi__custom_startup_app_enabled\", (SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
             finalCommand.append(i);
             finalCommand.append(",1) ,0,1);");
-            finalCommand.append(System.getProperty("line.separator"));
-            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType,  name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"SystemUI__start_in_launcher_if_no_user_selected_nav_app\", (SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
-            finalCommand.append(i);
-            finalCommand.append(",1) ,1,1);");
             finalCommand.append(System.getProperty("line.separator"));
         }
 
@@ -2584,32 +2352,28 @@ appendText(logs, "\n\n--  Restoring ownership of the database   --");
                 appendText(logs, "\n\n--  run SQL method   --");
                 appendText(logs, runSuWithCmd(
                         path + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " +
-                                "'DROP TRIGGER IF EXISTS aa_startup_policy;\nDROP TRIGGER IF EXISTS aa_startup_policy_cleanup;\nDELETE FROM FLAGS WHERE packageName=\"com.google.android.projection.gearhead\" AND name LIKE \"SystemUi__start%\";\n"
+                                "'DROP TRIGGER IF EXISTS aa_new_startup;\nDROP TRIGGER IF EXISTS aa_new_startup_cleanup;\nDELETE FROM FLAGS WHERE packageName=\"com.google.android.projection.gearhead\" AND name LIKE \"SystemUi__start%\";\n"
                                 + finalCommand + "'"
                 ).getStreamLogsWithLabels());
 
 
                 appendText(logs, runSuWithCmd(
                         path + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " +
-                                "'CREATE TRIGGER aa_startup_policy AFTER DELETE\n" +
+                                "'CREATE TRIGGER aa_new_startup AFTER DELETE\n" +
                                 "ON FlagOverrides\n" +
-                                "BEGIN\n" + finalCommand + "END;\n" +
-                                "CREATE TRIGGER aa_startup_policy_cleanup AFTER INSERT\n" +
-                                "ON Flags\n" +
-                                "BEGIN\n" + "DELETE FROM FLAGS WHERE packageName=\"com.google.android.projection.gearhead\" AND name LIKE \"SystemUi__start%\";\n" +
-                                "END;'\n"
+                                "BEGIN\n" + finalCommand + "END;'\n"
                 ).getStreamLogsWithLabels());
-                if (runSuWithCmd(path + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " + "'SELECT name FROM sqlite_master WHERE type=\"trigger\" AND name=\"aa_startup_policy_cleanup\";'").getInputStreamLog().length() <= 4) {
+                if (runSuWithCmd(path + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " + "'SELECT name FROM sqlite_master WHERE type=\"trigger\" AND name=\"aa_new_startup\";'").getInputStreamLog().length() <= 4) {
                     suitableMethodFound = false;
                 } else {
                     appendText(logs, "\n--  end SQL method   --");
-                    save(true, "aa_startup_policy");
+                    save(true, "aa_new_startup");
                     new Handler(Looper.getMainLooper()).post(new Runnable() {
                         @Override
                         public void run() {
                             changeStatus(navstatus, 1, true);
                             showRebootButton();
-                            startupnav.setText(getString(R.string.disable_tweak_string) + getString(R.string.navigation_at_start));
+                            newStartupTweak.setText(getString(R.string.disable_tweak_string) + getString(R.string.navigation_at_start));
                         }
                     });
                 }
@@ -2629,7 +2393,7 @@ appendText(logs, "\n\n--  Restoring ownership of the database   --");
                 if (!suitableMethodFound) {
                     final DialogFragment notSuccessfulDialog = new NotSuccessfulDialog();
                     Bundle bundle = new Bundle();
-                    bundle.putString("tweak", "aa_startup_policy");
+                    bundle.putString("tweak", "aa_new_startup");
                     bundle.putString("log", logs.getText().toString());
                     notSuccessfulDialog.setArguments(bundle);
                     notSuccessfulDialog.show(getSupportFragmentManager(), "NotSuccessfulDialog");
@@ -2639,6 +2403,197 @@ appendText(logs, "\n\n--  Restoring ownership of the database   --");
 
 
     }
+
+    public void userSeatTogglePatch(int usercount) {
+        final TextView logs = findViewById(R.id.logs);
+        logs.setHorizontallyScrolling(true);
+        logs.setMovementMethod(new ScrollingMovementMethod());
+
+        final ProgressDialog dialog = ProgressDialog.show(MainActivity.this, "",
+                getString(R.string.tweak_loading), true);
+
+        final StringBuilder finalCommand = new StringBuilder();
+
+        for (int i = 0; i <= (usercount - 1); i++) {
+            if (multiAccountsMode && !xpmode && !accountsPrefs.getBoolean(String.valueOf(i), false)) {
+                continue;
+            }
+            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType,  name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"DriverPositionSetting__enabled\", (SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
+            finalCommand.append(i);
+            finalCommand.append(",1) ,0,1);");
+            finalCommand.append(System.getProperty("line.separator"));
+        }
+
+        new Thread() {
+            @Override
+            public void run() {
+                String path = getApplicationInfo().dataDir;
+                suitableMethodFound = true;
+                appendText(logs, "\n\n--  Force stopping Google Play Services   --");
+                appendText(logs, runSuWithCmd("am kill all com.google.android.gms").getStreamLogsWithLabels());
+                String currentOwner = runSuWithCmd("stat -c \"%U\" /data/data/com.google.android.gms/databases/phenotype.db").getInputStreamLog();
+                appendText(logs, "\n\n--  Gaining ownership of the database   --");
+                appendText(logs, runSuWithCmd("chown root /data/data/com.google.android.gms/databases/phenotype.db").getStreamLogsWithLabels());
+
+                String currentPolicy = runSuWithCmd("getenforce").getInputStreamLog();
+                appendText(logs, "\n\n--  Setting SELINUX to permessive   --");
+                appendText(logs, runSuWithCmd("setenforce 0").getStreamLogsWithLabels());
+
+                if (xpmode) {
+                    appendText(logs, "\n\n--  killing Google Play Services   --");
+                    appendText(logs, runSuWithCmd("pm disable com.google.android.gms").getStreamLogsWithLabels());
+                }
+
+                appendText(logs, "\n\n--  run SQL method   --");
+                appendText(logs, runSuWithCmd(
+                        path + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " +
+                                "'DROP TRIGGER IF EXISTS aa_userseat_tweak;\n"
+                                + finalCommand + "'"
+                ).getStreamLogsWithLabels());
+
+
+                appendText(logs, runSuWithCmd(
+                        path + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " +
+                                "'CREATE TRIGGER aa_new_startup AFTER DELETE\n" +
+                                "ON FlagOverrides\n" +
+                                "BEGIN\n" + finalCommand + "END;'\n"
+                ).getStreamLogsWithLabels());
+                if (runSuWithCmd(path + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " + "'SELECT name FROM sqlite_master WHERE type=\"trigger\" AND name=\"aa_new_startup\";'").getInputStreamLog().length() <= 4) {
+                    suitableMethodFound = false;
+                } else {
+                    appendText(logs, "\n--  end SQL method   --");
+                    save(true, "aa_new_startup");
+                    new Handler(Looper.getMainLooper()).post(new Runnable() {
+                        @Override
+                        public void run() {
+                            changeStatus(navstatus, 1, true);
+                            showRebootButton();
+                            newStartupTweak.setText(getString(R.string.disable_tweak_string) + getString(R.string.navigation_at_start));
+                        }
+                    });
+                }
+                if (xpmode) {
+                    appendText(logs, "\n\n--  restoring Google Play Services   --");
+                    appendText(logs, runSuWithCmd("pm enable com.google.android.gms").getStreamLogsWithLabels());
+                }
+
+                appendText(logs, "\n\n--  Restoring ownership of the database   --");
+                appendText(logs, runSuWithCmd("chown " + currentOwner + " /data/data/com.google.android.gms/databases/phenotype.db").getStreamLogsWithLabels());
+
+                if (currentPolicy.toLowerCase().equals("permissive")) {
+                    appendText(logs, "\n\n--  Restoring SELINUX   --");
+                    appendText(logs, runSuWithCmd("setenforce 1").getStreamLogsWithLabels());
+                }
+                dialog.dismiss();
+                if (!suitableMethodFound) {
+                    final DialogFragment notSuccessfulDialog = new NotSuccessfulDialog();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("tweak", "aa_new_startup");
+                    bundle.putString("log", logs.getText().toString());
+                    notSuccessfulDialog.setArguments(bundle);
+                    notSuccessfulDialog.show(getSupportFragmentManager(), "NotSuccessfulDialog");
+                }
+            }
+        }.start();
+
+
+    }
+
+    public void focusTweak (int usercount) {
+        final TextView logs = findViewById(R.id.logs);
+        logs.setHorizontallyScrolling(true);
+        logs.setMovementMethod(new ScrollingMovementMethod());
+
+        final ProgressDialog dialog = ProgressDialog.show(MainActivity.this, "",
+                getString(R.string.tweak_loading), true);
+
+        final StringBuilder finalCommand = new StringBuilder();
+
+        for (int i = 0; i <= (usercount - 1); i++) {
+            if (multiAccountsMode && !xpmode && !accountsPrefs.getBoolean(String.valueOf(i), false)) {
+                continue;
+            }
+            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType,  name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"DriverPositionSetting__enabled\", (SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
+            finalCommand.append(i);
+            finalCommand.append(",1) ,0,1);");
+            finalCommand.append(System.getProperty("line.separator"));
+        }
+
+        new Thread() {
+            @Override
+            public void run() {
+                String path = getApplicationInfo().dataDir;
+                suitableMethodFound = true;
+                appendText(logs, "\n\n--  Force stopping Google Play Services   --");
+                appendText(logs, runSuWithCmd("am kill all com.google.android.gms").getStreamLogsWithLabels());
+                String currentOwner = runSuWithCmd("stat -c \"%U\" /data/data/com.google.android.gms/databases/phenotype.db").getInputStreamLog();
+                appendText(logs, "\n\n--  Gaining ownership of the database   --");
+                appendText(logs, runSuWithCmd("chown root /data/data/com.google.android.gms/databases/phenotype.db").getStreamLogsWithLabels());
+
+                String currentPolicy = runSuWithCmd("getenforce").getInputStreamLog();
+                appendText(logs, "\n\n--  Setting SELINUX to permessive   --");
+                appendText(logs, runSuWithCmd("setenforce 0").getStreamLogsWithLabels());
+
+                if (xpmode) {
+                    appendText(logs, "\n\n--  killing Google Play Services   --");
+                    appendText(logs, runSuWithCmd("pm disable com.google.android.gms").getStreamLogsWithLabels());
+                }
+
+                appendText(logs, "\n\n--  run SQL method   --");
+                appendText(logs, runSuWithCmd(
+                        path + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " +
+                                "'DROP TRIGGER IF EXISTS aa_userseat_tweak;\n"
+                                + finalCommand + "'"
+                ).getStreamLogsWithLabels());
+
+
+                appendText(logs, runSuWithCmd(
+                        path + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " +
+                                "'CREATE TRIGGER aa_new_startup AFTER DELETE\n" +
+                                "ON FlagOverrides\n" +
+                                "BEGIN\n" + finalCommand + "END;'\n"
+                ).getStreamLogsWithLabels());
+                if (runSuWithCmd(path + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " + "'SELECT name FROM sqlite_master WHERE type=\"trigger\" AND name=\"aa_new_startup\";'").getInputStreamLog().length() <= 4) {
+                    suitableMethodFound = false;
+                } else {
+                    appendText(logs, "\n--  end SQL method   --");
+                    save(true, "aa_new_startup");
+                    new Handler(Looper.getMainLooper()).post(new Runnable() {
+                        @Override
+                        public void run() {
+                            changeStatus(navstatus, 1, true);
+                            showRebootButton();
+                            newStartupTweak.setText(getString(R.string.disable_tweak_string) + getString(R.string.navigation_at_start));
+                        }
+                    });
+                }
+                if (xpmode) {
+                    appendText(logs, "\n\n--  restoring Google Play Services   --");
+                    appendText(logs, runSuWithCmd("pm enable com.google.android.gms").getStreamLogsWithLabels());
+                }
+
+                appendText(logs, "\n\n--  Restoring ownership of the database   --");
+                appendText(logs, runSuWithCmd("chown " + currentOwner + " /data/data/com.google.android.gms/databases/phenotype.db").getStreamLogsWithLabels());
+
+                if (currentPolicy.toLowerCase().equals("permissive")) {
+                    appendText(logs, "\n\n--  Restoring SELINUX   --");
+                    appendText(logs, runSuWithCmd("setenforce 1").getStreamLogsWithLabels());
+                }
+                dialog.dismiss();
+                if (!suitableMethodFound) {
+                    final DialogFragment notSuccessfulDialog = new NotSuccessfulDialog();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("tweak", "aa_new_startup");
+                    bundle.putString("log", logs.getText().toString());
+                    notSuccessfulDialog.setArguments(bundle);
+                    notSuccessfulDialog.show(getSupportFragmentManager(), "NotSuccessfulDialog");
+                }
+            }
+        }.start();
+
+
+    }
+
 
     public void disableBatteryWarning(View view, int usercount) {
         final TextView logs = findViewById(R.id.logs);
@@ -3013,192 +2968,6 @@ appendText(logs, "\n\n--  Restoring ownership of the database   --");
                     final DialogFragment notSuccessfulDialog = new NotSuccessfulDialog();
                     Bundle bundle = new Bundle();
                     bundle.putString("tweak", "bluetooth_pairing_off");
-                    bundle.putString("log", logs.getText().toString());
-                    notSuccessfulDialog.setArguments(bundle);
-                    notSuccessfulDialog.show(getSupportFragmentManager(), "NotSuccessfulDialog");
-                }
-            }
-        }.start();
-
-    }
-
-    public void oldDarkMode(View view, int usercount) {
-        final TextView logs = findViewById(R.id.logs);
-        logs.setHorizontallyScrolling(true);
-        logs.setMovementMethod(new ScrollingMovementMethod());
-
-        final ProgressDialog dialog = ProgressDialog.show(MainActivity.this, "",
-                getString(R.string.tweak_loading), true);
-
-        final StringBuilder finalCommand = new StringBuilder();
-
-        for (int i = 0; i <= (usercount - 1); i++) {
-            if (multiAccountsMode && !xpmode && !accountsPrefs.getBoolean(String.valueOf(i), false)) {
-                continue;
-            }
-            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType,  name, user, boolVal, committed) VALUES (\"com.google.android.gms.car\",0,\"IndependentNightModeFeature__enabled\", (SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
-            finalCommand.append(i);
-            finalCommand.append(",1) ,0,1);");
-            finalCommand.append(System.getProperty("line.separator"));
-        }
-
-        new Thread() {
-            @Override
-            public void run() {
-                String path = getApplicationInfo().dataDir;
-                suitableMethodFound = true;
-                appendText(logs, "\n\n--  Force stopping Google Play Services   --");
-                appendText(logs, runSuWithCmd("am kill all com.google.android.gms").getStreamLogsWithLabels());
-                String currentOwner = runSuWithCmd("stat -c \"%U\" /data/data/com.google.android.gms/databases/phenotype.db").getInputStreamLog();
-                appendText(logs, "\n\n--  Gaining ownership of the database   --");
-                appendText(logs, runSuWithCmd("chown root /data/data/com.google.android.gms/databases/phenotype.db").getStreamLogsWithLabels());
-
-                String currentPolicy = runSuWithCmd("getenforce").getInputStreamLog();
-                appendText(logs, "\n\n--  Setting SELINUX to permessive   --");
-                appendText(logs, runSuWithCmd("setenforce 0").getStreamLogsWithLabels());
-
-                if (xpmode) {
-                    appendText(logs, "\n\n--  killing Google Play Services   --");
-                    appendText(logs, runSuWithCmd("pm disable com.google.android.gms").getStreamLogsWithLabels());
-                }
-
-                appendText(logs, "\n\n--  run SQL method   --");
-                appendText(logs, runSuWithCmd(
-                        path + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " +
-                                "'DROP TRIGGER IF EXISTS aa_night_mode_restore; DROP TRIGGER IF EXISTS aa_night_mode_revert;\n" +
-                                finalCommand + "'"
-                ).getStreamLogsWithLabels());
-
-                appendText(logs, runSuWithCmd(
-                        path + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " +
-                                "'CREATE TRIGGER aa_night_mode_revert AFTER DELETE\n" +
-                                "ON FlagOverrides\n" +
-                                "BEGIN\n" + finalCommand + "END;'\n"
-                ).getStreamLogsWithLabels());
-                if (runSuWithCmd(path + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " + "'SELECT name FROM sqlite_master WHERE type=\"trigger\" AND name=\"aa_night_mode_revert\";'").getInputStreamLog().length() <= 4) {
-                    suitableMethodFound = false;
-                } else {
-                    appendText(logs, "\n--  end SQL method   --");
-                    save(true, "aa_night_mode_revert");
-                    new Handler(Looper.getMainLooper()).post(new Runnable() {
-                        @Override
-                        public void run() {
-                            changeStatus(oldDarkModeStatus, 1, true);
-                            showRebootButton();
-                            oldDarkMode.setText(getString(R.string.re_enable_tweak_string) + getString(R.string.dark_mode_tweak));
-                        }
-                    });
-                }
-                if (xpmode) {
-                    appendText(logs, "\n\n--  restoring Google Play Services   --");
-                    appendText(logs, runSuWithCmd("pm enable com.google.android.gms").getStreamLogsWithLabels());
-                }
-
-appendText(logs, "\n\n--  Restoring ownership of the database   --");
-                appendText(logs, runSuWithCmd("chown " + currentOwner + " /data/data/com.google.android.gms/databases/phenotype.db").getStreamLogsWithLabels());
-
-                if (currentPolicy.toLowerCase().equals("permissive")) {
-                    appendText(logs, "\n\n--  Restoring SELINUX   --");
-                    appendText(logs, runSuWithCmd("setenforce 1").getStreamLogsWithLabels());
-                }
-                dialog.dismiss();
-                if (!suitableMethodFound) {
-                    final DialogFragment notSuccessfulDialog = new NotSuccessfulDialog();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("tweak", "aa_night_mode_revert");
-                    bundle.putString("log", logs.getText().toString());
-                    notSuccessfulDialog.setArguments(bundle);
-                    notSuccessfulDialog.show(getSupportFragmentManager(), "NotSuccessfulDialog");
-                }
-            }
-        }.start();
-
-    }
-
-    public void newDarkMode(View view, int usercount) {
-        final TextView logs = findViewById(R.id.logs);
-        logs.setHorizontallyScrolling(true);
-        logs.setMovementMethod(new ScrollingMovementMethod());
-
-        final ProgressDialog dialog = ProgressDialog.show(MainActivity.this, "",
-                getString(R.string.tweak_loading), true);
-
-        final StringBuilder finalCommand = new StringBuilder();
-
-        for (int i = 0; i <= (usercount - 1); i++) {
-            if (multiAccountsMode && !xpmode && !accountsPrefs.getBoolean(String.valueOf(i), false)) {
-                continue;
-            }
-            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType,  name, user, boolVal, committed) VALUES (\"com.google.android.gms.car\",0,\"IndependentNightModeFeature__enabled\", (SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
-            finalCommand.append(i);
-            finalCommand.append(",1) ,1,1);");
-            finalCommand.append(System.getProperty("line.separator"));
-        }
-
-        new Thread() {
-            @Override
-            public void run() {
-                String path = getApplicationInfo().dataDir;
-                suitableMethodFound = true;
-                appendText(logs, "\n\n--  Force stopping Google Play Services   --");
-                appendText(logs, runSuWithCmd("am kill all com.google.android.gms").getStreamLogsWithLabels());
-                String currentOwner = runSuWithCmd("stat -c \"%U\" /data/data/com.google.android.gms/databases/phenotype.db").getInputStreamLog();
-                appendText(logs, "\n\n--  Gaining ownership of the database   --");
-                appendText(logs, runSuWithCmd("chown root /data/data/com.google.android.gms/databases/phenotype.db").getStreamLogsWithLabels());
-
-                String currentPolicy = runSuWithCmd("getenforce").getInputStreamLog();
-                appendText(logs, "\n\n--  Setting SELINUX to permessive   --");
-                appendText(logs, runSuWithCmd("setenforce 0").getStreamLogsWithLabels());
-
-                if (xpmode) {
-                    appendText(logs, "\n\n--  killing Google Play Services   --");
-                    appendText(logs, runSuWithCmd("pm disable com.google.android.gms").getStreamLogsWithLabels());
-                }
-
-                appendText(logs, "\n\n--  run SQL method   --");
-                appendText(logs, runSuWithCmd(
-                        path + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " +
-                                "'DROP TRIGGER IF EXISTS aa_night_mode_revert;\n" +
-                                finalCommand + "'"
-                ).getStreamLogsWithLabels());
-
-                appendText(logs, runSuWithCmd(
-                        path + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " +
-                                "'CREATE TRIGGER aa_night_mode_restore AFTER DELETE\n" +
-                                "ON FlagOverrides\n" +
-                                "BEGIN\n" + finalCommand + "END;'\n"
-                ).getStreamLogsWithLabels());
-                if (runSuWithCmd(path + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " + "'SELECT name FROM sqlite_master WHERE type=\"trigger\" AND name=\"aa_night_mode_revert\";'").getInputStreamLog().length() <= 4) {
-                    suitableMethodFound = false;
-                } else {
-                    appendText(logs, "\n--  end SQL method   --");
-                    save(false, "aa_night_mode_revert");
-                    new Handler(Looper.getMainLooper()).post(new Runnable() {
-                        @Override
-                        public void run() {
-                            changeStatus(oldDarkModeStatus, 0, true);
-                            showRebootButton();
-                            oldDarkMode.setText(getString(R.string.disable_tweak_string) + getString(R.string.dark_mode_tweak));
-                        }
-                    });
-                }
-                if (xpmode) {
-                    appendText(logs, "\n\n--  restoring Google Play Services   --");
-                    appendText(logs, runSuWithCmd("pm enable com.google.android.gms").getStreamLogsWithLabels());
-                }
-
-                appendText(logs, "\n\n--  Restoring ownership of the database   --");
-                appendText(logs, runSuWithCmd("chown " + currentOwner + " /data/data/com.google.android.gms/databases/phenotype.db").getStreamLogsWithLabels());
-
-                if (currentPolicy.toLowerCase().equals("permissive")) {
-                    appendText(logs, "\n\n--  Restoring SELINUX   --");
-                    appendText(logs, runSuWithCmd("setenforce 1").getStreamLogsWithLabels());
-                }
-                dialog.dismiss();
-                if (!suitableMethodFound) {
-                    final DialogFragment notSuccessfulDialog = new NotSuccessfulDialog();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("tweak", "aa_night_mode_revert");
                     bundle.putString("log", logs.getText().toString());
                     notSuccessfulDialog.setArguments(bundle);
                     notSuccessfulDialog.show(getSupportFragmentManager(), "NotSuccessfulDialog");
@@ -4066,297 +3835,7 @@ appendText(logs, "\n\n--  Restoring ownership of the database   --");
 
     }
 
-    public void activateWallpapers(View view, int usercount) {
-        final TextView logs = findViewById(R.id.logs);
-        logs.setHorizontallyScrolling(true);
-        logs.setMovementMethod(new ScrollingMovementMethod());
 
-        final ProgressDialog dialog = ProgressDialog.show(MainActivity.this, "",
-                getString(R.string.tweak_loading), true);
-
-        final StringBuilder finalCommand = new StringBuilder();
-
-        for (int i = 0; i <= (usercount - 1); i++) {
-            if (multiAccountsMode && !xpmode && !accountsPrefs.getBoolean(String.valueOf(i), false)) {
-                continue;
-            }
-            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType,  name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"CustomWallpaper__enabled\", (SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
-            finalCommand.append(i);
-            finalCommand.append(",1) ,1,1);");
-            finalCommand.append(System.getProperty("line.separator"));
-        }
-
-        new Thread() {
-            @Override
-            public void run() {
-                String path = getApplicationInfo().dataDir;
-                suitableMethodFound = true;
-
-                appendText(logs, "\n\n--  Force stopping Google Play Services   --");
-                appendText(logs, runSuWithCmd("am kill all com.google.android.gms").getStreamLogsWithLabels());
-                String currentOwner = runSuWithCmd("stat -c \"%U\" /data/data/com.google.android.gms/databases/phenotype.db").getInputStreamLog();
-                appendText(logs, "\n\n--  Gaining ownership of the database   --");
-                appendText(logs, runSuWithCmd("chown root /data/data/com.google.android.gms/databases/phenotype.db").getStreamLogsWithLabels());
-
-                String currentPolicy = runSuWithCmd("getenforce").getInputStreamLog();
-                appendText(logs, "\n\n--  Setting SELINUX to permessive   --");
-                appendText(logs, runSuWithCmd("setenforce 0").getStreamLogsWithLabels());
-
-
-                if (xpmode) {
-                    appendText(logs, "\n\n--  killing Google Play Services   --");
-                    appendText(logs, runSuWithCmd("pm disable com.google.android.gms").getStreamLogsWithLabels());
-                }
-
-
-                appendText(logs, "\n\n--  run SQL method   --");
-                appendText(logs, runSuWithCmd(
-                        path + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " + "'DROP TRIGGER IF EXISTS aa_wallpapers;\n" +
-                                finalCommand + "'\n"
-                ).getStreamLogsWithLabels());
-
-                appendText(logs, runSuWithCmd(
-                        path + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " +
-                                "'CREATE TRIGGER aa_wallpapers AFTER DELETE\n" +
-                                "ON FlagOverrides\n" +
-                                "BEGIN\n" + finalCommand + "END;'\n"
-                ).getStreamLogsWithLabels());
-                if (runSuWithCmd(path + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " + "'SELECT name FROM sqlite_master WHERE type=\"trigger\" AND name=\"aa_wallpapers\";'").getInputStreamLog().length() <= 4) {
-                    suitableMethodFound = false;
-                } else {
-                    appendText(logs, "\n--  end SQL method   --");
-                    save(true, "aa_wallpapers");
-                    changeStatus(activateWallpapersStatus, 1, true);
-                    showRebootButton();
-                    activateWallpapersButton.setText(getString(R.string.disable_tweak_string) + getString(R.string.custom_wallpapers));
-                }
-
-                dialog.dismiss();
-
-                if (xpmode) {
-                    appendText(logs, "\n\n--  restoring Google Play Services   --");
-                    appendText(logs, runSuWithCmd("pm enable com.google.android.gms").getStreamLogsWithLabels());
-                }
-
-appendText(logs, "\n\n--  Restoring ownership of the database   --");
-                appendText(logs, runSuWithCmd("chown " + currentOwner + " /data/data/com.google.android.gms/databases/phenotype.db").getStreamLogsWithLabels());
-
-                if (currentPolicy.toLowerCase().equals("permissive")) {
-                    appendText(logs, "\n\n--  Restoring SELINUX   --");
-                    appendText(logs, runSuWithCmd("setenforce 1").getStreamLogsWithLabels());
-                }
-
-                if (!suitableMethodFound) {
-                    final DialogFragment notSuccessfulDialog = new NotSuccessfulDialog();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("tweak", "aa_wallpapers");
-                    bundle.putString("log", logs.getText().toString());
-                    notSuccessfulDialog.setArguments(bundle);
-                    notSuccessfulDialog.show(getSupportFragmentManager(), "NotSuccessfulDialog");
-                }
-            }
-        }.start();
-
-    }
-
-    public void messagesTweak(View view, int usercount) {
-        final TextView logs = findViewById(R.id.logs);
-        logs.setHorizontallyScrolling(true);
-        logs.setMovementMethod(new ScrollingMovementMethod());
-
-        final ProgressDialog dialog = ProgressDialog.show(MainActivity.this, "",
-                getString(R.string.tweak_loading), true);
-
-        final StringBuilder finalCommand = new StringBuilder();
-
-        for (int i = 0; i <= (usercount - 1); i++) {
-            if (multiAccountsMode && !xpmode && !accountsPrefs.getBoolean(String.valueOf(i), false)) {
-                continue;
-            }
-            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType,  name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"MesquiteFull__enabled\", (SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
-            finalCommand.append(i);
-            finalCommand.append(",1) ,1,1);");
-            finalCommand.append(System.getProperty("line.separator"));
-            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType,  name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"MesquiteLite__notification_enabled\", (SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
-            finalCommand.append(i);
-            finalCommand.append(",1) ,1,1);");
-            finalCommand.append(System.getProperty("line.separator"));
-            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType,  name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"MesquiteLite__sms_enabled\", (SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
-            finalCommand.append(i);
-            finalCommand.append(",1) ,1,1);");
-            finalCommand.append(System.getProperty("line.separator"));
-            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType,  name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"NotificationClientAbstraction__enabled\", (SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
-            finalCommand.append(i);
-            finalCommand.append(",1) ,1,1);");
-            finalCommand.append(System.getProperty("line.separator"));
-            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType,  name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"SystemUi__launcher_notification_badge_enabled\", (SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
-            finalCommand.append(i);
-            finalCommand.append(",1) ,1,1);");
-            finalCommand.append(System.getProperty("line.separator"));
-        }
-
-        new Thread() {
-            @Override
-            public void run() {
-                String path = getApplicationInfo().dataDir;
-                suitableMethodFound = true;
-                appendText(logs, "\n\n--  Force stopping Google Play Services   --");
-                appendText(logs, runSuWithCmd("am kill all com.google.android.gms").getStreamLogsWithLabels());
-                String currentOwner = runSuWithCmd("stat -c \"%U\" /data/data/com.google.android.gms/databases/phenotype.db").getInputStreamLog();
-                appendText(logs, "\n\n--  Gaining ownership of the database   --");
-                appendText(logs, runSuWithCmd("chown root /data/data/com.google.android.gms/databases/phenotype.db").getStreamLogsWithLabels());
-
-                String currentPolicy = runSuWithCmd("getenforce").getInputStreamLog();
-                appendText(logs, "\n\n--  Setting SELINUX to permessive   --");
-                appendText(logs, runSuWithCmd("setenforce 0").getStreamLogsWithLabels());
-
-                if (xpmode) {
-                    appendText(logs, "\n\n--  killing Google Play Services   --");
-                    appendText(logs, runSuWithCmd("pm disable com.google.android.gms").getStreamLogsWithLabels());
-                }
-
-                appendText(logs, "\n\n--  run SQL method   --");
-                appendText(logs, runSuWithCmd(
-                        path + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " + "'DROP TRIGGER IF EXISTS aa_messaging_apps;\n" +
-                                finalCommand + "'\n"
-                ).getStreamLogsWithLabels());
-
-                appendText(logs, runSuWithCmd(
-                        path + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " +
-                                "'CREATE TRIGGER aa_messaging_apps AFTER DELETE\n" +
-                                "ON FlagOverrides\n" +
-                                "BEGIN\n" + finalCommand + "END;'\n"
-                ).getStreamLogsWithLabels());
-                if (runSuWithCmd(path + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " + "'SELECT name FROM sqlite_master WHERE type=\"trigger\" AND name=\"aa_messaging_apps\";'").getInputStreamLog().length() <= 4) {
-                    suitableMethodFound = false;
-                } else {
-                    appendText(logs, "\n--  end SQL method   --");
-                    save(true, "aa_messaging_apps");
-                    changeStatus(messagesTweakStatus, 1, true);
-                    showRebootButton();
-                    messagesButton.setText(getString(R.string.disable_tweak_string) + getString(R.string.messages_tweak_string));
-                }
-
-                if (xpmode) {
-                    appendText(logs, "\n\n--  restoring Google Play Services   --");
-                    appendText(logs, runSuWithCmd("pm enable com.google.android.gms").getStreamLogsWithLabels());
-                }
-
-appendText(logs, "\n\n--  Restoring ownership of the database   --");
-                appendText(logs, runSuWithCmd("chown " + currentOwner + " /data/data/com.google.android.gms/databases/phenotype.db").getStreamLogsWithLabels());
-
-                if (currentPolicy.toLowerCase().equals("permissive")) {
-                    appendText(logs, "\n\n--  Restoring SELINUX   --");
-                    appendText(logs, runSuWithCmd("setenforce 1").getStreamLogsWithLabels());
-                }
-
-                dialog.dismiss();
-                if (!suitableMethodFound) {
-                    final DialogFragment notSuccessfulDialog = new NotSuccessfulDialog();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("tweak", "aa_messaging_apps");
-                    bundle.putString("log", logs.getText().toString());
-                    notSuccessfulDialog.setArguments(bundle);
-                    notSuccessfulDialog.show(getSupportFragmentManager(), "NotSuccessfulDialog");
-                }
-            }
-        }.start();
-
-    }
-
-    public void patchMediaTabs(View view, int usercount) {
-        final TextView logs = findViewById(R.id.logs);
-        logs.setHorizontallyScrolling(true);
-        logs.setMovementMethod(new ScrollingMovementMethod());
-
-        final ProgressDialog dialog = ProgressDialog.show(MainActivity.this, "",
-                getString(R.string.tweak_loading), true);
-        final StringBuilder finalCommand = new StringBuilder();
-
-        for (int i = 0; i <= (usercount - 1); i++) {
-            if (multiAccountsMode && !xpmode && !accountsPrefs.getBoolean(String.valueOf(i), false)) {
-                continue;
-            }
-            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType,  name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"Tabbouleh__tabs_media_enabled\", (SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
-            finalCommand.append(i);
-            finalCommand.append(",1) ,1,1);");
-            finalCommand.append(System.getProperty("line.separator"));
-            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType,  name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"Tabbouleh__media_browse_back_to_top_level_button_enabled\", (SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
-            finalCommand.append(i);
-            finalCommand.append(",1) ,1,1);");
-            finalCommand.append(System.getProperty("line.separator"));
-            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType,  name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"Tabbouleh__tabs_media_sticky_tab_enabled\", (SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
-            finalCommand.append(i);
-            finalCommand.append(",1) ,1,1);");
-            finalCommand.append(System.getProperty("line.separator"));
-        }
-
-        new Thread() {
-            @Override
-            public void run() {
-                String path = getApplicationInfo().dataDir;
-                suitableMethodFound = true;
-                appendText(logs, "\n\n--  Force stopping Google Play Services   --");
-                appendText(logs, runSuWithCmd("am kill all com.google.android.gms").getStreamLogsWithLabels());
-                String currentOwner = runSuWithCmd("stat -c \"%U\" /data/data/com.google.android.gms/databases/phenotype.db").getInputStreamLog();
-                appendText(logs, "\n\n--  Gaining ownership of the database   --");
-                appendText(logs, runSuWithCmd("chown root /data/data/com.google.android.gms/databases/phenotype.db").getStreamLogsWithLabels());
-
-                String currentPolicy = runSuWithCmd("getenforce").getInputStreamLog();
-                appendText(logs, "\n\n--  Setting SELINUX to permessive   --");
-                appendText(logs, runSuWithCmd("setenforce 0").getStreamLogsWithLabels());
-
-                if (xpmode) {
-                    appendText(logs, "\n\n--  killing Google Play Services   --");
-                    appendText(logs, runSuWithCmd("pm disable com.google.android.gms").getStreamLogsWithLabels());
-                }
-
-                appendText(logs, "\n\n--  run SQL method   --");
-                appendText(logs, runSuWithCmd(
-                        path + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " + "'DROP TRIGGER IF EXISTS aa_media_tabs;\n" +
-                                finalCommand + "'\n"
-                ).getStreamLogsWithLabels());
-
-                appendText(logs, runSuWithCmd(
-                        path + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " +
-                                "'CREATE TRIGGER aa_media_tabs AFTER DELETE\n" +
-                                "ON FlagOverrides\n" +
-                                "BEGIN\n" + finalCommand + "END;'\n"
-                ).getStreamLogsWithLabels());
-                if (runSuWithCmd(path + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " + "'SELECT name FROM sqlite_master WHERE type=\"trigger\" AND name=\"aa_media_tabs\";'").getInputStreamLog().length() <= 4) {
-                    suitableMethodFound = false;
-                } else {
-                    appendText(logs, "\n--  end SQL method   --");
-                    save(true, "aa_media_tabs");
-                    changeStatus(mediaTabsStatus, 1, true);
-                    showRebootButton();
-                    activateMediaTabs.setText(getString(R.string.disable_tweak_string) + getString(R.string.media_tabs_string));
-                }
-                if (xpmode) {
-                    appendText(logs, "\n\n--  restoring Google Play Services   --");
-                    appendText(logs, runSuWithCmd("pm enable com.google.android.gms").getStreamLogsWithLabels());
-                }
-
-appendText(logs, "\n\n--  Restoring ownership of the database   --");
-                appendText(logs, runSuWithCmd("chown " + currentOwner + " /data/data/com.google.android.gms/databases/phenotype.db").getStreamLogsWithLabels());
-
-                if (currentPolicy.toLowerCase().equals("permissive")) {
-                    appendText(logs, "\n\n--  Restoring SELINUX   --");
-                    appendText(logs, runSuWithCmd("setenforce 1").getStreamLogsWithLabels());
-                }
-                dialog.dismiss();
-                if (!suitableMethodFound) {
-                    final DialogFragment notSuccessfulDialog = new NotSuccessfulDialog();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("tweak", "aa_media_tabs");
-                    bundle.putString("log", logs.getText().toString());
-                    notSuccessfulDialog.setArguments(bundle);
-                    notSuccessfulDialog.show(getSupportFragmentManager(), "NotSuccessfulDialog");
-                }
-            }
-        }.start();
-
-    }
 
     public static StreamLogs runSuWithCmd(String cmd) {
         DataOutputStream outputStream = null;

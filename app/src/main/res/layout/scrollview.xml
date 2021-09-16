@@ -726,8 +726,6 @@
                     app:layout_constraintStart_toStartOf="parent" />
 
 
-
-
                 <ImageView
                     android:id="@+id/dark_mode_toggle_tweak_status"
                     android:layout_width="wrap_content"
@@ -775,7 +773,7 @@
                     android:drawablePadding="9dp"
                     android:text="@string/remove_paired_car"
                     app:layout_constraintEnd_toEndOf="@id/assistanimstatus"
-                    app:layout_constraintTop_toBottomOf="@id/dark_mode_toggle_tweak"
+                    app:layout_constraintTop_toBottomOf="@id/userseat_tweak_button"
                     app:layout_constraintStart_toStartOf="parent" />
 
         </android.support.constraint.ConstraintLayout>

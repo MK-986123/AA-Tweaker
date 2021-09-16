@@ -36,8 +36,8 @@ public class SplashActivity extends AppCompatActivity {
     Context context;
     String newVersionName;
 
-    private static String actualVersion = BuildConfig.VERSION_NAME;
-    private static String BASE_URL = "https://api.github.com/repos/shmykelsa/AA-Tweaker/releases/latest";
+    private static final String actualVersion = BuildConfig.VERSION_NAME;
+    private static final String BASE_URL = "https://api.github.com/repos/shmykelsa/AA-Tweaker/releases/latest";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +46,13 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         final Intent intent = new Intent(this, MainActivity.class);
+
+        String CountUsers = runSuWithCmd(
+                getApplicationInfo().dataDir + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " +
+                        "'SELECT COUNT(DISTINCT USER) FROM ApplicationTags WHERE user !=\"\";'").getInputStreamLog();
+        final int UserCount = Integer.parseInt(CountUsers);
+
+        intent.putExtra("users" , UserCount);
         final NoRootDialog noRootDialog = new NoRootDialog();
         final StreamLogs isDeviceRooted =  runSuWithCmd("echo 1");
 
@@ -78,6 +85,8 @@ public class SplashActivity extends AppCompatActivity {
         editor.putBoolean("aa_bitrate_wifi", false);
         editor.putBoolean("aa_new_alphajump", false);
         editor.putBoolean("aa_daynight_switch", false);
+        editor.putBoolean("aa_userseat_tweak", false);
+        editor.putBoolean("aa_new_startup", false);
         editor.commit();
 
         requestLatest();

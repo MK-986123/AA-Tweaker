@@ -5,14 +5,13 @@ import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CommonPageAdapter extends PagerAdapter {
 
-    private List<Integer> pageIds = new ArrayList<>();
+    private final List<Integer> pageIds = new ArrayList<>();
 
 
     public void insertViewId(@IdRes int pageId) {

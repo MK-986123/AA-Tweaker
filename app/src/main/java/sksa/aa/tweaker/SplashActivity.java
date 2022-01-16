@@ -50,7 +50,12 @@ public class SplashActivity extends AppCompatActivity {
         String CountUsers = runSuWithCmd(
                 getApplicationInfo().dataDir + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " +
                         "'SELECT COUNT(DISTINCT USER) FROM ApplicationTags WHERE user !=\"\";'").getInputStreamLog();
-        final int UserCount = Integer.parseInt(CountUsers);
+        int UserCount = 1;
+
+        try {
+            // Sometimes output returns empty string
+            UserCount = Integer.parseInt(CountUsers);
+        } catch (Exception e) { }
 
         intent.putExtra("users" , UserCount);
         final NoRootDialog noRootDialog = new NoRootDialog();

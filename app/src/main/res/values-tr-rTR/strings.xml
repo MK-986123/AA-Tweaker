@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="main_string">AA AIO Tweaker\'e Hoş geldiniz.\n
-Bu uygulama Android Auto\'ya bazı düzenlemeler uygulamanıza izin verecektir.\n
-Uygulamak istediğiniz ince ayarı seçmeniz yeterlidir :).\n
+    <string name="main_string">AA AIO Tweaker \'e Hoşgeldiniz.
+Bu uygulama Android Auto\'ya bazı düzenlemeler uygulamanıza izin verecektir.
+Uygulamak istediğiniz ince ayarı seçmeniz yeterlidir :)
 Bir ayarın ne yaptığından emin değilseniz, üzerine uzun basın ve bir öğretici göreceksiniz.</string>
     <string name="select_apps">Uygulamaları seç</string>
     <string name="enable_assistant_shortcuts">Asistan kısayolları</string>
@@ -10,12 +10,12 @@ Bir ayarın ne yaptığından emin değilseniz, üzerine uzun basın ve bir öğ
     <string name="disable_speed_limitations">dokunma kısıtlamaları</string>
     <string name="unlimited_scrolling_when_driving">hız kısıtlamaları</string>
     <string name="enable_assistant_animation_in_navbar">Alt çubukta asistan animasyonu</string>
-    <string name="splash">Bu uygulama, Android Auto davranışını değiştirebilir ve Google\'ın Android Auto\'da uyguladığı bazı güvenlik özelliklerini atlayabilir.\n
+    <string name="splash">Bu uygulama, Android Auto davranışını değiştirebilir ve Google tarafından Android Auto uygulamasına yerleştirilen bazı güvenlik özelliklerini atlayabilir.\n
 Bu yazılımı kullanarak, kendinize ve / veya başkalarına zarar verme, mal hasarı, can kaybı gibi güvenlik özelliklerinin değiştirilmesine neden olabilecek olası sonuçlardan yalnızca SİZ ve YALNIZCA SİZİN sorumlu olduğunu kabul edersiniz.\n
 Hiçbir koşulda, bu uygulamanın yazarı kullanımından sorumlu değildir</string>
     <string name="proceed">Anladım</string>
     <string name="navigation_at_start">Başlangıçta navigasyon</string>
-    <string name="statb_opaque_string">Durum çubuğunda opaklığı zorla</string>
+    <string name="statb_opaque_string">Opak Durum Çubuğunu Zorla</string>
     <string name="battery_outline_string">pil tasarrufu uyarısı</string>
     <string name="legend">Durum Açıklaması:\n
 YEŞİL= Yama uygulandı\n
@@ -23,7 +23,7 @@ SARI= Yamayı uygulamak için telefonu yeniden başlatın\n
 RED= Yama uygulanmadı\n</string>
     <string name="set_notification_duration_to">Bildirim zamanı</string>
     <string name="base_no_ws">Geniş ekran</string>
-    <string name="force_widescreen_text">Geniş ekrana zorla</string>
+    <string name="force_widescreen_text">Geniş ekranı zorla</string>
     <string name="media_notification_duration_to">Medya bildirim zamanı</string>
     <string name="bluetooth_auto_connect">Bluetooth otomatik bağlanma</string>
     <string name="tutorial_nospeed">Bu ayar, Android Auto\'nun aracın 0 hızında olduğunu düşünmesini sağlayacaktır. Sonuç olarak, Android Auto her zaman mesajların önizlemesini gösterecektir. Bu ince ayar klavye veya Android Auto\'nun ilk yapılandırması için geçerli değildir.</string>
@@ -122,8 +122,16 @@ UYARI: Bu ince ayar kapsamlı bir şekilde test edilmiştir ve Android Auto\'ya 
     <string name="remove_paired_car">Eşleştirilmiş bir arabayı kaldırma</string>
     <string name="choose_cars">Araba(ları) Seç</string>
     <string name="tutorial_carremover">Android Auto\'dan yalnızca eşleştirilmiş tüm arabaları kaldırabileceğinizi ve aynı anda yalnızca birini kaldıramayacağınızı biliyor muydunuz? Android Otomatik\'ten bir arabayı silmek istiyorsanız, bu seçenek sizi kurtarır, sadece istediğiniz arabaları seçin ve kaldırılır.</string>
-    <string name="custom_startup_option">Custom boot option</string>
-    <string name="tutorial_custom_startup_option">This tweak will activate a new option inside Android Auto\'s settings that will let the user set what to open when Android Auto is started. You can choose to open latest navigation app, latest music app or just the launcher. Android Auto 6.8 or superior is required.</string>
-    <string name="custom_hotseat_option">Custom seating option</string>
-    <string name="tutorial_hotseat_option">This tweak will activate a new option inside Android Auto\'s settings that will let the user decide whether the driving position is left or right so that Android Auto can adapt its UI. Android Auto 6.9 or superior is required.</string>
+    <string name="custom_startup_option">Özel başlatma seçeneği</string>
+    <string name="tutorial_custom_startup_option">öğretici özel başlatma seçeneği</string>
+    <string name="custom_hotseat_option">Özel oturma seçeneği</string>
+    <string name="tutorial_hotseat_option">Yönünü seç</string>
+    <string name="tutorial_coolwalk">This tweak will activate a new design in Android Auto (codename Codewalk) that can be toggled in Android Auto\'s settings and that tweaks a bit the appearance on smaller screens. This design features a always on side panel and some different graphics. This feature is in early stage at the moment. Android Auto 6.9 or superior is required.</string>
+    <string name="coolwalk_tweak">Geniş gidiş dizaynı </string>
+    <string name="tutorial_focus_settings">This tweak will activate a new options in Android Auto settings to manually customize whether Android Auto must be launched as soon as you connect your phone with the car. Android Auto 6.8 or superior is required.</string>
+    <string name="focus_tweak">Focus settings</string>
+    <string name="casting_app">Casting app</string>
+    <string name="tutorial_mirroring_app">This mysterious app is bundled starting from Android Auto 7.1 and it\'s supposedly a screen mirroring app, probably destined to passenger\'s Android Auto. Might not function properly.</string>
+    <string name="decline_message_tweak">Decline with message</string>
+    <string name="tutorial_decline_message">This tweak will enable the possibility to decline an incoming call with pre-made SMS.</string>
 </resources>

@@ -102,12 +102,20 @@
     <string name="ignore_for_now">現在忽略</string>
     <string name="many_accounts_warning">AA AIO TWEAKER檢測到您的設備上存儲了大量 (%1$s)Google帳戶。\n這可能會對修補過程產生不利影響，並且AA AIO TWEAKER容易出現故障。\n為您的Google Play服務選擇主帳戶(建議兩個或更少)，然後修補或啟用實驗性模式以修補所有帳戶。\n請注意在實驗模式下，應用修補程序時，手機可能會崩潰。</string>
     <string name="dark_switch_tweak">白天/夜間 選項</string>
-    <string name="tutorial_darkmodeswitch">此調整可激活Android Auto常規設置(汽車和手機)中的專用切換鍵，以控制Android Auto的白天/夜間模式。 此選項與開發人員設置中的項目不同，因為它不需要您重新啟動Android Auto，並且在Google啟用了獨立的黑暗模式時會受到影響。需要Android Auto 6.3或更高版本。</string>
+    <string name="tutorial_darkmodeswitch">此調整可啟用Android Auto常規設置(汽車和手機)中的專用切換鍵，以控制Android Auto的白天/夜間模式。 此選項與開發人員設置中的項目不同，因為它不需要您重新啟動Android Auto，並且在Google啟用了獨立的黑暗模式時會受到影響。需要Android Auto 6.3或更高版本。</string>
     <string name="remove_paired_car">刪除配對的車子</string>
     <string name="choose_cars">選擇車子</string>
-    <string name="tutorial_carremover">您知道嗎，所有配對的車子只能一次從Android Auto中刪除，而不僅僅是一次？ 如果您要從Android Auto中刪除車子，則此選項很有用。 只需選擇需要的車子，它將被刪除。</string>
+    <string name="tutorial_carremover">您是否知道一次只能從 Android Auto 中刪除所有配對的汽車，而不能一次只刪除一個？ 如果您想從 Android Auto 中選擇刪除您的汽車，則此選項很有用。 只需選擇您需要的汽車，即會被移除。</string>
     <string name="custom_startup_option">自定義啟動選項</string>
-    <string name="tutorial_custom_startup_option">此調整將激活 Android Auto 中的一個新選項\'s 可設置用戶啟動Android Auto時，要打開的內容。 您可以選擇打開新的導航、音樂應用程序或僅打開啟動器。 需要 Android Auto 6.8 或更高版本。</string>
+    <string name="tutorial_custom_startup_option">此調整在 Android Auto 的設置中啟用了一項新設置，允許用戶設置 Android Auto 啟動時要打開的內容。 您可以選擇打開最新的導航應用、最新的音樂應用或啟動器。 需要 Android Auto 6.8 或更高版本。</string>
     <string name="custom_hotseat_option">自定義駕座選項</string>
-    <string name="tutorial_hotseat_option">此調整將激活 Android Auto 中的一個新選項\'s 可設置用戶決定駕駛位置，是左側還是右側，以便 Android Auto 可以調整其使用介面。 需要 Android Auto 6.9 或更高版本。</string>
+    <string name="tutorial_hotseat_option">此調整在 Android Auto 設置中啟用了一個新設置，允許您設置駕駛員座椅是在左側還是右側，以根據駕駛員座位優化 Android Auto 用戶界面。 需要 Android Auto 6.9 或更高版本。</string>
+    <string name="tutorial_coolwalk">This tweak will activate a new design in Android Auto (codename Codewalk) that can be toggled in Android Auto\'s settings and that tweaks a bit the appearance on smaller screens. This design features a always on side panel and some different graphics. This feature is in early stage at the moment. Android Auto 6.9 or superior is required.</string>
+    <string name="coolwalk_tweak">Coolwalk 設計</string>
+    <string name="tutorial_focus_settings">This tweak will activate a new options in Android Auto settings to manually customize whether Android Auto must be launched as soon as you connect your phone with the car. Android Auto 6.8 or superior is required.</string>
+    <string name="focus_tweak">Focus settings</string>
+    <string name="casting_app">Casting app</string>
+    <string name="tutorial_mirroring_app">This mysterious app is bundled starting from Android Auto 7.1 and it\'s supposedly a screen mirroring app, probably destined to passenger\'s Android Auto. Might not function properly.</string>
+    <string name="decline_message_tweak">Decline with message</string>
+    <string name="tutorial_decline_message">This tweak will enable the possibility to decline an incoming call with pre-made SMS.</string>
 </resources>

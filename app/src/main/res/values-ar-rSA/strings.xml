@@ -4,7 +4,7 @@
 هذا التطبيق سيسمح لك بتفعيل بعض التعديلات على Android Auto\n
 ببساطة اضغط على التعديل الذي تريد تطبيقه :)\n
 إن كنت غير متأكد من وظيفة التعديل، اضغط مطولاً عليه لتظهر نافذة تشرح مهمة التعديل.</string>
-    <string name="select_apps">اختر التطبيقات</string>
+    <string name="select_apps">Select apps</string>
     <string name="enable_assistant_shortcuts">اختصارات مساعدة</string>
     <string name="patch_custom_apps">تخصيص التطبيقات</string>
     <string name="disable_speed_limitations">قيود النقر</string>
@@ -33,12 +33,12 @@
 في بعض الحالات سيؤدي هذا التعديل إلى تعطيل بدء الموسيقى تلقائياً. نعمل على تطوير خيار تفعيل او ابطال من داخل تطبيق Android Auto.\n
 ليس هناك أي طريقة لتشغيل برنامج من البداية.</string>
     <string name="tutorial_widescreen">هذة الأداة ستفرض Android Auto في وضع الشاشة العريضة.</string>
-    <string name="tutorial_no_widescreen">هذا التعديل سيعطل وضع الشاشة العريضة في Android Auto.</string>
+    <string name="tutorial_no_widescreen">This tweak will force Android Auto in no widescreen mode.</string>
     <string name="tutorial_animation">هذا التعديل سيمكن الرسوم المتحركة لمساعد Google في شريط التنقل.</string>
     <string name="tutorial_statusbar_opaque">هذا التعديل سيجعل شريط الحالة أسود دائما.</string>
     <string name="tutorial_battery_outline">هذا التعديل سيزيل الاطار الاحمر من رمز البطارية عند تشغيل موفر البطارية.</string>
     <string name="tutorial_hun">هذا التعديل يسمح لك بتعيين مدة مخصصة للإشعارات العلوية</string>
-    <string name="tutorial_media_hun">هذا التعديل لتعيين مدة مخصصة لإشعارات الوسائط في شريط التنقل إلى 15 دقيقة.</string>
+    <string name="tutorial_media_hun">This tweak let you set a custom duration for media notifications in navigation bar to up to 15 minutes.</string>
     <string name="tutorial_bluetooth">هذة الأداة تمنع البلوتوث من التشغيل عند التوصيل بـ Android Auto. هذة الأداة لن تعمل إذا كان البلوتوث يعمل بالفعل.</string>
     <string name="tutorial_patchapps">هذا التعديل يعمل على تمكين تطبيقات أطراف-ثالثة التي تم إنشاؤها على وجه التحديد باستخدام SDK الخاصة بالأندرويد للعمل على Android Auto.\n
 هذا التعديل شبيه بعمل AA Phenotype Patcher.\n
@@ -121,8 +121,16 @@ Android Auto اصدار 5.8 او أعلى.</string>
     <string name="remove_paired_car">إزالة سيارة مقترنة</string>
     <string name="choose_cars">اختر السيارة (السيارة)</string>
     <string name="tutorial_carremover">هل تعلم أنه يمكنك فقط إزالة جميع السيارات المقترنة من أندرويد أوتو ولا يمكنك إزالة واحدة فقط في كل مرة؟ سيؤدي هذا الخيار إلى إنقاذك إذا كنت ترغب في حذف سيارة من أندرويد أوتو, فقط حدد السيارة (السيارات) التي تريدها/سيتم إزالتها.</string>
-    <string name="custom_startup_option">Custom boot option</string>
-    <string name="tutorial_custom_startup_option">This tweak will activate a new option inside Android Auto\'s settings that will let the user set what to open when Android Auto is started. You can choose to open latest navigation app, latest music app or just the launcher. Android Auto 6.8 or superior is required.</string>
-    <string name="custom_hotseat_option">Custom seating option</string>
+    <string name="custom_startup_option">خيار تشغيل مخصص</string>
+    <string name="tutorial_custom_startup_option">سيؤدي هذا التشفير إلى تنشيط خيار جديد داخل إعدادات أندرويد التلقائية التي ستسمح للمستخدم بتعيين ما سيفتحه عند بدء التشغيل التلقائي. يمكنك اختيار فتح أحدث تطبيقات التنقل، أحدث تطبيقات الموسيقى أو فقط المشغل. أندرويد تلقائي 6.8 أو متفوق مطلوب.</string>
+    <string name="custom_hotseat_option">خيار تشغيل مخصص</string>
     <string name="tutorial_hotseat_option">This tweak will activate a new option inside Android Auto\'s settings that will let the user decide whether the driving position is left or right so that Android Auto can adapt its UI. Android Auto 6.9 or superior is required.</string>
+    <string name="tutorial_coolwalk">This tweak will activate a new design in Android Auto (codename Codewalk) that can be toggled in Android Auto\'s settings and that tweaks a bit the appearance on smaller screens. This design features a always on side panel and some different graphics. This feature is in early stage at the moment. Android Auto 6.9 or superior is required.</string>
+    <string name="coolwalk_tweak">Coolwalk design</string>
+    <string name="tutorial_focus_settings">This tweak will activate a new options in Android Auto settings to manually customize whether Android Auto must be launched as soon as you connect your phone with the car. Android Auto 6.8 or superior is required.</string>
+    <string name="focus_tweak">Focus settings</string>
+    <string name="casting_app">Casting app</string>
+    <string name="tutorial_mirroring_app">This mysterious app is bundled starting from Android Auto 7.1 and it\'s supposedly a screen mirroring app, probably destined to passenger\'s Android Auto. Might not function properly.</string>
+    <string name="decline_message_tweak">Decline with message</string>
+    <string name="tutorial_decline_message">This tweak will enable the possibility to decline an incoming call with pre-made SMS.</string>
 </resources>

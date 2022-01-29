@@ -126,4 +126,12 @@ ATTENTION : Cette modification n\'a pas été testée de manière approfondie et
     <string name="tutorial_custom_startup_option">Cette modification activera une nouvelle option dans les paramètres d\'Android Auto permettant à l\'utilisateur de définir ce qui doit s\'ouvrir au démarrage d\'Android Auto. Vous pouvez choisir d\'ouvrir la dernière application de navigation, la dernière application de musique ou simplement le lanceur. Android Auto 6.8 ou supérieur est requis.</string>
     <string name="custom_hotseat_option">Option du siège conducteur</string>
     <string name="tutorial_hotseat_option">Cette modification activera une nouvelle option dans les paramètres d\'Android Auto permettant à l\'utilisateur de décider si la position de conduite est à gauche ou à droite afin qu\'Android Auto puisse adapter son interface utilisateur. Android Auto 6.9 ou supérieur est requis.</string>
+    <string name="tutorial_coolwalk">This tweak will activate a new design in Android Auto (codename Codewalk) that can be toggled in Android Auto\'s settings and that tweaks a bit the appearance on smaller screens. This design features a always on side panel and some different graphics. This feature is in early stage at the moment. Android Auto 6.9 or superior is required.</string>
+    <string name="coolwalk_tweak">Affichage Coolwalk</string>
+    <string name="tutorial_focus_settings">This tweak will activate a new options in Android Auto settings to manually customize whether Android Auto must be launched as soon as you connect your phone with the car. Android Auto 6.8 or superior is required.</string>
+    <string name="focus_tweak">Focus settings</string>
+    <string name="casting_app">Casting app</string>
+    <string name="tutorial_mirroring_app">This mysterious app is bundled starting from Android Auto 7.1 and it\'s supposedly a screen mirroring app, probably destined to passenger\'s Android Auto. Might not function properly.</string>
+    <string name="decline_message_tweak">Decline with message</string>
+    <string name="tutorial_decline_message">This tweak will enable the possibility to decline an incoming call with pre-made SMS.</string>
 </resources>

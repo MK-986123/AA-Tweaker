@@ -92,6 +92,10 @@ public class SplashActivity extends AppCompatActivity {
         editor.putBoolean("aa_daynight_switch", false);
         editor.putBoolean("aa_userseat_tweak", false);
         editor.putBoolean("aa_new_startup", false);
+        editor.putBoolean("aa_activate_coolwalk", false);
+        editor.putBoolean("aa_activate_declinesms", false);
+        editor.putBoolean("assistant_activate_transcript", false);
+        editor.putBoolean("aa_activate_mirrorapp", false);
         editor.commit();
 
         requestLatest();

@@ -125,4 +125,12 @@ CẢNH BÁO: Tùy chỉnh này chưa được thử nghiệm rộng rãi và có
     <string name="tutorial_custom_startup_option">This tweak will activate a new option inside Android Auto\'s settings that will let the user set what to open when Android Auto is started. You can choose to open latest navigation app, latest music app or just the launcher. Android Auto 6.8 or superior is required.</string>
     <string name="custom_hotseat_option">Custom seating option</string>
     <string name="tutorial_hotseat_option">This tweak will activate a new option inside Android Auto\'s settings that will let the user decide whether the driving position is left or right so that Android Auto can adapt its UI. Android Auto 6.9 or superior is required.</string>
+    <string name="tutorial_coolwalk">This tweak will activate a new design in Android Auto (codename Codewalk) that can be toggled in Android Auto\'s settings and that tweaks a bit the appearance on smaller screens. This design features a always on side panel and some different graphics. This feature is in early stage at the moment. Android Auto 6.9 or superior is required.</string>
+    <string name="coolwalk_tweak">Coolwalk design</string>
+    <string name="tutorial_focus_settings">This tweak will activate a new options in Android Auto settings to manually customize whether Android Auto must be launched as soon as you connect your phone with the car. Android Auto 6.8 or superior is required.</string>
+    <string name="focus_tweak">Focus settings</string>
+    <string name="casting_app">Casting app</string>
+    <string name="tutorial_mirroring_app">This mysterious app is bundled starting from Android Auto 7.1 and it\'s supposedly a screen mirroring app, probably destined to passenger\'s Android Auto. Might not function properly.</string>
+    <string name="decline_message_tweak">Decline with message</string>
+    <string name="tutorial_decline_message">This tweak will enable the possibility to decline an incoming call with pre-made SMS.</string>
 </resources>

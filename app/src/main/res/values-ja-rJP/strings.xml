@@ -71,7 +71,7 @@ Android Auto 5.8以降が必要です。</string>
     <string name="app_list_label">アプリの一覧</string>
     <string name="translators_button">翻訳者</string>
     <string name="about_part_one"><![CDATA[AA AIO TWEAKERはShmykelsaによって開発及びメンテナンスされています。<br><br>ソースコードは<a href=\"https://github.com/shmykelsa/AA-Tweaker\">GitHub</a>で入手できます。<br><br>]]></string>
-    <string name="about_part_two"><![CDATA[このアプリが気に入ったら、寄付を検討してください。<br><a href=\"http://www.paypal.me/grizzo96\">Paypal</a>で寄付するか、下のボタンを押してビットコインアドレスをコピーしてください。<br><br>少額でも大歓迎です :)]]></string>
+    <string name="about_part_two"><![CDATA[このアプリが気に入ったら、寄付を検討してください。<br><a href=\"http://www.paypal.me/grizzo96\">PayPal</a>で寄付するか、下のボタンを押してビットコインアドレスをコピーしてください。<br><br>少額でも大歓迎です :)]]></string>
     <string name="copied_address_toast">ビットコインアドレスをクリップボードにコピーしました</string>
     <string name="custom_wallpapers">壁紙</string>
     <string name="tutorial_wallpapers">この調整は、Android Autoに新しく組み込まれた壁紙チェンジャーを有効にします。Android Auto 5.8以降が必要です。\n警告: あなたがWallpapers For Android Autoの利用者であれば、少なくともバージョン3.0にアップデートする必要があります。そうしないと、この調整はWallpapers For Android Autoの機能を壊します。</string>
@@ -106,10 +106,10 @@ Android Auto 5.8以降が必要です。</string>
     <string name="open_issue_button">Issueを立てる</string>
     <string name="error_generic">コマンドは成功しませんでした。しばらく待ってからもう一度やり直してください。それでも問題が解決しない場合は、GitHubでissueを立ててください。</string>
     <string name="tutorial_alphajump">この調整は、文字でリストを閲覧する方法を変更する、新しい (そして隠された) デザインを有効にします。一番上にある A-Z ボタンの代わりに、スクロールしていないときにスクロールバーにボタンが表示され、文字で閲覧するために一番上に行く必要がなくなります。</string>
-    <string name="alpha_jump_tweak">A-Zボタンの新しいデザイン</string>
+    <string name="alpha_jump_tweak">新しいアルファベットジャンプ</string>
     <string name="choose_accounts">アカウントを選択</string>
     <string name="use_all">すべて使用 (実験的)</string>
-    <string name="copied_pastebin">ログへのリンクが作成され、クリップボードにコピーしました。</string>
+    <string name="copied_pastebin">ログへのリンクが作成され、クリップボードにコピーしました</string>
     <string name="log_copied">ログをコピーしました</string>
     <string name="new_version_available">新しいバージョンが利用可能です</string>
     <string name="go_to_new_version">GitHubでAA AIO TWEAKER (バージョン %1$s) の新しいバージョンが利用可能です。今すぐダウンロードしますか？</string>
@@ -122,7 +122,15 @@ Android Auto 5.8以降が必要です。</string>
     <string name="choose_cars">車を選択</string>
     <string name="tutorial_carremover">ペアリングされた全ての車を一括でAndroid Autoから削除することしかできず、一度に1台だけ削除することはできないことをご存知ですか？このオプションは、車をAndroid Autoから削除したい場合に役立ちます。必要な車を選択するだけで、その車が削除されます。</string>
     <string name="custom_startup_option">カスタム起動設定</string>
-    <string name="tutorial_custom_startup_option">この調整は、Android Autoの起動時に何を開くかをユーザーが設定できるようにする、Android Autoの設定内の新しい設定項目を有効にします。最新のナビゲーションアプリ、最新の音楽アプリ、またはランチャーを開くように選択できます。Android Auto 6.8以降が必要です。</string>
+    <string name="tutorial_custom_startup_option">この調整は、Android Autoの起動時に何を開くかをユーザーが設定できるようにする、Android Autoの設定内の新しい項目を有効にします。最後のナビアプリ、最後の音楽アプリ、またはランチャーを開くように選択できます。Android Auto 6.8以降が必要です。</string>
     <string name="custom_hotseat_option">カスタム座席設定</string>
     <string name="tutorial_hotseat_option">この調整は、Android AutoのUIを運転席の位置によって最適化するために、運転席が左右のどちらかにあるかを設定できる、Android Autoの設定内の新しい設定項目を有効にします。Android Auto 6.9以降が必要です。</string>
+    <string name="tutorial_coolwalk">This tweak will activate a new design in Android Auto (codename Codewalk) that can be toggled in Android Auto\'s settings and that tweaks a bit the appearance on smaller screens. This design features a always on side panel and some different graphics. This feature is in early stage at the moment. Android Auto 6.9 or superior is required.</string>
+    <string name="coolwalk_tweak">Coolwalkのデザイン</string>
+    <string name="tutorial_focus_settings">This tweak will activate a new options in Android Auto settings to manually customize whether Android Auto must be launched as soon as you connect your phone with the car. Android Auto 6.8 or superior is required.</string>
+    <string name="focus_tweak">Focus settings</string>
+    <string name="casting_app">Casting app</string>
+    <string name="tutorial_mirroring_app">This mysterious app is bundled starting from Android Auto 7.1 and it\'s supposedly a screen mirroring app, probably destined to passenger\'s Android Auto. Might not function properly.</string>
+    <string name="decline_message_tweak">Decline with message</string>
+    <string name="tutorial_decline_message">This tweak will enable the possibility to decline an incoming call with pre-made SMS.</string>
 </resources>

@@ -7,7 +7,7 @@
     <string name="select_apps">Приложения</string>
     <string name="enable_assistant_shortcuts">Ярлыки Ассистента</string>
     <string name="patch_custom_apps">приложения</string>
-    <string name="disable_speed_limitations">ограничения касания</string>
+    <string name="disable_speed_limitations">ограничения касаний</string>
     <string name="unlimited_scrolling_when_driving">ограничение скорости</string>
     <string name="enable_assistant_animation_in_navbar">Анимацию ассистента в панели навигации</string>
     <string name="splash">Это приложение может изменить настройки Android Auto и обойти некоторые функции безопасности, которые Google реализовал в Android Auto.\n
@@ -70,7 +70,7 @@
     <string name="unpatch">Отменить патч\u0020</string>
     <string name="patch_app">Патч\u0020</string>
     <string name="default_string">\u0020По умолчанию</string>
-    <string name="app_list_label">Список приложений</string>
+    <string name="app_list_label">Выбор приложений</string>
     <string name="translators_button">Авторы перевода</string>
     <string name="about_part_one"><![CDATA[AIO TWEAKER разработан и поддерживается Shmykelsa.<br><br>Исходный код доступен на сайте <a href=\"https://github.com/shmykelsa/AA-Tweaker\">GitHub</a><br><br>]]></string>
     <string name="about_part_two"><![CDATA[Если вам нравится моя работа, пожалуйста, подумайте о том, чтобы угостить меня кофе.<br> Вы можете это  сделать через <a href=\"http://www.paypal.me/grizzo96\">PayPal</a> или через Bitcoin.Скопировать мой Bitcoin можно кнопкой ниже .<br><br>Даже небольшое пожертвование будет оценено. :)]]></string>
@@ -127,4 +127,12 @@
     <string name="tutorial_custom_startup_option">Эта настройка активирует новую опцию в настройках Android Auto, которая позволит пользователю установить, что открывать при запуске Android Auto. Вы можете открыть последнее навигационное приложение, последнее музыкальное приложение или просто лаунчер. Требуется Android Auto 6.8 или выше.</string>
     <string name="custom_hotseat_option">Пользовательские параметры загрузки</string>
     <string name="tutorial_hotseat_option">Эта настройка активирует новую опцию в настройках Android Auto , которая позволит пользователю выбрать расположение дополнительного экрана слева или справа. Таким образом Android Auto может адаптировать свой пользовательский интерфейс для автомобилей с правым рулём. Требуется Android Auto 6.9 или выше.</string>
+    <string name="tutorial_coolwalk">This tweak will activate a new design in Android Auto (codename Codewalk) that can be toggled in Android Auto\'s settings and that tweaks a bit the appearance on smaller screens. This design features a always on side panel and some different graphics. This feature is in early stage at the moment. Android Auto 6.9 or superior is required.</string>
+    <string name="coolwalk_tweak">Дизайн Coolwalk </string>
+    <string name="tutorial_focus_settings">This tweak will activate a new options in Android Auto settings to manually customize whether Android Auto must be launched as soon as you connect your phone with the car. Android Auto 6.8 or superior is required.</string>
+    <string name="focus_tweak">Focus settings</string>
+    <string name="casting_app">Casting app</string>
+    <string name="tutorial_mirroring_app">This mysterious app is bundled starting from Android Auto 7.1 and it\'s supposedly a screen mirroring app, probably destined to passenger\'s Android Auto. Might not function properly.</string>
+    <string name="decline_message_tweak">Decline with message</string>
+    <string name="tutorial_decline_message">This tweak will enable the possibility to decline an incoming call with pre-made SMS.</string>
 </resources>

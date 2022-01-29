@@ -4,7 +4,7 @@
 Esta herramienta te permitirá modificar y personalizar Android Auto.\n
 Solo tendrás que seleccionar la modificación que quieras aplicar :)\n
 Si no estás seguro de lo que hace una función, mantén pulsada la opción y aparecerá un tutorial.</string>
-    <string name="select_apps">Seleccionar aplicación</string>
+    <string name="select_apps">Seleccionar app</string>
     <string name="enable_assistant_shortcuts">Atajos del asistente</string>
     <string name="patch_custom_apps">Aplicaciones personalizadas</string>
     <string name="disable_speed_limitations">Limitación de toques</string>
@@ -68,11 +68,11 @@ Se requiere de Android Auto 5.8 o superior.</string>
     <string name="set_value">Establecer\u0020</string>
     <string name="reboot_to_apply">REINICIAR PARA APLICAR</string>
     <string name="warning_title">ADVERTENCIA</string>
-    <string name="unpatch">Desparchear\u0020</string>
+    <string name="unpatch">Unpatch\u0020</string>
     <string name="patch_app">Parchear\u0020</string>
     <string name="default_string">\u0020Por defecto</string>
-    <string name="app_list_label">Lista de Aplicaciones</string>
-    <string name="translators_button">Traducido por</string>
+    <string name="app_list_label">Apps List</string>
+    <string name="translators_button">Translated by</string>
     <string name="about_part_one"><![CDATA[AA AIO TWEAKER está desarrollado y mantenido por Shmykelsa.<br><br>El código fuente está disponible en <a href=\"https://github.com/shmykelsa/AA-Tweaker\">GitHub</a><br><br>]]></string>
     <string name="about_part_two"><![CDATA[Si realmente te gusta mi trabajo, por favor considera realizar una donación.<br> Puedes donar a través de <a href=\"http://www.paypal.me/grizzo96\">PayPal</a> o puedes copiar mi dirección de Bitcoin con el botón de abajo.<br><br>Aunque sea sólo una pequeña cantidad será muy apreciada :)]]></string>
     <string name="copied_address_toast">Dirección BTC copiada al portapapeles</string>
@@ -124,8 +124,16 @@ ADVERTENCIA: Esta modificación no ha sido probada extensivamente y podría pote
     <string name="remove_paired_car">Remove a paired car</string>
     <string name="choose_cars">Choose car(s)</string>
     <string name="tutorial_carremover">Did you know that you can only remove all the paired cars from Android Auto and you cannot remove just one at a time? This option will rescue you if you want to delete a car from Android Auto, just select which car(s) you want and it/they will be removed.</string>
-    <string name="custom_startup_option">Custom boot option</string>
-    <string name="tutorial_custom_startup_option">This tweak will activate a new option inside Android Auto\'s settings that will let the user set what to open when Android Auto is started. You can choose to open latest navigation app, latest music app or just the launcher. Android Auto 6.8 or superior is required.</string>
-    <string name="custom_hotseat_option">Custom seating option</string>
-    <string name="tutorial_hotseat_option">This tweak will activate a new option inside Android Auto\'s settings that will let the user decide whether the driving position is left or right so that Android Auto can adapt its UI. Android Auto 6.9 or superior is required.</string>
+    <string name="custom_startup_option">Opción de inicio personalizada</string>
+    <string name="tutorial_custom_startup_option">Esta modificación activará una nueva opción dentro de la configuración de Android Auto que permitirá al usuario establecer qué abrir cuando Android Auto se inicia. Puedes elegir entre abrir la última aplicación de navegación, la última aplicación de música, o simplemente el lanzador. Se requiere Android Auto 6.8 o superior.</string>
+    <string name="custom_hotseat_option">Opción de asientos personalizada</string>
+    <string name="tutorial_hotseat_option">Esta modificación activará una nueva opción dentro de los ajustes de Android Auto que permitirá al usuario decidir si la posición del asiento del conductor está a la izquierda o la derecha, para que Android Auto pueda adaptar así su interfaz de usuario. Android Auto 6.9 o superior es necesario.</string>
+    <string name="tutorial_coolwalk">This tweak will activate a new design in Android Auto (codename Codewalk) that can be toggled in Android Auto\'s settings and that tweaks a bit the appearance on smaller screens. This design features a always on side panel and some different graphics. This feature is in early stage at the moment. Android Auto 6.9 or superior is required.</string>
+    <string name="coolwalk_tweak">Diseño Coolwalk</string>
+    <string name="tutorial_focus_settings">This tweak will activate a new options in Android Auto settings to manually customize whether Android Auto must be launched as soon as you connect your phone with the car. Android Auto 6.8 or superior is required.</string>
+    <string name="focus_tweak">Focus settings</string>
+    <string name="casting_app">Casting app</string>
+    <string name="tutorial_mirroring_app">This mysterious app is bundled starting from Android Auto 7.1 and it\'s supposedly a screen mirroring app, probably destined to passenger\'s Android Auto. Might not function properly.</string>
+    <string name="decline_message_tweak">Decline with message</string>
+    <string name="tutorial_decline_message">This tweak will enable the possibility to decline an incoming call with pre-made SMS.</string>
 </resources>

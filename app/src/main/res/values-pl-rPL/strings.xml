@@ -128,12 +128,17 @@ OSTRZEŻENIE: ta modyfikacja nie została dokładnie przetestowana i może poten
     <string name="tutorial_custom_startup_option">Ta poprawka aktywuje nową opcję w ustawieniach Android Auto, która pozwoli użytkownikowi ustawić, co ma otwierać po uruchomieniu Android Auto. Możesz wybrać, aby otworzyć najnowszą aplikację nawigacyjną, najnowszą aplikację muzyczną lub tylko program uruchamiający. Wymagany Android Auto 6.8 lub nowszy.</string>
     <string name="custom_hotseat_option">Wybór pozycji kierowcy (lewo/prawo stronna)</string>
     <string name="tutorial_hotseat_option">Ta poprawka aktywuje nową opcję w ustawieniach Android Auto, która pozwoli użytkownikowi zdecydować, czy pozycja kierowcy jest lewo stronna czy prawo stronna, aby Android Auto mógł dostosować interfejs użytkownika. Wymagany Android Auto 6.9 lub nowszy. </string>
-    <string name="tutorial_coolwalk">This tweak will activate a new design in Android Auto (codename Codewalk) that can be toggled in Android Auto\'s settings and that tweaks a bit the appearance on smaller screens. This design features a always on side panel and some different graphics. This feature is in early stage at the moment. Android Auto 6.9 or superior is required.</string>
+    <string name="tutorial_coolwalk">Ta poprawka aktywuje nowy projekt w Android Auto (nazwa kodowa Coolwalk), który można przełączać w ustawieniach Android Auto i który nieco poprawia wygląd na mniejszych ekranach. Ten projekt ma zawsze widoczny panel boczny i różne grafiki. Ta funkcja jest obecnie na wczesnym etapie. Wymagany Android Auto 6.9 lub nowszy </string>
     <string name="coolwalk_tweak">Nowy projekt (Coolwalk design)</string>
-    <string name="tutorial_focus_settings">This tweak will activate a new options in Android Auto settings to manually customize whether Android Auto must be launched as soon as you connect your phone with the car. Android Auto 6.8 or superior is required.</string>
-    <string name="focus_tweak">Focus settings</string>
-    <string name="casting_app">Casting app</string>
-    <string name="tutorial_mirroring_app">This mysterious app is bundled starting from Android Auto 7.1 and it\'s supposedly a screen mirroring app, probably destined to passenger\'s Android Auto. Might not function properly.</string>
-    <string name="decline_message_tweak">Decline with message</string>
-    <string name="tutorial_decline_message">This tweak will enable the possibility to decline an incoming call with pre-made SMS.</string>
+    <string name="tutorial_focus_settings">Ta poprawka aktywuje nowe opcje w ustawieniach Android Auto, aby ręcznie dostosować, czy Android Auto ma być uruchamiany zaraz po podłączeniu telefonu do samochodu. Wymagany Android Auto 6.8 lub nowszy.</string>
+    <string name="focus_tweak">Ustawienia ostrości </string>
+    <string name="casting_app">Aplikacja do przesyłania</string>
+    <string name="tutorial_mirroring_app">Ta tajemnicza aplikacja jest dostarczana w pakiecie począwszy od Androida Auto 7.1 i jest to podobno aplikacja do tworzenia kopii ekranu, prawdopodobnie przeznaczona dla Android Auto pasażera. Może nie działać poprawnie. </string>
+    <string name="decline_message_tweak">Odrzuć z wiadomością</string>
+    <string name="tutorial_decline_message">To ulepszenie umożliwi odrzucenie połączenia przychodzącego za pomocą SMS-a (z Asystentem Google).</string>
+    <string name="section_one">Ogólne poprawki</string>
+    <string name="section_two">Ulepszenia konfiguracji ekranu</string>
+    <string name="section_three">Poprawki wyglądu</string>
+    <string name="section_four">Ustawienia jakości wideo</string>
+    <string name="section_five">Aktywowane funkcje</string>
 </resources>

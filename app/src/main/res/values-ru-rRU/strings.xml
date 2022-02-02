@@ -4,10 +4,10 @@
 Это приложение позволит вам внести изменения в настройки Android Auto.\n
 Просто выберите настройку, которую хотите применить. :)\n
 Долгое нажатие на настройку, позволяет получить разъяснение о её действии.</string>
-    <string name="select_apps">Приложения</string>
+    <string name="select_apps">Выбор приложений</string>
     <string name="enable_assistant_shortcuts">Ярлыки Ассистента</string>
-    <string name="patch_custom_apps">приложения</string>
-    <string name="disable_speed_limitations">ограничения касаний</string>
+    <string name="patch_custom_apps">выбранные приложения</string>
+    <string name="disable_speed_limitations">лимит касаний</string>
     <string name="unlimited_scrolling_when_driving">ограничение скорости</string>
     <string name="enable_assistant_animation_in_navbar">Анимацию ассистента в панели навигации</string>
     <string name="splash">Это приложение может изменить настройки Android Auto и обойти некоторые функции безопасности, которые Google реализовал в Android Auto.\n
@@ -15,18 +15,18 @@
 Ни при каких обстоятельствах автор этого приложения не несет ответственности за последствия от его использования.</string>
     <string name="proceed">Согласен</string>
     <string name="navigation_at_start">Автозапуск навигации</string>
-    <string name="statb_opaque_string">Непрозрачность Строки Состояния</string>
+    <string name="statb_opaque_string">Непрозрачность строки состояния</string>
     <string name="battery_outline_string">отображение экономии заряда батареи</string>
     <string name="legend">Статус функции:\n
-ЗЕЛЁНЫЙ= Настройка активна\n
-ЖЁЛТЫЙ= Требуется перезагрузка для применения настройки \n
-КРАСНЫЙ= Настройка не применена\n</string>
+ЗЕЛЁНЫЙ= Твик активен\n
+ЖЁЛТЫЙ= Требуется перезагрузка для применения твика\n
+КРАСНЫЙ= Твик не применён\n</string>
     <string name="set_notification_duration_to">Время уведомлений</string>
-    <string name="base_no_ws">\"Режим широкого экрана\"</string>
-    <string name="force_widescreen_text">\"Режим широкого экрана\"</string>
+    <string name="base_no_ws">Режим широкого экрана</string>
+    <string name="force_widescreen_text">Режим широкого экрана</string>
     <string name="media_notification_duration_to">Время медиа уведомлений</string>
     <string name="bluetooth_auto_connect">Автозапуск Bluetooth</string>
-    <string name="tutorial_nospeed">После применения этой настройки Android Auto будет считать, что скорость  автомобиля 0км/ч. В результате Android Auto всегда будет показывать предварительный просмотр сообщений. Функция не применима к клавиатуре или первоначальной настройке Android Auto.</string>
+    <string name="tutorial_nospeed">После применения этой настройки Android Auto будет считать, что скорость  автомобиля 0 км/ч. В результате Android Auto всегда будет показывать предварительный просмотр сообщений. Функция не применима к клавиатуре или первоначальной настройке Android Auto.</string>
     <string name="tutorial_sixtap">Эта настройка отменяет лимит в 6 касаний на экране ГУ для Android Auto и делает просмотр контента неограниченным.</string>
     <string name="tutorial_shortcuts">Эта настройка включает функцию добавления ярлыков Ассистента. После активации вы можете перейти в Настройки -&gt; Настройки панели запуска -&gt; Добавить ярлык на панель запуска и создать ярлык для вызова контакта или  для действия Ассистента.</string>
     <string name="tutorial_startup">Эта настройка запрещает автозапуск активной (последней использованной) навигационной программы при старте Android Auto. Android Auto будет запускаться с открытым меню приложений.\n
@@ -74,9 +74,9 @@
     <string name="translators_button">Авторы перевода</string>
     <string name="about_part_one"><![CDATA[AIO TWEAKER разработан и поддерживается Shmykelsa.<br><br>Исходный код доступен на сайте <a href=\"https://github.com/shmykelsa/AA-Tweaker\">GitHub</a><br><br>]]></string>
     <string name="about_part_two"><![CDATA[Если вам нравится моя работа, пожалуйста, подумайте о том, чтобы угостить меня кофе.<br> Вы можете это  сделать через <a href=\"http://www.paypal.me/grizzo96\">PayPal</a> или через Bitcoin.Скопировать мой Bitcoin можно кнопкой ниже .<br><br>Даже небольшое пожертвование будет оценено. :)]]></string>
-    <string name="copied_address_toast">Bitcoin адрес скопирован в буфер обмена</string>
+    <string name="copied_address_toast">Адрес Bitcoin кошелька скопирован в буфер обмена</string>
     <string name="custom_wallpapers">Обои</string>
-    <string name="tutorial_wallpapers">Эта настройка активирует штатную функцию изменения обоев в Android Auto (версия 5.8 или новее обязательна).\n ВНИМАНИЕ: Если вы являетесь пользователем приложения Wallpapers For Android Auto, вам обязательно нужно будет обновить его до версии 3 или новее, иначе эта функция нарушит работу обоев в Android Auto.</string>
+    <string name="tutorial_wallpapers">Этот твик активирует штатную функцию изменения обоев в Android Auto (версия 5.8 или новее обязательна).\n ВНИМАНИЕ: Если вы являетесь пользователем приложения Wallpapers For Android Auto, вам обязательно нужно будет обновить его до версии 3 или новее, иначе эта функция нарушит работу обоев в Android Auto.</string>
     <string name="tutorial_dark_mode">Начиная с декабря 2020 года, компания Google изменила некоторые настройки на Андроид 10 и выше при использовании ГУ с Android Auto. Раньше светлый/тёмный режим менялся только вместе с режимом на смартфоне. При изменении режима на смартфоне, он автоматически менялся и на ГУ. \n Однако, поскольку был введен  «независимый» темный режим, пользователи с не штатными ГУ больше не имеют возможности переключиться в темный режим без фактического подключения ГУ к головному свету автомобиля. \n Данная настройка позволяет вернуть переключение светлого/темного режима совместно с режимом на смартфоне.</string>
     <string name="dark_mode_tweak">«независимый» тёмный режим</string>
     <string name="telemetry_string">телеметрию</string>
@@ -91,7 +91,7 @@
     <string name="revert_everything_dialog">Вы хотите отменить все действия? Пожалуйста, перезапустите после этого приложение вручную </string>
     <string name="calendar_tweak">Отображать %1$s дней в календаре</string>
     <string name="calendar_tweak_single">Отображать %1$s день в календаре</string>
-    <string name="tutorial_calendar_tweak">Эта настройка сделает так, чтобы приложение календаря в Android Auto могло показывать больше дней, чем один. Пожалуйста, обратите внимание, что даже после увеличения количества дней,  невозможно определить, в какой день вы просматриваете событие. Android Auto просто покажет, сколько событий установлено в один день, и не покажет, в какой день запланировано это событие.</string>
+    <string name="tutorial_calendar_tweak">Этот твик сделает так, чтобы приложение календаря в Android Auto могло показывать больше одного дня. Пожалуйста, обратите внимание, что даже после увеличения количества дней,  невозможно определить, в какой день вы просматриваете событие. Android Auto просто покажет, сколько событий установлено в один день, и не покажет, в какой день запланировано это событие.</string>
     <string name="choose_apps_warning">Выбрать приложения в белом списке</string>
     <string name="log_first_line">LOG:\n</string>
     <string name="menu_aa_settings">Открыть настройки Android Auto</string>
@@ -101,13 +101,13 @@
     <string name="no_accounts_warning">AA AIO TWEAKER не смог найти ни одной учетной записи в базе данных Google Play Services. Это может быть вызвано несколькими различными причинами, такими как:\n • Устройство не подключено к Интернету\n • Первый запуск телефона\n • Поврежденная база данных служб Google Play\n • Удаление учетной записи Google с телефона\n • Очищенные данные служб Google Play\n\n В этом сценарии AA AIO TWEAKER  работать должным образом НЕ будет. Если вы недавно удалили учетную запись Google или очистили данные служб Google Play, пожалуйста, подключите телефон к Интернету и позвольте ему полностью создать базу данных служб Google Play. Это может занять несколько часов, а в некоторых случаях и дней.\n\n Если вы столкнулись с проблемой, отличной от  вышеперечисленных, пожалуйста, создайте вопрос на GitHub.</string>
     <string name="tweak_loading">Применение твика...</string>
     <string name="loading">Загружается, пожалуйста, подождите...</string>
-    <string name="tutorial_bitrate">Этот параметр увеличит или уменьшит битрейт видео в соответствии с установкой коэффициента (до 2.0x). Увеличение битрейта (более 1. x) будет означать, что большее количество данных будет транслироваться на ГУ и качество видео может быть улучшено в плане визуального просмотра, однако это может вызвать нестабильность. Уменьшение битрейта (менее 1. x) будет сжимать поток передаваемой информации на ГУ и качество будет хуже, но это позволит получить  более надежное и быстрое соединение.</string>
-    <string name="set_wifi_tweak">битрейт wifi</string>
+    <string name="tutorial_bitrate">Этот твик увеличит или уменьшит битрейт видео в соответствии с установкой коэффициента (до 2.0x). Увеличение битрейта (более 1. x) будет означать, что большее количество данных будет транслироваться на ГУ и качество видео может быть улучшено в плане визуального просмотра, однако это может вызвать нестабильность. Уменьшение битрейта (менее 1. x) будет сжимать поток передаваемой информации на ГУ и качество будет хуже, но это позволит получить  более надежное и быстрое соединение.</string>
+    <string name="set_wifi_tweak">Битрейт Wi-Fi</string>
     <string name="set_usb_bitrate">Битрейт USB</string>
     <string name="choose_value_first">Сначала выберите значение</string>
     <string name="open_issue_button">Открыть вопрос</string>
     <string name="error_generic">Команда не выполнена. Пожалуйста, подождите пару минут и повторите попытку. Если проблема не решена, пожалуйста, откройте вопрос на GitHub</string>
-    <string name="tutorial_alphajump">Эта настройка активирует новый (и скрытый) редизайн, который изменяет способ просмотра списков с помощью букв. Вместо кнопки A-Z вверху, кнопка появится на полосе прокрутки, когда не будет происходить прокрутка, и вам не придётся пролистывать вверх для повторного просмотра букв.</string>
+    <string name="tutorial_alphajump">Этот твик активирует новый (и скрытый) редизайн, который изменяет способ просмотра списков с помощью букв. Вместо кнопки A-Z вверху, кнопка появится на полосе прокрутки, когда не будет происходить прокрутка, и вам не придётся пролистывать вверх для повторного просмотра букв.</string>
     <string name="alpha_jump_tweak">новый переход по алфавиту</string>
     <string name="choose_accounts">Выбрать аккаунт</string>
     <string name="use_all">Выбрать все (ЭКСПЕРИМЕНТ)</string>
@@ -119,20 +119,25 @@
     <string name="ignore_for_now">Пока что игнорировать</string>
     <string name="many_accounts_warning">AIO TWEAKER обнаружил большое число (%1$s) аккаунтов Google, сохраненных на телефоне.\nЭто может негативно повлиять на работу AA AIO TWEAKER и патч может не удаться.\nВы можете либо выбрать учетную(ые) запись(и), используемую в основном с сервисами Google Play, чтобы применить патч только к ним (рекомендуется 2 или менее), либо активировать экспериментальный режим, который должен исправить все учетные записи.\nОбратите ВНИМАНИЕ, что экспериментальный режим может вызвать некоторые сбои в работе телефона во время работы патча.</string>
     <string name="dark_switch_tweak">выбрать день/ночь</string>
-    <string name="tutorial_darkmodeswitch">Эта настройка активирует отдельный переключатель в основных настройках Android Auto (как автомобиля, так и телефона), который может контролировать состояние дневного/ночного режима на Android Auto. Эта опция отличается от настроек разработчика, потому что она не нуждается в перезапуске Android Auto и на самом деле будет влиять на использование после включения Google независимого темного режима. Требуется Android Auto 6.3 или выше.</string>
+    <string name="tutorial_darkmodeswitch">Этот твик активирует отдельный переключатель в основных настройках Android Auto (как автомобиля, так и телефона), который может контролировать состояние дневного/ночного режима на Android Auto. Эта опция отличается от настроек разработчика, потому что она не нуждается в перезапуске Android Auto и на самом деле будет влиять на использование после включения Google независимого темного режима. Требуется Android Auto 6.3 или новее.</string>
     <string name="remove_paired_car">Удалить подключенный автомобиль</string>
     <string name="choose_cars">Выбрать автомобиль(и)</string>
     <string name="tutorial_carremover">Знаете ли вы, что можно удалить только все подключенные автомобили из Android Auto, а удалить только один из них невозможно? Эта опция поможет вам удалить один автомобиль из Android Auto,  а не все сразу.</string>
     <string name="custom_startup_option">Пользовательские параметры загрузки</string>
-    <string name="tutorial_custom_startup_option">Эта настройка активирует новую опцию в настройках Android Auto, которая позволит пользователю установить, что открывать при запуске Android Auto. Вы можете открыть последнее навигационное приложение, последнее музыкальное приложение или просто лаунчер. Требуется Android Auto 6.8 или выше.</string>
+    <string name="tutorial_custom_startup_option">Этот твик активирует новую опцию в настройках Android Auto, которая позволит пользователю установить, что открывать при запуске Android Auto. Вы можете открыть последнее навигационное приложение, последнее музыкальное приложение или просто лаунчер. Требуется Android Auto 6.8 или новее.</string>
     <string name="custom_hotseat_option">Пользовательские параметры загрузки</string>
-    <string name="tutorial_hotseat_option">Эта настройка активирует новую опцию в настройках Android Auto , которая позволит пользователю выбрать расположение дополнительного экрана слева или справа. Таким образом Android Auto может адаптировать свой пользовательский интерфейс для автомобилей с правым рулём. Требуется Android Auto 6.9 или выше.</string>
-    <string name="tutorial_coolwalk">This tweak will activate a new design in Android Auto (codename Codewalk) that can be toggled in Android Auto\'s settings and that tweaks a bit the appearance on smaller screens. This design features a always on side panel and some different graphics. This feature is in early stage at the moment. Android Auto 6.9 or superior is required.</string>
-    <string name="coolwalk_tweak">Дизайн Coolwalk </string>
-    <string name="tutorial_focus_settings">This tweak will activate a new options in Android Auto settings to manually customize whether Android Auto must be launched as soon as you connect your phone with the car. Android Auto 6.8 or superior is required.</string>
-    <string name="focus_tweak">Focus settings</string>
-    <string name="casting_app">Casting app</string>
-    <string name="tutorial_mirroring_app">This mysterious app is bundled starting from Android Auto 7.1 and it\'s supposedly a screen mirroring app, probably destined to passenger\'s Android Auto. Might not function properly.</string>
-    <string name="decline_message_tweak">Decline with message</string>
-    <string name="tutorial_decline_message">This tweak will enable the possibility to decline an incoming call with pre-made SMS.</string>
+    <string name="tutorial_hotseat_option">Этот твик активирует новую опцию в настройках Android Auto , которая позволит пользователю выбрать расположение дополнительного экрана слева или справа. Таким образом Android Auto может адаптировать свой пользовательский интерфейс для автомобилей с правым рулём. Требуется Android Auto 6.9 или новее.</string>
+    <string name="tutorial_coolwalk">Этот твик активирует новый интерфейс  Android Auto (Codewalk), который можно включить в настройках Android Auto. При этом будет  незначительно изменён внешний вид и  добавятся дополнительные окна. Этот интерфейс  всегда отображает боковую панель и графику. Параметр в данный момент находится на ранней стадии тестирования. Требуется Android Auto 6.9 или новее.</string>
+    <string name="coolwalk_tweak">Интерфейс Coolwalk </string>
+    <string name="tutorial_focus_settings">Этот параметр активирует новую возможность ручной настройки для автоматического запуска Android Auto при подключении телефона к автомобилю. Требуется Android Auto 6.8 или новее.</string>
+    <string name="focus_tweak">Настройки фокуса</string>
+    <string name="casting_app">Зеркалируещее приложение</string>
+    <string name="tutorial_mirroring_app">Эта  функция для зеркалирования экрана, вероятно, предназначена для дополнительного экрана, расположенного у пассажира. Функция может не работать должным образом. Поддержка реализована в версии Android Auto 7.1 и новее.</string>
+    <string name="decline_message_tweak">Отклонить сообщение</string>
+    <string name="tutorial_decline_message">Этот твик позволит добавить возможность отправки заранее подготовленного SMS в случае отклонения входящего вызова (с Google Assistant).</string>
+    <string name="section_one">Основные твики</string>
+    <string name="section_two">Настройка твиков экрана</string>
+    <string name="section_three">Твики внешнего вида</string>
+    <string name="section_four">Настройка качества видео</string>
+    <string name="section_five">Активация скрытых функций</string>
 </resources>

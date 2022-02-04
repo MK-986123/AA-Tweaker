@@ -55,7 +55,7 @@ Please, if you want to share AA AIO TWEAKER, do not reupload the APK elsewhere. 
 AA AIO TWEAKER is open to translations! [Join translations on Crowdin](https://crwd.in/aa-aio-tweaker)
 
 
-## [DOWNLAOD](https://github.com/shmykelsa/AA-Tweaker/releases)
+## [DOWNLOAD](https://github.com/shmykelsa/AA-Tweaker/releases)
 
 Credits:<br>
 [Jen94](https://github.com/jen94) for the original app whitelist hack <br>

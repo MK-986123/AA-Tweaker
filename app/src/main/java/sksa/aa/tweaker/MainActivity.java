@@ -2228,6 +2228,10 @@ appendText(logs, "\n\n--  Restoring ownership of the database   --");
             finalCommand.append(i);
             finalCommand.append(",1) ,1,1);");
             finalCommand.append(System.getProperty("line.separator"));
+            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType,  name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"GearheadCarService__deprecate_bind_to_startup_service_with_token\", (SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
+            finalCommand.append(i);
+            finalCommand.append(",1) ,1,1);");
+            finalCommand.append(System.getProperty("line.separator"));
         }
 
         new Thread() {
@@ -2702,10 +2706,6 @@ appendText(logs, "\n\n--  Restoring ownership of the database   --");
             finalCommand.append(i);
             finalCommand.append(",1) ,1,1);");
             finalCommand.append(System.getProperty("line.separator"));
-            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType,  name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"Coolwalk__rail_back_button\", (SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
-            finalCommand.append(i);
-            finalCommand.append(",1) ,1,1);");
-            finalCommand.append(System.getProperty("line.separator"));
             finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType,  name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"Assistant__coolwalk_suggestions_grpc_enabled\", (SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
             finalCommand.append(i);
             finalCommand.append(",1) ,1,1);");
@@ -2740,8 +2740,8 @@ appendText(logs, "\n\n--  Restoring ownership of the database   --");
                 appendText(logs, "\n\n--  run SQL method   --");
                 appendText(logs, runSuWithCmd(
                         path + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " +
-                                "'DROP TRIGGER IF EXISTS aa_activate_coolwalk;\n"
-                                + finalCommand + "'"
+                                "'DROP TRIGGER IF EXISTS aa_activate_coolwalk;\n" +
+                                finalCommand + "'"
                 ).getStreamLogsWithLabels());
 
 

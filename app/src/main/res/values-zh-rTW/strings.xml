@@ -110,17 +110,19 @@
     <string name="tutorial_custom_startup_option">此調整在 Android Auto 的設置中啟用了一項新設置，允許用戶設置 Android Auto 啟動時要打開的內容。 您可以選擇打開最新的導航應用、最新的音樂應用或啟動器。 需要 Android Auto 6.8 或更高版本。</string>
     <string name="custom_hotseat_option">自定義駕座選項</string>
     <string name="tutorial_hotseat_option">此調整在 Android Auto 設置中啟用了一個新設置，允許您設置駕駛員座椅是在左側還是右側，以根據駕駛員座位優化 Android Auto 用戶界面。 需要 Android Auto 6.9 或更高版本。</string>
-    <string name="tutorial_coolwalk">This tweak will activate a new design in Android Auto (codename Coolwalk) that can be toggled in Android Auto\'s settings and that tweaks a bit the appearance on smaller screens. This design features a always on side panel and some different graphics. This feature is in early stage at the moment. Android Auto 6.9 or superior is required.</string>
-    <string name="coolwalk_tweak">Coolwalk 設計</string>
-    <string name="tutorial_focus_settings">This tweak will activate a new options in Android Auto settings to manually customize whether Android Auto must be launched as soon as you connect your phone with the car. Android Auto 6.8 or superior is required.</string>
-    <string name="focus_tweak">Focus settings</string>
-    <string name="casting_app">Casting app</string>
-    <string name="tutorial_mirroring_app">This mysterious app is bundled starting from Android Auto 7.1 and it\'s supposedly a screen mirroring app, probably destined to passenger\'s Android Auto. Might not function properly.</string>
-    <string name="decline_message_tweak">Decline with message</string>
-    <string name="tutorial_decline_message">This tweak will enable the possibility to decline an incoming call with SMS (with Google Assistant).</string>
-    <string name="section_one">General tweaks</string>
-    <string name="section_two">Screen setup tweaks</string>
-    <string name="section_three">Appeareance tweaks</string>
-    <string name="section_four">Video quality settings</string>
-    <string name="section_five">Pre-activate features</string>
+    <string name="tutorial_coolwalk">此調整將啟用 Android Auto 中的新設計（代號 Coolwalk），可以在 Android Auto\'s 設置中進行切換，並稍微調整小屏幕上的外觀。
+這種設計具有始終在側面板和一些不同的圖形。
+此功能目前處於早期階段。 需要 Android Auto 6.9 或更高版本。</string>
+    <string name="coolwalk_tweak">Coolwalk調整</string>
+    <string name="tutorial_focus_settings">此調整可開啟 Android Auto 設置中一個新選項，並以手動自定義是否將手機與汽車連接後立即啟動 Android Auto。 需要 Android Auto 6.8 或更高版本。</string>
+    <string name="focus_tweak">焦點設置</string>
+    <string name="casting_app">投射應用</string>
+    <string name="tutorial_mirroring_app">這個神奇的應用程序自 Android Auto 7.1 開始綁定\'s 應該是一個螢幕鏡像應用程序，可能預定要為乘客的\'s Android Auto服務。 可能無法正常運行。</string>
+    <string name="decline_message_tweak">拒絕訊息</string>
+    <string name="tutorial_decline_message">此調整將允許透過 SMS（使用 Google助理）拒絕來電。</string>
+    <string name="section_one">一般調整</string>
+    <string name="section_two">螢幕調整</string>
+    <string name="section_three">外觀調整</string>
+    <string name="section_four">影像設置</string>
+    <string name="section_five">預啟動功能</string>
 </resources>

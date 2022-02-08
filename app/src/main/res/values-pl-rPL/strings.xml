@@ -129,7 +129,7 @@ OSTRZEŻENIE: ta modyfikacja nie została dokładnie przetestowana i może poten
     <string name="custom_hotseat_option">Wybór pozycji kierowcy (lewo/prawo stronna)</string>
     <string name="tutorial_hotseat_option">Ta poprawka aktywuje nową opcję w ustawieniach Android Auto, która pozwoli użytkownikowi zdecydować, czy pozycja kierowcy jest lewo stronna czy prawo stronna, aby Android Auto mógł dostosować interfejs użytkownika. Wymagany Android Auto 6.9 lub nowszy. </string>
     <string name="tutorial_coolwalk">Ta poprawka aktywuje nowy projekt w Android Auto (nazwa kodowa Coolwalk), który można przełączać w ustawieniach Android Auto i który nieco poprawia wygląd na mniejszych ekranach. Ten projekt ma zawsze widoczny panel boczny i różne grafiki. Ta funkcja jest obecnie na wczesnym etapie. Wymagany Android Auto 6.9 lub nowszy </string>
-    <string name="coolwalk_tweak">Nowy projekt (Coolwalk design)</string>
+    <string name="coolwalk_tweak">Podział ekranu (Coolwalk design)</string>
     <string name="tutorial_focus_settings">Ta poprawka aktywuje nowe opcje w ustawieniach Android Auto, aby ręcznie dostosować, czy Android Auto ma być uruchamiany zaraz po podłączeniu telefonu do samochodu. Wymagany Android Auto 6.8 lub nowszy.</string>
     <string name="focus_tweak">Ustawienia ostrości </string>
     <string name="casting_app">Aplikacja do przesyłania</string>

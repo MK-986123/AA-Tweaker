@@ -139,4 +139,5 @@ WARNING: This tweak has not been extensively tested and could potentially break 
     <string name="section_three">Appeareance tweaks</string>
     <string name="section_four">Video quality settings</string>
     <string name="section_five">Pre-activate features</string>
+    <string name="restricted_coolwalk">This option will not work with Coolwalk enabled.</string>
 </resources>

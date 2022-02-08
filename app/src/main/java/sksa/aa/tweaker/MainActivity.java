@@ -49,6 +49,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintStream;
 import java.net.URL;
 import java.util.Map;
 import java.util.Timer;
@@ -374,7 +375,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-        setOnLongClickListener(newStartupTweak, R.string.tutorial_custom_startup_option);
+        setOnLongClickListener(newStartupTweak, R.string.tutorial_custom_startup_option , R.string.restricted_coolwalk);
 
         patchapps = findViewById(R.id.patchapps);
         patchappstatus = findViewById(R.id.patchedappstatus);
@@ -1149,7 +1150,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-        setOnLongClickListener(coolwalkTweak, R.string.tutorial_coolwalk, R.drawable.tutorial_darkswitch2, R.drawable.tutorial_darkswitch3);
+        setOnLongClickListener(coolwalkTweak, R.string.tutorial_coolwalk, R.drawable.cw5, R.drawable.tutorial_coolwalk_1, R.drawable.tutorial_coolwalk_3);
 
 
         mirrorAppTweak = findViewById(R.id.mirrorapp_tweak_button);
@@ -1265,7 +1266,12 @@ public class MainActivity extends AppCompatActivity {
                 ImageView img1 = view.findViewById(R.id.tutorialimage1);
 
                 if (p.length>1) {
-                    img1.setImageDrawable(getDrawable(p[1]));
+                    try {
+                        img1.setImageDrawable(getDrawable(p[1]));
+                    } catch (Exception e) {
+                        tutorial.setText(getString(p[0]) + getString(p[1]));
+                        e.printStackTrace();
+                    }
                 }
 
                 ImageView img2 = view.findViewById(R.id.tutorialimage2);

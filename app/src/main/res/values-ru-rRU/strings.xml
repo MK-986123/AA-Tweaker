@@ -131,7 +131,7 @@
     <string name="coolwalk_tweak">Интерфейс Coolwalk </string>
     <string name="tutorial_focus_settings">Этот параметр активирует новую возможность ручной настройки для автоматического запуска Android Auto при подключении телефона к автомобилю. Требуется Android Auto 6.8 или новее.</string>
     <string name="focus_tweak">Настройки фокуса</string>
-    <string name="casting_app">Зеркалируещее приложение</string>
+    <string name="casting_app">Зеркалирующее приложение</string>
     <string name="tutorial_mirroring_app">Эта  функция для зеркалирования экрана, вероятно, предназначена для дополнительного экрана, расположенного у пассажира. Функция может не работать должным образом. Поддержка реализована в версии Android Auto 7.1 и новее.</string>
     <string name="decline_message_tweak">Отклонить сообщение</string>
     <string name="tutorial_decline_message">Этот твик позволит добавить возможность отправки заранее подготовленного SMS в случае отклонения входящего вызова (с Google Assistant).</string>

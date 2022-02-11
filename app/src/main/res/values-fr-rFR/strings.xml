@@ -135,8 +135,8 @@ ATTENTION : Cette modification n\'a pas été testée de manière approfondie et
     <string name="decline_message_tweak">Décliner le message</string>
     <string name="tutorial_decline_message">Cette modification permettra de refuser un appel entrant avec SMS (avec Google Assistant).</string>
     <string name="section_one">Modifications générales</string>
-    <string name="section_two">Écran de configuration des modifications</string>
-    <string name="section_three">Apparence des modifications</string>
+    <string name="section_two">Modifications de l\'apparence de l\'écran</string>
+    <string name="section_three">Modifications de l\'apparence</string>
     <string name="section_four">Paramètres de qualité vidéo</string>
     <string name="section_five">Fonctionnalités préactivées</string>
 </resources>

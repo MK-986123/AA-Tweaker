@@ -49,6 +49,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintStream;
 import java.net.URL;
 import java.util.Map;
 import java.util.Timer;
@@ -291,7 +292,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }, 12000, 12000);
 
-        nospeed = findViewById(R.id.nospeed);
+/*        nospeed = findViewById(R.id.nospeed);
         noSpeedRestrictionsStatus = findViewById(R.id.speedhackstatus);
         if (load("aa_speed_hack")) {
             nospeed.setText(getString(R.string.re_enable_tweak_string) + getString(R.string.unlimited_scrolling_when_driving));
@@ -316,7 +317,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-        setOnLongClickListener(nospeed, R.string.tutorial_nospeed, R.drawable.tutorial_nospeed);
+        setOnLongClickListener(nospeed, R.string.tutorial_nospeed, R.drawable.tutorial_nospeed);*/
 
 
 
@@ -366,6 +367,7 @@ public class MainActivity extends AppCompatActivity {
                         if (load("aa_new_startup")) {
                             revert("aa_new_startup");
                             newStartupTweak.setText(getString(R.string.re_enable_tweak_string) + getString(R.string.custom_startup_option));
+                            changeStatus(navstatus, 0, true);
                             showRebootButton();
                         } else {
                             navpatch(view, UserCount);
@@ -373,7 +375,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-        setOnLongClickListener(newStartupTweak, R.string.tutorial_custom_startup_option);
+        setOnLongClickListener(newStartupTweak, R.string.tutorial_custom_startup_option , R.string.restricted_coolwalk);
 
         patchapps = findViewById(R.id.patchapps);
         patchappstatus = findViewById(R.id.patchedappstatus);
@@ -1143,12 +1145,12 @@ public class MainActivity extends AppCompatActivity {
                             changeStatus(coolwalkTweakStatus, 0, true);
                             showRebootButton();
                         } else {
-                            forceAssistantTranscript(view, UserCount);
+                            activateCoolwalk(view, UserCount);
                         }
                     }
                 });
 
-        setOnLongClickListener(coolwalkTweak, R.string.tutorial_coolwalk, R.drawable.tutorial_darkswitch2, R.drawable.tutorial_darkswitch3);
+        setOnLongClickListener(coolwalkTweak, R.string.tutorial_coolwalk, R.drawable.cw5, R.drawable.tutorial_coolwalk_1, R.drawable.tutorial_coolwalk_3);
 
 
         mirrorAppTweak = findViewById(R.id.mirrorapp_tweak_button);
@@ -1264,7 +1266,12 @@ public class MainActivity extends AppCompatActivity {
                 ImageView img1 = view.findViewById(R.id.tutorialimage1);
 
                 if (p.length>1) {
-                    img1.setImageDrawable(getDrawable(p[1]));
+                    try {
+                        img1.setImageDrawable(getDrawable(p[1]));
+                    } catch (Exception e) {
+                        tutorial.setText(getString(p[0]) + getString(p[1]));
+                        e.printStackTrace();
+                    }
                 }
 
                 ImageView img2 = view.findViewById(R.id.tutorialimage2);
@@ -1497,11 +1504,22 @@ public class MainActivity extends AppCompatActivity {
         for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
             logs.append("\t\t- " + entry.getValue() + " (" + entry.getKey() + ")\n");
             whiteListString += "," + entry.getKey();
+
+            String pathResult = runSuWithCmd("pm path " + entry.getKey()).getInputStreamLogWithLabel();
+            String actualPath = pathResult.substring(pathResult.lastIndexOf(":") + 1);
+
+            appendText(logs , runSuWithCmd("mv " + actualPath + " /data/local/tmp/tmpapk" + entry.getKey() + ".apk").getStreamLogsWithLabels());
+            appendText(logs , runSuWithCmd("pm uninstall " + entry.getKey()).getStreamLogsWithLabels());
+            appendText(logs, runSuWithCmd("pm install -i \"com.android.vending\" -r" + " /data/local/tmp/tmpapk" + entry.getKey() + ".apk" ).getStreamLogsWithLabels());
+
+
         }
 
         whiteListString = whiteListString.replaceFirst(",", "");
         final String whiteListStringFinal = whiteListString;
         final StringBuilder finalCommand = new StringBuilder();
+
+
 
         for (int i = 0; i <= (usercount - 1); i++) {
             if (multiAccountsMode && !xpmode && !accountsPrefs.getBoolean(String.valueOf(i), false)) {
@@ -1513,13 +1531,26 @@ public class MainActivity extends AppCompatActivity {
             finalCommand.append(whiteListStringFinal);
             finalCommand.append("\",1);");
             finalCommand.append(System.getProperty("line.separator"));
-            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType,  name, user, boolVal, committed) VALUES (\"com.google.android.gms.car\",0,\"should_bypass_validation\", (SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
+            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType,  name, user, stringVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"AppValidation__allowed_package_list\", (SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
+            finalCommand.append(i);
+            finalCommand.append(",1),\"");
+            finalCommand.append(whiteListStringFinal);
+            finalCommand.append("\",1);");
+            finalCommand.append(System.getProperty("line.separator"));
+            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType,  name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"AppValidation__should_bypass_validation\", (SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
             finalCommand.append(i);
             finalCommand.append(",1) ,1,1);");
             finalCommand.append(System.getProperty("line.separator"));
-            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType,  name, user, boolVal, committed) VALUES (\"com.google.android.gms.car\",0,\"should_bypass_validation\", (SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
+            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType,  name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"AppValidation__play_install_api\", (SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
             finalCommand.append(i);
-            finalCommand.append(",1) ,1,1);");
+            finalCommand.append(",1) ,0,1);");
+            finalCommand.append(System.getProperty("line.separator"));
+            finalCommand.append("DELETE FROM Flags WHERE name=\"AppValidation__blocked_packages\";");
+            finalCommand.append("DELETE FROM Flags WHERE name=\"AppValidation__allowed_package_list\";");
+            finalCommand.append("DELETE FROM Flags WHERE name=\"AppValidation__should_bypass_validation\";");
+            finalCommand.append("DELETE FROM Flags WHERE name=\"app_white_list\";");
+            finalCommand.append("DELETE FROM Flags WHERE name=\"app_black_list\";");
+            finalCommand.append("DELETE FROM Flags WHERE name=\"AppValidation__blocked_packages_by_installer\";");
             finalCommand.append(System.getProperty("line.separator"));
 
         }
@@ -1726,18 +1757,6 @@ appendText(logs, "\n\n--  Restoring ownership of the database   --");
             finalCommand.append(i);
             finalCommand.append(",1) ,999,1);");
             finalCommand.append(System.getProperty("line.separator"));
-            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType, name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"ParkingStateSmoothing__enable\",(SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
-            finalCommand.append(i);
-            finalCommand.append(",1) ,1,1);");
-            finalCommand.append(System.getProperty("line.separator"));
-            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType, name, user, intVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"ParkingStateSmoothing__flake_filter_delay_ms\",(SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
-            finalCommand.append(i);
-            finalCommand.append(",1) ,9999999,1);");
-            finalCommand.append(System.getProperty("line.separator"));
-            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType, name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"ParkingStateSmoothing__telemetry_enabled_without_smoothing\",(SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
-            finalCommand.append(i);
-            finalCommand.append(",1) ,0,1);");
-            finalCommand.append(System.getProperty("line.separator"));
             finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType, name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"VisualPreview__unchained\",(SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
             finalCommand.append(i);
             finalCommand.append(",1) ,1,1);");
@@ -1746,10 +1765,19 @@ appendText(logs, "\n\n--  Restoring ownership of the database   --");
             finalCommand.append(i);
             finalCommand.append(",1) ,0,1);");
             finalCommand.append(System.getProperty("line.separator"));
-            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType, name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"VisualPreviewVisibilityControl__require_high_accuracy_speed_sensor\",(SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
+            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType, name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"VisualPreview__unchained_experiment_id\",(SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
             finalCommand.append(i);
-            finalCommand.append(",1) ,0,1);");
+            finalCommand.append(",1) ,1,1);");
             finalCommand.append(System.getProperty("line.separator"));
+            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType, name, user, extensionVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"GearSnacks__parked_gears\",(SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
+            finalCommand.append(i);
+            finalCommand.append(",1) ,\"999\",1);");
+            finalCommand.append(System.getProperty("line.separator"));
+            finalCommand.append("DELETE FROM Flags WHERE name=\"VisualPreviewVisibilityControl__require_high_accuracy_speed_sensor\";");
+            finalCommand.append("DELETE FROM Flags WHERE name=\"CarSensorParameters__max_parked_speed_wheel_sensor\";");
+            finalCommand.append("DELETE FROM Flags WHERE name=\"ParkingStateSmoothing__enable\";");
+            finalCommand.append("DELETE FROM Flags WHERE name=\"VisualPreviewVisibilityControl__require_high_accuracy_speed_sensor\";");
+            finalCommand.append("DELETE FROM Flags WHERE name=\"GearSnacks__parked_gears\";");
         }
 
         new Thread() {
@@ -1972,9 +2000,13 @@ appendText(logs, "\n\n--  Restoring ownership of the database   --");
             finalCommand.append(i);
             finalCommand.append(",1) ,0,1);");
             finalCommand.append(System.getProperty("line.separator"));
-            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType, name, user, intVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"ContentBrowse__lockout_ms\",(SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
+            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType, name, user, intVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"ContentBrowse__keyboard_force_disabled\",(SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
             finalCommand.append(i);
             finalCommand.append(",1) ,0,1);");
+            finalCommand.append(System.getProperty("line.separator"));
+            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType, name, user, intVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"ContentBrowse__lockout_ms\",(SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
+            finalCommand.append(i);
+            finalCommand.append(",1) ,80,1);");
             finalCommand.append(System.getProperty("line.separator"));
             finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType, name, user, floatVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"ContentBrowse__permits_per_sec\",(SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
             finalCommand.append(i);
@@ -2000,6 +2032,113 @@ appendText(logs, "\n\n--  Restoring ownership of the database   --");
             finalCommand.append(i);
             finalCommand.append(",1) ,0,1);");
             finalCommand.append(System.getProperty("line.separator"));
+            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType, name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"Mesquite__speedbump_enabled\",(SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
+            finalCommand.append(i);
+            finalCommand.append(",1) ,0,1);");
+            finalCommand.append(System.getProperty("line.separator"));
+            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType, name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"ContentBrowse__speedbump_force_enabled\",(SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
+            finalCommand.append(i);
+            finalCommand.append(",1) ,0,1);");
+            finalCommand.append(System.getProperty("line.separator"));
+            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType, name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"McFly__speedbump_enabled\",(SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
+            finalCommand.append(i);
+            finalCommand.append(",1) ,0,1);");
+            finalCommand.append(System.getProperty("line.separator"));
+            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType, name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"Media__projected_speedbump_enabled\",(SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
+            finalCommand.append(i);
+            finalCommand.append(",1) ,0,1);");
+            finalCommand.append(System.getProperty("line.separator"));
+            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType, name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"Watevra__speedbump_enabled\",(SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
+            finalCommand.append(i);
+            finalCommand.append(",1) ,0,1);");
+            finalCommand.append(System.getProperty("line.separator"));
+            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType, name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"Watevra__speedbump_map_interactivity_events_enabled\",(SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
+            finalCommand.append(i);
+            finalCommand.append(",1) ,1,1);");
+            finalCommand.append(System.getProperty("line.separator"));
+            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType, name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"Watevra__speedbump_non_scroll_events_enabled\",(SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
+            finalCommand.append(i);
+            finalCommand.append(",1) ,0,1);");
+            finalCommand.append(System.getProperty("line.separator"));
+            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType, name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"Watevra__speedbump_max_grid_list_size\",(SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
+            finalCommand.append(i);
+            finalCommand.append(",1) ,1,1);");
+            finalCommand.append(System.getProperty("line.separator"));
+            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType, name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"Watevra__transcription_enabled\",(SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
+            finalCommand.append(i);
+            finalCommand.append(",1) ,1,1);");
+            finalCommand.append(System.getProperty("line.separator"));
+            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType, name, user, intVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"Watevra__speedbump_max_list_size\",(SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
+            finalCommand.append(i);
+            finalCommand.append(",1) ,999,1);");
+            finalCommand.append(System.getProperty("line.separator"));
+            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType, name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"Watevra__max_list_size\",(SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
+            finalCommand.append(i);
+            finalCommand.append(",1) ,0,1);");
+            finalCommand.append(System.getProperty("line.separator"));
+            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType, name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"Watevra__max_pane_list_size\",(SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
+            finalCommand.append(i);
+            finalCommand.append(",1) ,0,1);");
+            finalCommand.append(System.getProperty("line.separator"));
+            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType, name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"ContentBrowse__keyboard_force_disabled\",(SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
+            finalCommand.append(i);
+            finalCommand.append(",1) ,0,1);");
+            finalCommand.append(System.getProperty("line.separator"));
+            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType, name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"ContentBrowse__sixtap_force_enabled\",(SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
+            finalCommand.append(i);
+            finalCommand.append(",1) ,0,1);");
+            finalCommand.append(System.getProperty("line.separator"));
+            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType, name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"ContentBrowse__permits_chart\",(SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
+            finalCommand.append(i);
+            finalCommand.append(",1) ,1,1);");
+            finalCommand.append(System.getProperty("line.separator"));
+            finalCommand.append("DELETE FROM Flags WHERE name=\"ContentBrowse__drawer_default_allowed_taps_touchpad\";");
+
+            finalCommand.append("DELETE FROM Flags WHERE name=\"ContentBrowse__max_permits\";");
+
+            finalCommand.append("DELETE FROM Flags WHERE name=\"ContentBrowse__enable_speed_bump_projected\";");
+
+            finalCommand.append("DELETE FROM Flags WHERE name=\"ContentBrowse__keyboard_force_disabled\";");
+
+            finalCommand.append("DELETE FROM Flags WHERE name=\"ContentBrowse__lockout_ms\";");
+
+            finalCommand.append("DELETE FROM Flags WHERE name=\"ContentBrowse__permits_per_sec\";");
+
+            finalCommand.append("DELETE FROM Flags WHERE name=\"ContentBrowse__speedbump_unrestricted_consecutive_scroll_up_actions\";");
+
+            finalCommand.append("DELETE FROM Flags WHERE name=\"ContentForwardBrowse__invisalign_default_allowed_items_rotary\";");
+
+            finalCommand.append("DELETE FROM Flags WHERE name=\"ContentForwardBrowse__invisalign_default_allowed_items_touch\";");
+
+            finalCommand.append("DELETE FROM Flags WHERE name=\"ContentForwardBrowse__invisalign_default_allowed_items_touchpad\";");
+
+            finalCommand.append("DELETE FROM Flags WHERE name=\"Dialer__speedbump_enabled\";");
+
+            finalCommand.append("DELETE FROM Flags WHERE name=\"Mesquite__speedbump_enabled\";");
+
+            finalCommand.append("DELETE FROM Flags WHERE name=\"ContentBrowse__speedbump_force_enabled\";");
+
+            finalCommand.append("DELETE FROM Flags WHERE name=\"McFly__speedbump_enabled\";");
+
+            finalCommand.append("DELETE FROM Flags WHERE name=\"Media__projected_speedbump_enabled\";");
+
+            finalCommand.append("DELETE FROM Flags WHERE name=\"Watevra__speedbump_enabled\";");
+
+            finalCommand.append("DELETE FROM Flags WHERE name=\"Watevra__speedbump_map_interactivity_events_enabled\";");
+
+            finalCommand.append("DELETE FROM Flags WHERE name=\"Watevra__speedbump_non_scroll_events_enabled\";");
+            finalCommand.append("DELETE FROM Flags WHERE name=\"Watevra__speedbump_max_list_size\";");
+
+            finalCommand.append("DELETE FROM Flags WHERE name=\"Watevra__transcription_enabled\";");
+
+            finalCommand.append("DELETE FROM Flags WHERE name=\"Watevra__speedbump_max_grid_list_size\";");
+
+            finalCommand.append("DELETE FROM Flags WHERE name=\"ContentBrowse__keyboard_force_disabled\";");
+
+            finalCommand.append("DELETE FROM Flags WHERE name=\"ContentBrowse__sixtap_force_enabled\";");
+
+            finalCommand.append("DELETE FROM Flags WHERE name=\"ContentBrowse__permits_chart\";");
+
         }
 
         new Thread() {
@@ -2093,7 +2232,11 @@ appendText(logs, "\n\n--  Restoring ownership of the database   --");
             }
             finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType,  name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"SystemUi__custom_startup_app_enabled\", (SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
             finalCommand.append(i);
-            finalCommand.append(",1) ,0,1);");
+            finalCommand.append(",1) ,1,1);");
+            finalCommand.append(System.getProperty("line.separator"));
+            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType,  name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"GearheadCarService__deprecate_bind_to_startup_service_with_token\", (SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
+            finalCommand.append(i);
+            finalCommand.append(",1) ,1,1);");
             finalCommand.append(System.getProperty("line.separator"));
         }
 
@@ -2120,7 +2263,7 @@ appendText(logs, "\n\n--  Restoring ownership of the database   --");
                 appendText(logs, "\n\n--  run SQL method   --");
                 appendText(logs, runSuWithCmd(
                         path + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " +
-                                "'DROP TRIGGER IF EXISTS aa_new_startup;\nDROP TRIGGER IF EXISTS aa_new_startup_cleanup;\nDELETE FROM FLAGS WHERE packageName=\"com.google.android.projection.gearhead\" AND name LIKE \"SystemUi__start%\";\n"
+                                "'DROP TRIGGER IF EXISTS aa_new_startup;\nDROP TRIGGER IF EXISTS aa_new_startup_cleanup;\n"
                                 + finalCommand + "'"
                 ).getStreamLogsWithLabels());
 
@@ -2141,7 +2284,7 @@ appendText(logs, "\n\n--  Restoring ownership of the database   --");
                         public void run() {
                             changeStatus(navstatus, 1, true);
                             showRebootButton();
-                            newStartupTweak.setText(getString(R.string.disable_tweak_string) + getString(R.string.navigation_at_start));
+                            newStartupTweak.setText(getString(R.string.disable_tweak_string) + getString(R.string.custom_startup_option));
                         }
                     });
                 }
@@ -2222,7 +2365,7 @@ appendText(logs, "\n\n--  Restoring ownership of the database   --");
 
                 appendText(logs, runSuWithCmd(
                         path + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " +
-                                "'CREATE TRIGGER aa_new_startup AFTER DELETE\n" +
+                                "'CREATE TRIGGER aa_userseat_tweak AFTER DELETE\n" +
                                 "ON FlagOverrides\n" +
                                 "BEGIN\n" + finalCommand + "END;'\n"
                 ).getStreamLogsWithLabels());
@@ -2569,14 +2712,15 @@ appendText(logs, "\n\n--  Restoring ownership of the database   --");
             finalCommand.append(i);
             finalCommand.append(",1) ,1,1);");
             finalCommand.append(System.getProperty("line.separator"));
-            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType,  name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"Coolwalk__rail_back_button\", (SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
-            finalCommand.append(i);
-            finalCommand.append(",1) ,1,1);");
-            finalCommand.append(System.getProperty("line.separator"));
             finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType,  name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"Assistant__coolwalk_suggestions_grpc_enabled\", (SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
             finalCommand.append(i);
             finalCommand.append(",1) ,1,1);");
             finalCommand.append(System.getProperty("line.separator"));
+            finalCommand.append("INSERT OR REPLACE INTO FlagOverrides (packageName, flagType,  name, user, boolVal, committed) VALUES (\"com.google.android.projection.gearhead\",0,\"Coolwalk__rail_back_button\", (SELECT DISTINCT user FROM ApplicationTags WHERE user != \"\" ORDER BY user ASC LIMIT ");
+            finalCommand.append(i);
+            finalCommand.append(",1) ,0,1);");
+            finalCommand.append(System.getProperty("line.separator"));
+            finalCommand.append("DELETE FROM Flags WHERE name=\"Coolwalk__rail_back_button\";");
         }
 
         new Thread() {
@@ -2602,8 +2746,8 @@ appendText(logs, "\n\n--  Restoring ownership of the database   --");
                 appendText(logs, "\n\n--  run SQL method   --");
                 appendText(logs, runSuWithCmd(
                         path + "/sqlite3 -batch /data/data/com.google.android.gms/databases/phenotype.db " +
-                                "'DROP TRIGGER IF EXISTS aa_activate_coolwalk;\n"
-                                + finalCommand + "'"
+                                "'DROP TRIGGER IF EXISTS aa_activate_coolwalk;\n" +
+                                finalCommand + "'"
                 ).getStreamLogsWithLabels());
 
 
@@ -2813,9 +2957,9 @@ appendText(logs, "\n\n--  Restoring ownership of the database   --");
                     new Handler(Looper.getMainLooper()).post(new Runnable() {
                         @Override
                         public void run() {
-                            changeStatus(mirrorAppTweakStatus, 1, true);
+                            changeStatus(declineSmsTweakStatus, 1, true);
                             showRebootButton();
-                            mirrorAppTweak.setText(getString(R.string.disable_tweak_string) + getString(R.string.decline_message_tweak));
+                            declineSmsTweak.setText(getString(R.string.disable_tweak_string) + getString(R.string.decline_message_tweak));
                         }
                     });
                 }
@@ -3993,6 +4137,8 @@ appendText(logs, "\n\n--  Restoring ownership of the database   --");
                 String[] lines = get_names.split(System.getProperty("line.separator"));
                 final StringBuilder finalCommand = new StringBuilder();
                 appendText(log, runSuWithCmd(path + "/sqlite3 /data/data/com.google.android.gms/databases/phenotype.db " + "'DROP TABLE FlagOverrides;'").getOutputStreamLog());
+                appendText(log, runSuWithCmd(path + "/sqlite3 /data/data/com.google.android.gms/databases/phenotype.db " + "'DELETE FROM Flags WHERE name=\"com.google.android.projection.gearhead\";'").getOutputStreamLog());
+                appendText(log, runSuWithCmd(path + "/sqlite3 /data/data/com.google.android.gms/databases/phenotype.db " + "'DELETE FROM Flags WHERE name=\"com.google.android.gms.car\";'").getOutputStreamLog());
 
                 for (int i = 0; i < lines.length; i++) {
                     finalCommand.append("DROP TRIGGER IF EXISTS " + lines[i] + ";");

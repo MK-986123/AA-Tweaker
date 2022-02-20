@@ -126,12 +126,17 @@ ATTENZIONE: Questo tweak non è stato testato estensivamente e potenzialmente pu
     <string name="tutorial_custom_startup_option">Questa modifica attiverà una nuova opzione all\'interno delle impostazioni di Android Auto, che permetterà all\'utente di impostare cosa aprire quando Android Auto viene avviato. È possibile scegliere di aprire l\'ultima app di navigazione, ultima app musicale o solo il launcher. È richiesto Android Auto 6.8 o superiore.</string>
     <string name="custom_hotseat_option">Opzione posto guida</string>
     <string name="tutorial_hotseat_option">Questa modifica attiverà una nuova opzione all\'interno delle impostazioni di Android Auto che permette all\'utente di decidere se la posizione di guida è a sinistra o a destra in modo che Android Auto possa adattare la sua interfaccia. È richiesto Android Auto 6.9 o superiore.</string>
-    <string name="tutorial_coolwalk">This tweak will activate a new design in Android Auto (codename Codewalk) that can be toggled in Android Auto\'s settings and that tweaks a bit the appearance on smaller screens. This design features a always on side panel and some different graphics. This feature is in early stage at the moment. Android Auto 6.9 or superior is required.</string>
+    <string name="tutorial_coolwalk">Questo tweak attiverà un nuovo design di Android Auto (nome in codice Coolwalk) che può essere attivato nelle impostazioni di Android Auto e che modifica l\'aspetto su schermi più piccoli. Questo design è caratterizzato da un pannello laterale sempre e da una grafica diversa. Questa funzione è in fase iniziale al momento. Android Auto 6.9 o superiore è richiesto.</string>
     <string name="coolwalk_tweak">Coolwalk design</string>
-    <string name="tutorial_focus_settings">This tweak will activate a new options in Android Auto settings to manually customize whether Android Auto must be launched as soon as you connect your phone with the car. Android Auto 6.8 or superior is required.</string>
-    <string name="focus_tweak">Focus settings</string>
-    <string name="casting_app">Casting app</string>
-    <string name="tutorial_mirroring_app">This mysterious app is bundled starting from Android Auto 7.1 and it\'s supposedly a screen mirroring app, probably destined to passenger\'s Android Auto. Might not function properly.</string>
-    <string name="decline_message_tweak">Decline with message</string>
-    <string name="tutorial_decline_message">This tweak will enable the possibility to decline an incoming call with pre-made SMS.</string>
+    <string name="tutorial_focus_settings">Questa modifica attiverà una nuova opzione nelle impostazioni di Android Auto per personalizzare manualmente se Android Auto deve essere lanciato non appena si collega il telefono con l\'auto. Android Auto 6.8 o superiore è richiesto.</string>
+    <string name="focus_tweak">Impostazione Focus</string>
+    <string name="casting_app">App Casting</string>
+    <string name="tutorial_mirroring_app">Questa app misteriosa è integrata a partire da Android Auto 7.1 ed è presumibilmente un app di mirroring dello schermo, probabilmente destinata al passeggero Android Auto. Potrebbe non funzionare correttamente.</string>
+    <string name="decline_message_tweak">Rifiuta con messaggio</string>
+    <string name="tutorial_decline_message">Questa modifica consentirà la possibilità di rifiutare una chiamata in arrivo con SMS (con Google Assistant).</string>
+    <string name="section_one">Tweak generali</string>
+    <string name="section_two">Tweak aspetto schermo</string>
+    <string name="section_three">Impostazioni aspetto</string>
+    <string name="section_four">Impostazioni di qualità grafica</string>
+    <string name="section_five">Funzioni pre-attivabili</string>
 </resources>

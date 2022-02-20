@@ -125,12 +125,17 @@ Android Auto 5.8以降が必要です。</string>
     <string name="tutorial_custom_startup_option">この調整は、Android Autoの起動時に何を開くかをユーザーが設定できるようにする、Android Autoの設定内の新しい項目を有効にします。最後のナビアプリ、最後の音楽アプリ、またはランチャーを開くように選択できます。Android Auto 6.8以降が必要です。</string>
     <string name="custom_hotseat_option">カスタム座席設定</string>
     <string name="tutorial_hotseat_option">この調整は、Android AutoのUIを運転席の位置によって最適化するために、運転席が左右のどちらかにあるかを設定できる、Android Autoの設定内の新しい設定項目を有効にします。Android Auto 6.9以降が必要です。</string>
-    <string name="tutorial_coolwalk">This tweak will activate a new design in Android Auto (codename Codewalk) that can be toggled in Android Auto\'s settings and that tweaks a bit the appearance on smaller screens. This design features a always on side panel and some different graphics. This feature is in early stage at the moment. Android Auto 6.9 or superior is required.</string>
+    <string name="tutorial_coolwalk">この調整は、Android Autoの新しいデザイン (コードネーム Coolwalk) を有効にします。これはAndroid Auto内の設定で切り替えることができ、小さな画面での表示を微調整します。このデザインでは、常にサイドパネルといくつかの異なるグラフィックを備えています。現在、この機能は初期段階にあります。Android Auto 6.9以降が必要です。</string>
     <string name="coolwalk_tweak">Coolwalkのデザイン</string>
     <string name="tutorial_focus_settings">This tweak will activate a new options in Android Auto settings to manually customize whether Android Auto must be launched as soon as you connect your phone with the car. Android Auto 6.8 or superior is required.</string>
     <string name="focus_tweak">Focus settings</string>
     <string name="casting_app">Casting app</string>
     <string name="tutorial_mirroring_app">This mysterious app is bundled starting from Android Auto 7.1 and it\'s supposedly a screen mirroring app, probably destined to passenger\'s Android Auto. Might not function properly.</string>
     <string name="decline_message_tweak">Decline with message</string>
-    <string name="tutorial_decline_message">This tweak will enable the possibility to decline an incoming call with pre-made SMS.</string>
+    <string name="tutorial_decline_message">This tweak will enable the possibility to decline an incoming call with SMS (with Google Assistant).</string>
+    <string name="section_one">一般的な調整</string>
+    <string name="section_two">Screen setup tweaks</string>
+    <string name="section_three">外観の調整</string>
+    <string name="section_four">ビデオの品質設定</string>
+    <string name="section_five">Pre-activate features</string>
 </resources>

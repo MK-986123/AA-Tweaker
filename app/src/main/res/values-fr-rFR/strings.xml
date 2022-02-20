@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="main_string">Welcome in AA AIO Tweaker\n
-This app will let you apply some tweaks to Android Auto\n
-Simply select what tweak you want to apply :)\n
-If you are unsure of what a tweak does, long press on it and a tutorial will show up.</string>
+    <string name="main_string">Bienvenue sur AA AIO Tweaker\n
+Cette application vous permettra d\'appliquer diverses améliorations à Android Auto\n
+Sélectionnez simplement la modification que vous souhaitez appliquer :)\n
+Si vous n\'êtes pas certain de la signification d\'une modification, maintenez son bouton enfoncé et un tutoriel s\'affichera.</string>
     <string name="select_apps">Sélectionner les apps</string>
     <string name="enable_assistant_shortcuts">Raccourcis de l\'assistant</string>
     <string name="patch_custom_apps">Applications personnalisées</string>
@@ -126,12 +126,17 @@ ATTENTION : Cette modification n\'a pas été testée de manière approfondie et
     <string name="tutorial_custom_startup_option">Cette modification activera une nouvelle option dans les paramètres d\'Android Auto permettant à l\'utilisateur de définir ce qui doit s\'ouvrir au démarrage d\'Android Auto. Vous pouvez choisir d\'ouvrir la dernière application de navigation, la dernière application de musique ou simplement le lanceur. Android Auto 6.8 ou supérieur est requis.</string>
     <string name="custom_hotseat_option">Option du siège conducteur</string>
     <string name="tutorial_hotseat_option">Cette modification activera une nouvelle option dans les paramètres d\'Android Auto permettant à l\'utilisateur de décider si la position de conduite est à gauche ou à droite afin qu\'Android Auto puisse adapter son interface utilisateur. Android Auto 6.9 ou supérieur est requis.</string>
-    <string name="tutorial_coolwalk">This tweak will activate a new design in Android Auto (codename Codewalk) that can be toggled in Android Auto\'s settings and that tweaks a bit the appearance on smaller screens. This design features a always on side panel and some different graphics. This feature is in early stage at the moment. Android Auto 6.9 or superior is required.</string>
+    <string name="tutorial_coolwalk">Cette modification activera un nouveau design dans Android Auto (nom de code Coolwalk) qui peut être activé dans les paramètres d\'Android Auto et qui modifie un peu l\'apparence sur les écrans plus petits. Ce design comporte un panneau latéral toujours visible et des graphiques différents. Cette fonctionnalité n\'en est qu\'à ses débuts pour le moment. Android Auto 6.9 ou supérieur est requis.</string>
     <string name="coolwalk_tweak">Affichage Coolwalk</string>
-    <string name="tutorial_focus_settings">This tweak will activate a new options in Android Auto settings to manually customize whether Android Auto must be launched as soon as you connect your phone with the car. Android Auto 6.8 or superior is required.</string>
-    <string name="focus_tweak">Focus settings</string>
-    <string name="casting_app">Casting app</string>
-    <string name="tutorial_mirroring_app">This mysterious app is bundled starting from Android Auto 7.1 and it\'s supposedly a screen mirroring app, probably destined to passenger\'s Android Auto. Might not function properly.</string>
-    <string name="decline_message_tweak">Decline with message</string>
-    <string name="tutorial_decline_message">This tweak will enable the possibility to decline an incoming call with pre-made SMS.</string>
+    <string name="tutorial_focus_settings">Cette modification activera une nouvelle option dans les paramètres d\'Android Auto pour personnaliser manuellement si Android Auto doit être lancé dès que vous connectez votre téléphone avec la voiture. Android Auto 6.8 ou supérieur est requis.</string>
+    <string name="focus_tweak">Paramètres de mise au point</string>
+    <string name="casting_app">Application de diffusion</string>
+    <string name="tutorial_mirroring_app">Cette mystérieuse application est fournie à partir de la version 7.1 d\'Android Auto. Il s\'agirait d\'une application de mise en miroir d\'écran, probablement destinée aux passagers. Elle pourrait ne pas fonctionner correctement.</string>
+    <string name="decline_message_tweak">Décliner le message</string>
+    <string name="tutorial_decline_message">Cette modification permettra de refuser un appel entrant avec SMS (avec Google Assistant).</string>
+    <string name="section_one">Modifications générales</string>
+    <string name="section_two">Modifications de l\'apparence de l\'écran</string>
+    <string name="section_three">Modifications de l\'apparence</string>
+    <string name="section_four">Paramètres de qualité vidéo</string>
+    <string name="section_five">Fonctionnalités préactivées</string>
 </resources>

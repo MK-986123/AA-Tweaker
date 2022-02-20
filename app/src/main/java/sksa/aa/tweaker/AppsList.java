@@ -1,8 +1,11 @@
 package sksa.aa.tweaker;
 
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.ServiceInfo;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -11,12 +14,14 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
+import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Stack;
 
 public class AppsList extends AppCompatActivity {
 
@@ -39,6 +44,7 @@ public class AppsList extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         final PackageManager pm = getPackageManager();
+
         List<ApplicationInfo> packages = pm.getInstalledApplications(PackageManager.GET_META_DATA);
 
         ArrayList<AppInfo> appsList = new ArrayList<>();
@@ -47,19 +53,34 @@ public class AppsList extends AppCompatActivity {
         Map<String, ?> allEntries = appsListPref.getAll();
 
         for (ApplicationInfo packageInfo : packages) {
-            if (allEntries.containsKey(packageInfo.packageName)) {
-                appsList.add(new AppInfo(packageInfo.loadLabel(getPackageManager()).toString(), packageInfo.packageName, true));
-                allEntries.remove(packageInfo.packageName);
-            } else {
-                appsList.add(new AppInfo(packageInfo.loadLabel(getPackageManager()).toString(), packageInfo.packageName, false));
+
+            Bundle bundle = packageInfo.metaData;
+            try {
+                int carApp = bundle.getInt("com.google.android.gms.car.application");
+                if (carApp != 0) {
+                    if (allEntries.containsKey(packageInfo.packageName)) {
+
+                        appsList.add(new AppInfo(packageInfo.loadLabel(getPackageManager()).toString(), packageInfo.packageName, true));
+                        allEntries.remove(packageInfo.packageName);
+                    } else {
+                        appsList.add(new AppInfo(packageInfo.loadLabel(getPackageManager()).toString(), packageInfo.packageName, false));
+                    }
+                }
+            } catch (NullPointerException e) {
+                e.printStackTrace();
             }
-        }
+
+
+            }
+
+
+
+
         for (Map.Entry<String, ?> entry : allEntries.entrySet()){
             appsList.add(new AppInfo(entry.getValue().toString(), entry.getKey(), true));
         }
 
         Collections.sort(appsList);
-
         recyclerView.setAdapter(new MyAdapter(appsList, recyclerView));
     }
 }

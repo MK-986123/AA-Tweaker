@@ -128,12 +128,17 @@ UPOZORNENIE: Toto vylepšenie nebolo podrobne testované a mohlo by potenciálne
     <string name="tutorial_custom_startup_option">Toto vylepšenie aktivuje novú možnosť v nastaveniach Android Auto, ktorá umožní používateľovi nastaviť, čo má otvoriť, keď sa spustí Android Auto. Môžete sa rozhodnúť otvoriť poslednú navigačnú aplikáciu, poslednú hudobnú aplikáciu alebo iba spúšťač. Vyžaduje sa Android Auto 6.8 alebo novší.</string>
     <string name="custom_hotseat_option">Vlastná možnosť miesta</string>
     <string name="tutorial_hotseat_option">Toto vylepšenie aktivuje novú možnosť v nastaveniach systému Android Auto, ktorá umožní používateľovi rozhodnúť sa, či je pozícia vodiča vľavo alebo vpravo, aby si Android Auto mohol prispôsobiť svoje používateľské rozhranie. Vyžaduje sa Android Auto 6.9 alebo novší.</string>
-    <string name="tutorial_coolwalk">This tweak will activate a new design in Android Auto (codename Codewalk) that can be toggled in Android Auto\'s settings and that tweaks a bit the appearance on smaller screens. This design features a always on side panel and some different graphics. This feature is in early stage at the moment. Android Auto 6.9 or superior is required.</string>
+    <string name="tutorial_coolwalk">Toto vylepšenie aktivuje nový dizajn v Android Auto (kódové označenie Coolwalk), ktorý je možné prepínať v nastaveniach Android Auto a ktorý trochu upraví vzhľad na menších obrazovkách. Tento dizajn obsahuje vždy zapnutý bočný panel a rôzne grafické prvky. Táto funkcia je momentálne v počiatočnom štádiu. Vyžaduje sa Android Auto 6.9 alebo vyšší.</string>
     <string name="coolwalk_tweak">Coolwalk dizajn</string>
-    <string name="tutorial_focus_settings">This tweak will activate a new options in Android Auto settings to manually customize whether Android Auto must be launched as soon as you connect your phone with the car. Android Auto 6.8 or superior is required.</string>
-    <string name="focus_tweak">Focus settings</string>
-    <string name="casting_app">Casting app</string>
-    <string name="tutorial_mirroring_app">This mysterious app is bundled starting from Android Auto 7.1 and it\'s supposedly a screen mirroring app, probably destined to passenger\'s Android Auto. Might not function properly.</string>
-    <string name="decline_message_tweak">Decline with message</string>
-    <string name="tutorial_decline_message">This tweak will enable the possibility to decline an incoming call with pre-made SMS.</string>
+    <string name="tutorial_focus_settings">Toto vylepšenie aktivuje nové možnosti v nastaveniach Android Auto na manuálne prispôsobenie toho, či sa Android Auto musí spustiť hneď po pripojení telefónu k autu. Vyžaduje sa Android Auto 6.8 alebo vyšší.</string>
+    <string name="focus_tweak">Nastavenia Focus</string>
+    <string name="casting_app">Aplikácie na prenášanie</string>
+    <string name="tutorial_mirroring_app">Táto tajomná aplikácia je súčasťou balíka od Android Auto 7.1 a je to údajne aplikácia na zrkadlenie obrazovky, pravdepodobne určená pre Android Auto spolujazdca. Nemusí fungovať správne.</string>
+    <string name="decline_message_tweak">Odmietnuť správou</string>
+    <string name="tutorial_decline_message">Toto vylepšenie umožní odmietnuť prichádzajúci hovor pomocou SMS (s Google Asistentom).</string>
+    <string name="section_one">Všeobecné vylepšenia</string>
+    <string name="section_two">Vylepšenia nastavenia obrazovky</string>
+    <string name="section_three">Vylepšenia vzhľadu</string>
+    <string name="section_four">Nastavenia kvality videa</string>
+    <string name="section_five">Vopred aktivujte funkcie</string>
 </resources>
